@@ -1,0 +1,2 @@
+import Link from 'next/link'
+export default function NotFound(){return <section className="page-hero" style={{minHeight:'60vh',display:'grid',placeItems:'center'}}><div className="wrap narrow"><span className="eyebrow">404 · Wild encounter</span><h1>That page got away.</h1><p>Try the Pokémon database or head back to the field guide.</p><div className="button-row" style={{justifyContent:'center'}}><Link className="btn primary" href="/">Back home</Link><Link className="btn secondary" href="/pokemon">Browse Pokémon</Link></div></div></section>}
