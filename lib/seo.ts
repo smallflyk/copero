@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 export const site = {
   name: 'ChampionsDex',
   url: 'https://www.pokemonchampions.pro',
-  description: 'Explore Pokémon Champions codes, tier rankings, best teams, Pokémon builds, beginner guides, regulation tips, and a free team builder for every battle.',
+  description: 'Explore the Pokémon Champions guide with active codes, tier list, best teams, Pokémon builds, Regulation Set M-B tips, and a free team builder.',
 }
 
 export const socialImage = {

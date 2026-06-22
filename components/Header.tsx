@@ -6,7 +6,7 @@ import { useState } from 'react'
 
 const links = [
   ['Codes', '/codes'], ['Tier List', '/tier-list'], ['Best Teams', '/best-teams'],
-  ['Pokédex', '/pokemon'], ['Guides', '/beginner-guide'],
+  ['Pokédex', '/pokemon'], ['M-B Guide', '/regulation-set-m-b'],
 ]
 
 export default function Header() {

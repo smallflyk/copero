@@ -11,6 +11,7 @@ export type Pokemon = {
   recommendedMoves: string[]
   description: string
   beginnerFriendly: boolean
+  regulationLegal: boolean
   difficulty: 'Easy' | 'Medium' | 'Hard'
   strengths: string[]
   weaknesses: string[]
@@ -18,7 +19,7 @@ export type Pokemon = {
   counters: string[]
 }
 
-export const pokemon: Pokemon[] = [
+const basePokemon: Omit<Pokemon, 'regulationLegal'>[] = [
   { name: 'Mega Raichu X', slug: 'mega-raichu-x', types: ['Electric', 'Fighting'], tier: 'S', roles: ['Attacker', 'Speed Control'], ability: 'Volt Surge', recommendedItem: 'Raichunite X', recommendedMoves: ['Thunder Punch', 'Close Combat', 'Fake Out', 'Volt Switch'], description: 'A fast physical attacker that creates momentum and pressures common defensive cores.', beginnerFriendly: true, difficulty: 'Easy', strengths: ['Excellent speed', 'Strong dual STAB', 'Flexible lead'], weaknesses: ['Fragile defenses', 'Ground matchups'], teammates: ['metagross', 'swampert'], counters: ['garchomp', 'amoonguss'] },
   { name: 'Mega Raichu Y', slug: 'mega-raichu-y', types: ['Electric', 'Psychic'], tier: 'S', roles: ['Special Attacker', 'Support'], ability: 'Mind Current', recommendedItem: 'Raichunite Y', recommendedMoves: ['Thunderbolt', 'Psychic', 'Nuzzle', 'Protect'], description: 'A lightning-fast special attacker with useful disruption and broad neutral coverage.', beginnerFriendly: true, difficulty: 'Easy', strengths: ['Immediate pressure', 'Reliable speed control', 'Great coverage'], weaknesses: ['Priority moves', 'Dark types'], teammates: ['incineroar', 'amoonguss'], counters: ['tyranitar', 'metagross'] },
   { name: 'Metagross', slug: 'metagross', types: ['Steel', 'Psychic'], tier: 'S', roles: ['Attacker', 'Tank'], ability: 'Clear Body', recommendedItem: 'Assault Vest', recommendedMoves: ['Heavy Slam', 'Psychic Fangs', 'Ice Punch', 'Bullet Punch'], description: 'A durable physical anchor with excellent resistances and dependable damage.', beginnerFriendly: true, difficulty: 'Easy', strengths: ['Many resistances', 'Priority damage', 'Consistent output'], weaknesses: ['Fire and Ground damage', 'Predictable speed'], teammates: ['rotom-wash', 'dragonite'], counters: ['incineroar', 'garchomp'] },
@@ -39,6 +40,113 @@ export const pokemon: Pokemon[] = [
   { name: 'Sceptile', slug: 'sceptile', types: ['Grass'], tier: 'B', roles: ['Attacker', 'Speed Control'], ability: 'Unburden', recommendedItem: 'Electric Seed', recommendedMoves: ['Leaf Blade', 'Acrobatics', 'Breaking Swipe', 'Protect'], description: 'A creative speed-focused attacker that rewards carefully planned item activation.', beginnerFriendly: false, difficulty: 'Hard', strengths: ['Exceptional boosted speed', 'Useful utility moves', 'Surprise factor'], weaknesses: ['Needs setup', 'Low bulk'], teammates: ['mega-raichu-y', 'metagross'], counters: ['incineroar', 'charizard'] },
   { name: 'Pelipper', slug: 'pelipper', types: ['Water', 'Flying'], tier: 'C', roles: ['Support', 'Weather'], ability: 'Drizzle', recommendedItem: 'Focus Sash', recommendedMoves: ['Hurricane', 'Weather Ball', 'Tailwind', 'Wide Guard'], description: 'A rain enabler with valuable support tools but several exploitable weaknesses.', beginnerFriendly: false, difficulty: 'Medium', strengths: ['Sets rain', 'Tailwind', 'Wide Guard'], weaknesses: ['Electric weakness', 'Limited bulk'], teammates: ['urshifu-rapid-strike', 'swampert'], counters: ['mega-raichu-x', 'rillaboom'] },
   { name: 'Gengar', slug: 'gengar', types: ['Ghost', 'Poison'], tier: 'C', roles: ['Special Attacker', 'Disruption'], ability: 'Cursed Body', recommendedItem: 'Focus Sash', recommendedMoves: ['Shadow Ball', 'Sludge Bomb', 'Icy Wind', 'Taunt'], description: 'A fast disruptor with strong coverage that must avoid direct hits.', beginnerFriendly: false, difficulty: 'Hard', strengths: ['Fast Taunt', 'Useful immunities', 'Coverage'], weaknesses: ['Very fragile', 'Priority damage'], teammates: ['metagross', 'garchomp'], counters: ['incineroar', 'tyranitar'] },
+]
+
+type PokemonSeed = {
+  name: string
+  slug: string
+  types: string[]
+  tier: Tier
+  roles: string[]
+  ability: string
+  item: string
+  moves: string[]
+  edge: string
+  risk: string
+  friendly: boolean
+  difficulty?: Pokemon['difficulty']
+  legal?: boolean
+}
+
+const extraSeeds: PokemonSeed[] = [
+  { name:'Kingambit',slug:'kingambit',types:['Dark','Steel'],tier:'S',roles:['Attacker','Tank'],ability:'Defiant',item:'Black Glasses',moves:['Kowtow Cleave','Sucker Punch','Iron Head','Protect'],edge:'late-game pressure and Intimidate punishment',risk:'Fighting attacks and awkward speed tiers',friendly:true },
+  { name:'Sneasler',slug:'sneasler',types:['Fighting','Poison'],tier:'A',roles:['Attacker','Speed Control'],ability:'Unburden',item:'Psychic Seed',moves:['Close Combat','Dire Claw','Fake Out','Protect'],edge:'fast physical pressure after seed activation',risk:'fragile positioning before Unburden activates',friendly:false,difficulty:'Hard' },
+  { name:'Basculegion',slug:'basculegion',types:['Water','Ghost'],tier:'A',roles:['Attacker','Weather'],ability:'Swift Swim',item:'Choice Band',moves:['Wave Crash','Last Respects','Aqua Jet','Flip Turn'],edge:'powerful rain-boosted cleanup damage',risk:'recoil and dependence on weather turns',friendly:false },
+  { name:'Whimsicott',slug:'whimsicott',types:['Grass','Fairy'],tier:'A',roles:['Support','Speed Control'],ability:'Prankster',item:'Focus Sash',moves:['Tailwind','Moonblast','Encore','Protect'],edge:'priority Tailwind and disruptive Encore',risk:'low bulk once its sash is broken',friendly:true },
+  { name:'Sinistcha',slug:'sinistcha',types:['Grass','Ghost'],tier:'A',roles:['Support','Tank','Trick Room'],ability:'Hospitality',item:'Sitrus Berry',moves:['Matcha Gotcha','Rage Powder','Trick Room','Protect'],edge:'healing, redirection, and flexible speed modes',risk:'Fire and Dark pressure into its defensive role',friendly:false },
+  { name:'Aerodactyl',slug:'aerodactyl',types:['Rock','Flying'],tier:'A',roles:['Attacker','Speed Control'],ability:'Unnerve',item:'Focus Sash',moves:['Rock Slide','Tailwind','Taunt','Protect'],edge:'immediate speed control with Rock Slide pressure',risk:'limited staying power and common weaknesses',friendly:true },
+  { name:'Arcanine',slug:'arcanine',types:['Fire'],tier:'A',roles:['Support','Attacker'],ability:'Intimidate',item:'Sitrus Berry',moves:['Flare Blitz','Snarl','Will-O-Wisp','Protect'],edge:'damage reduction without giving up attack pressure',risk:'Water and Ground matchups that force switches',friendly:true },
+  { name:'Gyarados',slug:'gyarados',types:['Water','Flying'],tier:'A',roles:['Attacker','Support'],ability:'Intimidate',item:'Clear Amulet',moves:['Waterfall','Flying move','Thunder Wave','Protect'],edge:'Intimidate utility and flexible physical pressure',risk:'a severe Electric weakness',friendly:true },
+  { name:'Venusaur',slug:'venusaur',types:['Grass','Poison'],tier:'B',roles:['Special Attacker','Speed Control','Weather'],ability:'Chlorophyll',item:'Life Orb',moves:['Sludge Bomb','Giga Drain','Sleep Powder','Protect'],edge:'fast sleep and special damage in sun',risk:'accuracy and reliance on favorable weather',friendly:false },
+  { name:'Blastoise',slug:'blastoise',types:['Water'],tier:'B',roles:['Tank','Support'],ability:'Torrent',item:'Sitrus Berry',moves:['Water Spout','Fake Out','Icy Wind','Protect'],edge:'bulky utility with several forms of tempo control',risk:'damage drops after taking heavy hits',friendly:true },
+  { name:'Pikachu',slug:'pikachu',types:['Electric'],tier:'C',roles:['Attacker','Support'],ability:'Lightning Rod',item:'Light Ball',moves:['Thunderbolt','Fake Out','Nuzzle','Protect'],edge:'surprising damage and Electric redirection',risk:'extremely low defensive bulk',friendly:false,difficulty:'Hard' },
+  { name:'Alakazam',slug:'alakazam',types:['Psychic'],tier:'B',roles:['Special Attacker','Speed Control'],ability:'Magic Guard',item:'Focus Sash',moves:['Psychic','Dazzling Gleam','Encore','Protect'],edge:'elite natural speed and immediate special pressure',risk:'priority attacks and nearly no physical bulk',friendly:false },
+  { name:'Machamp',slug:'machamp',types:['Fighting'],tier:'B',roles:['Attacker','Tank'],ability:'No Guard',item:'Assault Vest',moves:['Dynamic Punch','Knock Off','Ice Punch','Bullet Punch'],edge:'reliable disruption through confusion pressure',risk:'slow movement outside Trick Room',friendly:true },
+  { name:'Golem',slug:'golem',types:['Rock','Ground'],tier:'C',roles:['Attacker','Tank'],ability:'Sturdy',item:'Weakness Policy',moves:['Rock Slide','High Horsepower','Wide Guard','Protect'],edge:'spread pressure and useful Wide Guard access',risk:'multiple common four-times weaknesses',friendly:false },
+  { name:'Slowbro',slug:'slowbro',types:['Water','Psychic'],tier:'B',roles:['Tank','Trick Room'],ability:'Regenerator',item:'Rocky Helmet',moves:['Trick Room','Scald','Psychic','Slack Off'],edge:'repeatable Trick Room setup and recovery',risk:'passivity into Taunt and Dark attackers',friendly:true },
+  { name:'Dodrio',slug:'dodrio',types:['Normal','Flying'],tier:'C',roles:['Attacker','Speed Control'],ability:'Early Bird',item:'Choice Band',moves:['Brave Bird','Double-Edge','Quick Attack','Stomping Tantrum'],edge:'simple high-speed physical damage',risk:'recoil and poor defensive switching',friendly:true },
+  { name:'Muk',slug:'muk',types:['Poison'],tier:'B',roles:['Tank','Support'],ability:'Poison Touch',item:'Black Sludge',moves:['Gunk Shot','Knock Off','Haze','Protect'],edge:'item disruption and dependable special bulk',risk:'Ground pressure and limited speed',friendly:true },
+  { name:'Cloyster',slug:'cloyster',types:['Water','Ice'],tier:'C',roles:['Attacker'],ability:'Skill Link',item:'White Herb',moves:['Icicle Spear','Rock Blast','Shell Smash','Protect'],edge:'multi-hit cleanup after one setup turn',risk:'special attacks and setup denial',friendly:false,difficulty:'Hard' },
+  { name:'Exeggutor',slug:'exeggutor',types:['Grass','Psychic'],tier:'C',roles:['Special Attacker','Trick Room'],ability:'Harvest',item:'Sitrus Berry',moves:['Trick Room','Psychic','Leaf Storm','Sleep Powder'],edge:'slow special pressure with disruptive sleep',risk:'many weaknesses and inconsistent accuracy',friendly:false },
+  { name:'Marowak',slug:'marowak',types:['Ground'],tier:'B',roles:['Attacker','Trick Room'],ability:'Lightning Rod',item:'Thick Club',moves:['Bonemerang','Rock Slide','Brick Break','Protect'],edge:'huge physical damage under Trick Room',risk:'low speed whenever Trick Room is absent',friendly:false },
+  { name:'Weezing',slug:'weezing',types:['Poison'],tier:'B',roles:['Support','Tank'],ability:'Neutralizing Gas',item:'Sitrus Berry',moves:['Sludge Bomb','Will-O-Wisp','Taunt','Protect'],edge:'ability suppression that changes common matchups',risk:'also disabling helpful allied abilities',friendly:false },
+  { name:'Rhydon',slug:'rhydon',types:['Ground','Rock'],tier:'C',roles:['Attacker','Tank','Trick Room'],ability:'Lightning Rod',item:'Eviolite',moves:['High Horsepower','Rock Slide','Megahorn','Protect'],edge:'excellent physical bulk and Electric redirection',risk:'Water and Grass attacks',friendly:false },
+  { name:'Scizor',slug:'scizor',types:['Bug','Steel'],tier:'A',roles:['Attacker','Priority'],ability:'Technician',item:'Metal Coat',moves:['Bullet Punch','U-turn','Close Combat','Protect'],edge:'reliable priority and safe pivot damage',risk:'a severe Fire weakness',friendly:true },
+  { name:'Heracross',slug:'heracross',types:['Bug','Fighting'],tier:'B',roles:['Attacker'],ability:'Guts',item:'Flame Orb',moves:['Close Combat','Megahorn','Facade','Protect'],edge:'status-powered physical wall breaking',risk:'chip damage and Flying pressure',friendly:true },
+  { name:'Houndoom',slug:'houndoom',types:['Dark','Fire'],tier:'B',roles:['Special Attacker'],ability:'Flash Fire',item:'Life Orb',moves:['Heat Wave','Dark Pulse','Will-O-Wisp','Protect'],edge:'Fire immunity and strong spread damage',risk:'frailty into Water and Fighting attacks',friendly:true },
+  { name:'Ludicolo',slug:'ludicolo',types:['Water','Grass'],tier:'B',roles:['Special Attacker','Weather'],ability:'Swift Swim',item:'Assault Vest',moves:['Hydro Pump','Giga Drain','Ice Beam','Fake Out'],edge:'rain speed with helpful defensive coverage',risk:'modest damage when rain is removed',friendly:true },
+  { name:'Gardevoir',slug:'gardevoir',types:['Psychic','Fairy'],tier:'A',roles:['Special Attacker','Trick Room'],ability:'Trace',item:'Life Orb',moves:['Moonblast','Psychic','Trick Room','Protect'],edge:'strong dual STAB with flexible speed modes',risk:'physical Steel and priority pressure',friendly:true },
+  { name:'Breloom',slug:'breloom',types:['Grass','Fighting'],tier:'B',roles:['Attacker','Support'],ability:'Technician',item:'Focus Sash',moves:['Mach Punch','Bullet Seed','Spore','Protect'],edge:'priority damage plus accurate sleep pressure',risk:'low bulk and Safety Goggles',friendly:true },
+  { name:'Salamence',slug:'salamence',types:['Dragon','Flying'],tier:'A',roles:['Attacker','Support'],ability:'Intimidate',item:'Life Orb',moves:['Draco Meteor','Hurricane','Tailwind','Protect'],edge:'Intimidate with mixed offensive options',risk:'Ice damage and competing move priorities',friendly:true },
+  { name:'Milotic',slug:'milotic',types:['Water'],tier:'A',roles:['Tank','Support'],ability:'Competitive',item:'Leftovers',moves:['Muddy Water','Icy Wind','Recover','Protect'],edge:'punishes stat drops and controls speed',risk:'passive turns against setup attackers',friendly:true },
+  { name:'Gastrodon',slug:'gastrodon',types:['Water','Ground'],tier:'A',roles:['Tank','Support'],ability:'Storm Drain',item:'Leftovers',moves:['Earth Power','Muddy Water','Recover','Protect'],edge:'Water redirection and excellent defensive typing',risk:'a severe Grass weakness',friendly:true },
+  { name:'Lucario',slug:'lucario',types:['Fighting','Steel'],tier:'B',roles:['Attacker','Priority'],ability:'Inner Focus',item:'Life Orb',moves:['Close Combat','Meteor Mash','Extreme Speed','Protect'],edge:'priority and immunity to Intimidate flinches',risk:'middling bulk into common coverage',friendly:true },
+  { name:'Abomasnow',slug:'abomasnow',types:['Grass','Ice'],tier:'B',roles:['Special Attacker','Weather'],ability:'Snow Warning',item:'Focus Sash',moves:['Blizzard','Giga Drain','Aurora Veil','Protect'],edge:'snow control and team-wide damage reduction',risk:'numerous defensive weaknesses',friendly:false },
+  { name:'Gallade',slug:'gallade',types:['Psychic','Fighting'],tier:'B',roles:['Attacker','Trick Room'],ability:'Sharpness',item:'Clear Amulet',moves:['Sacred Sword','Psycho Cut','Wide Guard','Protect'],edge:'sharp physical coverage and Wide Guard',risk:'awkward speed outside dedicated modes',friendly:true },
+  { name:'Rotom-Heat',slug:'rotom-heat',types:['Electric','Fire'],tier:'A',roles:['Special Attacker','Support'],ability:'Levitate',item:'Safety Goggles',moves:['Overheat','Thunderbolt','Will-O-Wisp','Protect'],edge:'Ground immunity and useful burn pressure',risk:'Rock and Water matchups',friendly:true },
+  { name:'Excadrill',slug:'excadrill',types:['Ground','Steel'],tier:'A',roles:['Attacker','Weather'],ability:'Sand Rush',item:'Focus Sash',moves:['High Horsepower','Iron Head','Rock Slide','Protect'],edge:'extreme sand speed and broad physical coverage',risk:'weather removal and common Water attacks',friendly:true },
+  { name:'Conkeldurr',slug:'conkeldurr',types:['Fighting'],tier:'B',roles:['Attacker','Tank','Trick Room'],ability:'Guts',item:'Flame Orb',moves:['Drain Punch','Mach Punch','Knock Off','Protect'],edge:'durable Trick Room damage with recovery',risk:'burn chip and Psychic pressure',friendly:true },
+  { name:'Chandelure',slug:'chandelure',types:['Ghost','Fire'],tier:'B',roles:['Special Attacker','Trick Room'],ability:'Flash Fire',item:'Focus Sash',moves:['Heat Wave','Shadow Ball','Trick Room','Protect'],edge:'strong special damage with a speed reversal option',risk:'fragility and Dark priority',friendly:false },
+  { name:'Hydreigon',slug:'hydreigon',types:['Dark','Dragon'],tier:'A',roles:['Special Attacker'],ability:'Levitate',item:'Life Orb',moves:['Draco Meteor','Dark Pulse','Heat Wave','Protect'],edge:'Ground immunity and broad special coverage',risk:'Fairy attacks and inconsistent damage after Draco Meteor',friendly:true },
+  { name:'Volcarona',slug:'volcarona',types:['Bug','Fire'],tier:'A',roles:['Special Attacker','Support'],ability:'Flame Body',item:'Sitrus Berry',moves:['Heat Wave','Bug Buzz','Rage Powder','Protect'],edge:'redirection plus dangerous special pressure',risk:'Rock damage and setup dependence',friendly:false },
+  { name:'Talonflame',slug:'talonflame',types:['Fire','Flying'],tier:'B',roles:['Support','Speed Control','Priority'],ability:'Gale Wings',item:'Covert Cloak',moves:['Tailwind','Brave Bird','Will-O-Wisp','Taunt'],edge:'priority Tailwind and fast disruption',risk:'Rock attacks and recoil',friendly:true },
+  { name:'Meowstic',slug:'meowstic',types:['Psychic'],tier:'C',roles:['Support','Speed Control'],ability:'Prankster',item:'Light Clay',moves:['Reflect','Light Screen','Thunder Wave','Psychic'],edge:'priority screens and paralysis support',risk:'low direct pressure after setup',friendly:true },
+  { name:'Aegislash',slug:'aegislash',types:['Steel','Ghost'],tier:'A',roles:['Attacker','Tank'],ability:'Stance Change',item:'Leftovers',moves:['Shadow Ball','Flash Cannon','Shadow Sneak','Kings Shield'],edge:'stance-based offense and defensive mind games',risk:'prediction dependence and Dark pressure',friendly:false,difficulty:'Hard' },
+  { name:'Goodra',slug:'goodra',types:['Dragon'],tier:'B',roles:['Tank','Special Attacker'],ability:'Sap Sipper',item:'Assault Vest',moves:['Draco Meteor','Thunderbolt','Flamethrower','Sludge Bomb'],edge:'exceptional special bulk and wide coverage',risk:'limited physical defense and no Protect',friendly:true },
+  { name:'Noivern',slug:'noivern',types:['Flying','Dragon'],tier:'B',roles:['Special Attacker','Speed Control'],ability:'Infiltrator',item:'Focus Sash',moves:['Draco Meteor','Hurricane','Tailwind','Super Fang'],edge:'high speed and immediate Tailwind access',risk:'low damage after Draco Meteor',friendly:true },
+  { name:'Decidueye',slug:'decidueye',types:['Grass','Ghost'],tier:'C',roles:['Attacker','Disruption'],ability:'Long Reach',item:'Scope Lens',moves:['Leaf Blade','Spirit Shackle','Sucker Punch','Protect'],edge:'target trapping and useful priority',risk:'middling speed and several weaknesses',friendly:false },
+  { name:'Primarina',slug:'primarina',types:['Water','Fairy'],tier:'A',roles:['Special Attacker','Tank'],ability:'Liquid Voice',item:'Throat Spray',moves:['Hyper Voice','Moonblast','Energy Ball','Protect'],edge:'durable spread damage with excellent typing',risk:'physical Poison and Electric pressure',friendly:true },
+  { name:'Lycanroc',slug:'lycanroc',types:['Rock'],tier:'B',roles:['Attacker','Priority'],ability:'Sand Rush',item:'Focus Sash',moves:['Rock Slide','Accelerock','Close Combat','Protect'],edge:'fast Rock pressure and reliable priority',risk:'weak defensive typing outside Focus Sash',friendly:true },
+  { name:'Mimikyu',slug:'mimikyu',types:['Ghost','Fairy'],tier:'A',roles:['Attacker','Trick Room'],ability:'Disguise',item:'Life Orb',moves:['Play Rough','Shadow Sneak','Trick Room','Protect'],edge:'a protected setup turn through Disguise',risk:'limited damage without its item',friendly:true },
+  { name:'Kommo-o',slug:'kommo-o',types:['Dragon','Fighting'],tier:'B',roles:['Attacker','Tank'],ability:'Overcoat',item:'Throat Spray',moves:['Clanging Scales','Body Press','Iron Defense','Protect'],edge:'flexible setup and powder immunity',risk:'Fairy weakness and setup timing',friendly:false },
+  { name:'Corviknight',slug:'corviknight',types:['Flying','Steel'],tier:'A',roles:['Tank','Support'],ability:'Mirror Armor',item:'Leftovers',moves:['Brave Bird','Body Press','Tailwind','Roost'],edge:'durable Tailwind and stat-drop reflection',risk:'Electric and Fire pressure',friendly:true },
+  { name:'Grimmsnarl',slug:'grimmsnarl',types:['Dark','Fairy'],tier:'A',roles:['Support','Speed Control'],ability:'Prankster',item:'Light Clay',moves:['Reflect','Light Screen','Thunder Wave','Spirit Break'],edge:'priority screens and damage reduction',risk:'Taunt and limited offensive pressure',friendly:true },
+  { name:'Dragapult',slug:'dragapult',types:['Dragon','Ghost'],tier:'A',roles:['Attacker','Speed Control'],ability:'Clear Body',item:'Life Orb',moves:['Dragon Darts','Phantom Force','Will-O-Wisp','Protect'],edge:'elite speed with physical or support flexibility',risk:'priority and Fairy matchups',friendly:false },
+  { name:'Toxtricity',slug:'toxtricity',types:['Electric','Poison'],tier:'B',roles:['Special Attacker'],ability:'Punk Rock',item:'Throat Spray',moves:['Overdrive','Sludge Bomb','Boomburst','Protect'],edge:'powerful sound-based spread damage',risk:'Ground attacks and middling speed',friendly:true },
+  { name:'Hatterene',slug:'hatterene',types:['Psychic','Fairy'],tier:'A',roles:['Special Attacker','Trick Room'],ability:'Magic Bounce',item:'Life Orb',moves:['Trick Room','Psychic','Dazzling Gleam','Protect'],edge:'Taunt reflection and strong Trick Room damage',risk:'physical Steel attacks and low speed outside room',friendly:true },
+  { name:'Indeedee-F',slug:'indeedee-f',types:['Psychic','Normal'],tier:'A',roles:['Support','Tank'],ability:'Psychic Surge',item:'Psychic Seed',moves:['Follow Me','Helping Hand','Psychic','Protect'],edge:'redirection and priority-blocking terrain',risk:'Dark attackers and terrain competition',friendly:true },
+  { name:'Armarouge',slug:'armarouge',types:['Fire','Psychic'],tier:'A',roles:['Special Attacker','Trick Room'],ability:'Flash Fire',item:'Life Orb',moves:['Armor Cannon','Expanding Force','Trick Room','Wide Guard'],edge:'wide spread pressure beside Psychic Terrain',risk:'Dark and Ground matchups',friendly:false },
+  { name:'Ceruledge',slug:'ceruledge',types:['Fire','Ghost'],tier:'B',roles:['Attacker'],ability:'Flash Fire',item:'Clear Amulet',moves:['Bitter Blade','Shadow Sneak','Close Combat','Protect'],edge:'self-healing physical pressure and priority',risk:'Water and Dark coverage',friendly:true },
+  { name:'Baxcalibur',slug:'baxcalibur',types:['Dragon','Ice'],tier:'A',roles:['Attacker','Tank'],ability:'Thermal Exchange',item:'Clear Amulet',moves:['Glaive Rush','Icicle Crash','Ice Shard','Protect'],edge:'Intimidate resistance and powerful dual STAB',risk:'Fairy, Steel, and Fighting pressure',friendly:true },
+  { name:'Glimmora',slug:'glimmora',types:['Rock','Poison'],tier:'B',roles:['Special Attacker','Support'],ability:'Toxic Debris',item:'Focus Sash',moves:['Power Gem','Sludge Bomb','Mortal Spin','Spiky Shield'],edge:'hazard pressure while dealing special damage',risk:'Ground and Steel matchups',friendly:false },
+]
+
+const partnerPool = ['incineroar','metagross','amoonguss','rotom-wash','garchomp','whimsicott','gastrodon','corviknight']
+const counterPool = ['garchomp','incineroar','metagross','rillaboom','sylveon','rotom-wash','kingambit','amoonguss']
+const illegalSlugs = new Set(['urshifu-rapid-strike','tornadus'])
+
+const extraPokemon: Pokemon[] = extraSeeds.map((seed,index) => ({
+  name: seed.name,
+  slug: seed.slug,
+  types: seed.types,
+  tier: seed.tier,
+  roles: seed.roles,
+  ability: seed.ability,
+  recommendedItem: seed.item,
+  recommendedMoves: seed.moves,
+  description: `${seed.name} is a ${seed.types.join('/')}-type ${seed.roles.join(' and ').toLowerCase()} valued for ${seed.edge}.`,
+  beginnerFriendly: seed.friendly,
+  regulationLegal: seed.legal ?? true,
+  difficulty: seed.difficulty ?? (seed.friendly ? 'Easy' : 'Medium'),
+  strengths: [seed.edge, `${seed.ability} creates a distinct team-building angle`, `${seed.types.join(' and ')} coverage supports its primary role`],
+  weaknesses: [seed.risk, 'Requires teammates that cover its most common type matchups'],
+  teammates: [partnerPool[index % partnerPool.length], partnerPool[(index + 3) % partnerPool.length]].filter((slug) => slug !== seed.slug),
+  counters: [counterPool[index % counterPool.length], counterPool[(index + 2) % counterPool.length]].filter((slug) => slug !== seed.slug),
+}))
+
+export const pokemon: Pokemon[] = [
+  ...basePokemon.map((entry) => ({ ...entry, regulationLegal: !illegalSlugs.has(entry.slug) })),
+  ...extraPokemon,
 ]
 
 export const getPokemon = (slug: string) => pokemon.find((entry) => entry.slug === slug)

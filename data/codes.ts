@@ -1,9 +1,26 @@
-export type GiftCode = { code: string; reward: string; status: 'active' | 'expired'; expiryDate?: string; addedDate?: string; notes?: string }
+export type CodeItem = {
+  code: string
+  reward: string
+  status: 'active' | 'expired'
+  sourceType: 'official' | 'community' | 'unknown'
+  expiryDate?: string
+  addedDate?: string
+  lastChecked: string
+  notes?: string
+}
 
-export const codes: GiftCode[] = [
-  { code: 'NO ACTIVE CODES', reward: 'No official Mystery Gift codes have been confirmed yet.', status: 'active', notes: 'We never list guessed or unverified codes.' },
-  { code: 'LAUNCH-GIFT', reward: 'Example placeholder reward', status: 'expired', expiryDate: 'Not an official code', notes: 'Shown only to demonstrate the archive format.' },
-  { code: 'WELCOME-TEAM', reward: 'Example placeholder reward', status: 'expired', expiryDate: 'Not an official code', notes: 'Shown only to demonstrate the archive format.' },
-  { code: 'RANKED-READY', reward: 'Example placeholder reward', status: 'expired', expiryDate: 'Not an official code', notes: 'Shown only to demonstrate the archive format.' },
-  { code: 'CHAMPIONS-2026', reward: 'Example placeholder reward', status: 'expired', expiryDate: 'Not an official code', notes: 'Shown only to demonstrate the archive format.' },
-]
+export type RewardHistoryItem = {
+  reward: string
+  distribution: string
+  date: string
+  source: string
+}
+
+// Trust policy: only add a code after its source and reward can be verified.
+// An empty array intentionally means that no active or expired code is confirmed.
+export const codes: CodeItem[] = []
+
+// This archive should only contain documented official distributions.
+export const rewardHistory: RewardHistoryItem[] = []
+
+export const codesLastChecked = 'June 22, 2026'

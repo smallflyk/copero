@@ -26,7 +26,7 @@ export function PokemonCard({ entry, compact = false }: { entry: Pokemon; compac
   return <Link className={`pokemon-card ${compact ? 'compact' : ''}`} href={`/pokemon/${entry.slug}`}>
     <div className="card-top"><PokemonGlyph pokemon={entry} /><TierBadge tier={entry.tier} /></div>
     <h3>{entry.name}</h3><div className="pill-row">{entry.types.map((x) => <TypePill key={x} type={x} />)}</div>
-    {!compact && <><p>{entry.roles.join(' · ')}</p><span className="card-link">View battle guide <b>→</b></span></>}
+    {!compact && <><p>{entry.roles.join(' · ')}</p><div className="card-meta"><span>{entry.beginnerFriendly ? 'Beginner friendly' : 'Practice first'}</span><span>{entry.regulationLegal ? 'M-B legal' : 'Check legality'}</span></div><small className="item-line">Item: {entry.recommendedItem}</small><span className="card-link">View full build <b>→</b></span></>}
   </Link>
 }
 
