@@ -5,6 +5,22 @@ import { getPokemon, pokemon } from '@/data/pokemon'
 import { teams } from '@/data/teams'
 import { Breadcrumbs, FAQ, FAQSchema, PokemonCard, PokemonGlyph, SectionHeading, TierBadge, TypePill } from '@/components/ui'
 import { site, socialImage } from '@/lib/seo'
+import { FeaturedPokemonGuide } from '@/components/FeaturedPokemonGuides'
+
+const featuredMetadata: Record<string, { title: string; description: string }> = {
+  metagross: {
+    title: 'Metagross Build Pokémon Champions – Best Moveset, Item & Team',
+    description: 'Find the best Metagross build in Pokémon Champions, including recommended moveset, item, teammates, counters, weaknesses, and beginner tips.',
+  },
+  'mega-raichu-y': {
+    title: 'Mega Raichu Y Team & Weakness – Pokémon Champions Guide',
+    description: 'Build the best Mega Raichu Y team in Pokémon Champions, learn its weaknesses, moveset, teammates, counters, item, and Regulation M-B ranked role.',
+  },
+  tornadus: {
+    title: 'Tornadus Pokémon Champions Guide – Best Build, Moveset & Team',
+    description: 'Find the best Tornadus build in Pokémon Champions, including moveset, item, teammates, weaknesses, counters, speed control role, and beginner tips.',
+  },
+}
 
 export function generateStaticParams() { return pokemon.map((entry) => ({ slug: entry.slug })) }
 
@@ -12,16 +28,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const entry = getPokemon(slug)
   if (!entry) return {}
-  const title = `${entry.name} Pokémon Champions Guide – Best Build, Moveset & Teams`
-  const description = `Master ${entry.name} in Pokémon Champions with its best build, moveset, item, teammates, counters, beginner advice, and Regulation Set M-B ranked tips.`
+  const featured = featuredMetadata[slug]
+  const title = featured?.title || `${entry.name} Pokémon Champions Guide – Best Build, Moveset & Teams`
+  const description = featured?.description || `Master ${entry.name} in Pokémon Champions with its best build, moveset, item, teammates, counters, beginner advice, and Regulation Set M-B ranked tips.`
   const url = `${site.url}/pokemon/${entry.slug}`
-  return { title, description, alternates: { canonical: url }, openGraph: { title, description, url, siteName: site.name, type: 'article', locale: 'en_US', images: [socialImage] }, twitter: { card: 'summary_large_image', title, description, images: [socialImage.url] } }
+  return { title: featured ? { absolute: title } : title, description, alternates: { canonical: url }, openGraph: { title, description, url, siteName: site.name, type: 'article', locale: 'en_US', images: [socialImage] }, twitter: { card: 'summary_large_image', title, description, images: [socialImage.url] } }
 }
 
 export default async function PokemonDetail({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const entry = getPokemon(slug)
   if (!entry) notFound()
+  if (featuredMetadata[slug]) return <FeaturedPokemonGuide entry={entry} />
 
   const related = [...new Map([
     ...entry.teammates.map(getPokemon).filter(Boolean),
