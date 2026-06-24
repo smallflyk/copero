@@ -34,6 +34,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return <html lang="en">
     <head>
+      <meta name="google-adsense-account" content="ca-pub-5422937940034036" />
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5422937940034036"
+        crossOrigin="anonymous"
+      />
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNBPMX159V" />
       <script dangerouslySetInnerHTML={{ __html: `
         window.dataLayer = window.dataLayer || [];
