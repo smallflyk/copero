@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "check:copy": "node scripts/check-no-chinese-placeholders.mjs",
     "start": "next start",
     "lint": "next lint",
     "preview:cloudflare": "npm run build && wrangler dev",

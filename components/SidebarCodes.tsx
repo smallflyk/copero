@@ -2,8 +2,8 @@ import { sidebarCodes } from '@/data/codes'
 import type { Locale } from '@/lib/i18n'
 
 const copy = {
-  en: { title: 'Active codes', confirmed: 'confirmed', none: '暂无' },
-  ja: { title: '有効なコード', confirmed: '件を確認済み', none: '暂无' },
+  en: { title: 'Active codes', confirmed: 'confirmed', none: 'No active codes' },
+  ja: { title: '有効なコード', confirmed: '件を確認済み', none: '有効なコードはありません' },
 } satisfies Record<Locale, { title: string; confirmed: string; none: string }>
 
 export default function SidebarCodes({ locale = 'en' }: { locale?: Locale }) {

@@ -7,4 +7,4 @@ export const siteLinks = {
   officialYoutube: null,
 } as const
 
-export const pendingConfirmation = '待确认'
+export const pendingConfirmation = 'Pending confirmation'
