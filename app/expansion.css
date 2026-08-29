@@ -1,6 +1,6 @@
 .hero-copy h1{font-size:clamp(2.35rem,4.2vw,4.15rem)}
 .hero-actions{gap:9px}.hero-actions .btn{padding:11px 14px;font-size:.83rem}
-.trust-row{flex-wrap:wrap}.footer .pending-link{font-size:.84rem;color:#9dacbe}
+.trust-row{flex-wrap:wrap}
 .language-switcher{position:relative;flex:none}
 .language-trigger{height:42px;min-width:126px;display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:0 12px;border:1px solid hsl(var(--nav-theme)/.24);border-radius:12px;background:var(--card);color:var(--ink);font-size:.9rem;font-weight:800;box-shadow:0 3px 12px rgba(31,76,105,.06);transition:border-color .16s,background-color .16s,box-shadow .16s}
 .language-trigger:hover{border-color:hsl(var(--nav-theme)/.5);background:hsl(var(--nav-theme)/.04)}
