@@ -8,6 +8,7 @@
     "check:copy": "node scripts/check-no-chinese-placeholders.mjs",
     "check:codes-banner": "node scripts/check-codes-banner.mjs",
     "check:footer": "node scripts/check-footer-copy.mjs",
+    "check:tier-banner": "node scripts/check-tier-list-banner.mjs",
     "start": "next start",
     "lint": "next lint",
     "preview:cloudflare": "npm run build && wrangler dev",
