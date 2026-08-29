@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "check:copy": "node scripts/check-no-chinese-placeholders.mjs",
+    "check:footer": "node scripts/check-footer-copy.mjs",
     "start": "next start",
     "lint": "next lint",
     "preview:cloudflare": "npm run build && wrangler dev",
