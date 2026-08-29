@@ -3,6 +3,7 @@ import { codes, codesLastChecked } from '@/data/codes'
 import { pendingConfirmation, siteLinks } from '@/data/site'
 import { FAQ, FAQSchema, SectionHeading } from '@/components/ui'
 import SidebarCodes from '@/components/SidebarCodes'
+import { CopyCodeButton } from '@/components/CopyCodeButton'
 import { homeFaq, homeHero, startCards } from '@/content/en/home.mdx'
 
 const activeCodes = codes.filter((item) => item.status === 'active')
@@ -36,7 +37,7 @@ export default function Home() {
 
     <section className="section white"><div className="wrap">
       <SectionHeading eyebrow="Verified Mystery Gift Codes" title="Active Pokémon Champions codes" description={`These codes are recorded in the research materials and were last checked on ${codesLastChecked}. Expired distributions stay in the full code archive.`} action={<Link className="text-link" href="/codes">Open the codes guide →</Link>} />
-      <div className="info-grid">{activeCodes.length ? activeCodes.map((item) => <div className="content-card" key={item.code}><span className="status"><strong>Active</strong></span><h3 style={{ marginTop: 12 }}><span className="code-text">{item.code}</span></h3><p>{item.reward}</p><small>{item.expiryDate ? `Expires ${item.expiryDate}` : `End date: ${pendingConfirmation}`}</small></div>) : <div className="content-card"><h3>No active codes</h3></div>}</div>
+      <div className="info-grid">{activeCodes.length ? activeCodes.map((item) => <div className="content-card" key={item.code}><span className="status"><strong>Active</strong></span><div className="code-copy-row"><h3><span className="code-text">{item.code}</span></h3><CopyCodeButton code={item.code} /></div><p>{item.reward}</p><small>{item.expiryDate ? `Expires ${item.expiryDate}` : `End date: ${pendingConfirmation}`}</small></div>) : <div className="content-card"><h3>No active codes</h3></div>}</div>
     </div></section>
 
     <section className="section regulation-home"><div className="wrap two-col">

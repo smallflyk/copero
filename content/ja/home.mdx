@@ -3,6 +3,7 @@ import { codes, codesLastChecked } from '@/data/codes'
 import { siteLinks } from '@/data/site'
 import { FAQ, FAQSchema, SectionHeading } from '@/components/ui'
 import SidebarCodes from '@/components/SidebarCodes'
+import { CopyCodeButton } from '@/components/CopyCodeButton'
 
 export const homeFaq = [
   { q: 'Pokémon Champions とは？', a: 'Pokémon Champions は、タイプ、特性、技といったおなじみの仕組みを使うバトル中心のゲームです。ランクバトル、カジュアルバトル、プライベートバトルに対応しています。' },
@@ -42,7 +43,7 @@ export const activeCodes = codes.filter((item) => item.status === 'active')
 
 <section className="section white"><div className="wrap">
   <SectionHeading eyebrow="確認済みのふしぎなおくりもの" title="有効な Pokémon Champions コード" description={`調査資料に記録されたコードです。最終確認日は ${codesLastChecked} です。`} action={<Link className="text-link" href="/codes">コードガイドを開く →</Link>} />
-  <div className="info-grid">{activeCodes.length ? activeCodes.map((item) => <div className="content-card" key={item.code}><span className="status"><strong>有効</strong></span><h3 style={{ marginTop: 12 }}><span className="code-text">{item.code}</span></h3><p>{item.reward}</p><small>{item.expiryDate ? `期限：${item.expiryDate}` : '終了日：未確認'}</small></div>) : <div className="content-card"><h3>有効なコードはありません</h3></div>}</div>
+  <div className="info-grid">{activeCodes.length ? activeCodes.map((item) => <div className="content-card" key={item.code}><span className="status"><strong>有効</strong></span><div className="code-copy-row"><h3><span className="code-text">{item.code}</span></h3><CopyCodeButton code={item.code} locale="ja" /></div><p>{item.reward}</p><small>{item.expiryDate ? `期限：${item.expiryDate}` : '終了日：未確認'}</small></div>) : <div className="content-card"><h3>有効なコードはありません</h3></div>}</div>
 </div></section>
 
 <section className="section regulation-home"><div className="wrap two-col">

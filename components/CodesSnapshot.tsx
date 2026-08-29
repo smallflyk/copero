@@ -1,8 +1,9 @@
 import { codes, codesLastChecked, type CodeItem } from '@/data/codes'
 import { pendingConfirmation } from '@/data/site'
+import { CopyCodeButton } from '@/components/CopyCodeButton'
 
 function Table({ items }: { items: CodeItem[] }) {
-  return <div className="table-wrap"><table className="data-table"><thead><tr><th>Code</th><th>Reward</th><th>Start</th><th>Expiry</th><th>Status</th></tr></thead><tbody>{items.map((item) => <tr key={item.code}><td><span className="code-text">{item.code}</span></td><td>{item.reward}</td><td>{item.addedDate || pendingConfirmation}</td><td>{item.expiryDate || 'No end date listed'}</td><td><span className={`status ${item.status}`}>{item.status}</span></td></tr>)}</tbody></table></div>
+  return <div className="table-wrap"><table className="data-table"><thead><tr><th>Code</th><th>Reward</th><th>Start</th><th>Expiry</th><th>Status</th></tr></thead><tbody>{items.map((item) => <tr key={item.code}><td><div className="code-copy-row compact"><span className="code-text">{item.code}</span><CopyCodeButton code={item.code} /></div></td><td>{item.reward}</td><td>{item.addedDate || pendingConfirmation}</td><td>{item.expiryDate || 'No end date listed'}</td><td><span className={`status ${item.status}`}>{item.status}</span></td></tr>)}</tbody></table></div>
 }
 
 export default function CodesSnapshot() {
