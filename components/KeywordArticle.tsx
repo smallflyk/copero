@@ -21,7 +21,7 @@ export default function KeywordArticle({
   path: string
   title: string
   description: string
-  note: string
+  note?: ReactNode
   children: ReactNode
   related?: RelatedLink[]
 }) {
@@ -58,7 +58,7 @@ export default function KeywordArticle({
       dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, '\\u003c') }}
     />
     <PageHero eyebrow={eyebrow} title={title} description={description} />
-    <div className="wrap"><div className="status-note" style={{ marginTop: 28 }}><span className="dot" /><p>{note}</p></div></div>
+    {note && <div className="wrap"><div className="status-note" style={{ marginTop: 28 }}><span className="dot" /><p>{note}</p></div></div>}
     <section className="section"><article className="article wrap">{children}
       {related.length > 0 && <><h2>Related Pokémon Champions guides</h2><div className="link-chips">{related.map((item) => <Link className="link-chip" href={item.href} key={item.href}>{item.label}</Link>)}</div></>}
     </article></section>
