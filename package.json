@@ -14,6 +14,7 @@
     "check:regulation-banner": "npm run build && node scripts/check-regulation-banner.mjs",
     "check:tier-banner": "node scripts/check-tier-list-banner.mjs",
     "check:language-switcher": "npm run build && node scripts/check-language-switcher.mjs",
+    "check:adsense": "npm run build && node scripts/check-adsense-account.mjs",
     "start": "next start",
     "lint": "next lint",
     "preview:cloudflare": "npm run build && wrangler dev",
