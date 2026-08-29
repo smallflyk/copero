@@ -3,6 +3,7 @@ import type { Pokemon } from '@/data/pokemon'
 import { getPokemon } from '@/data/pokemon'
 import { site } from '@/lib/seo'
 import { Breadcrumbs, FAQ, FAQSchema, PokemonCard, PokemonGlyph, TierBadge, TypePill } from './ui'
+import { metagrossDescription, metagrossFaq } from '@/content/en/pokemon/metagross.mdx'
 
 function GuideHero({ entry, eyebrow, title, role, item, teammates, weakAgainst, bestFor }: { entry: Pokemon; eyebrow: string; title: string; role: string; item: string; teammates: string; weakAgainst: string; bestFor: string }) {
   return <>
@@ -30,14 +31,8 @@ export function FeaturedPokemonGuide({ entry }: { entry: Pokemon }) {
 }
 
 function MetagrossGuide({ entry }: { entry: Pokemon }) {
-  const faq = [
-    { q: 'What is the best Metagross build in Pokémon Champions?', a: 'Use Assault Vest with Heavy Slam, Psychic Fangs, Ice Punch, and Bullet Punch for a beginner-friendly bulky physical attacker that applies reliable pressure.' },
-    { q: 'What is the best item for Metagross?', a: 'Assault Vest is our primary recommendation because it improves special durability while Metagross uses four attacking moves. Clear Amulet is an alternative when Intimidate is the larger concern.' },
-    { q: 'What are the best teammates for Metagross?', a: 'Rotom-Wash, Incineroar, Garchomp, and Amoonguss are useful partners. They cover Fire or Ground pressure, create safer turns, and offer complementary damage.' },
-    { q: 'What counters Metagross?', a: 'Strong Fire and Ground attacks, burns, repeated Intimidate, and bulky Pokémon that resist Steel can slow Metagross. Incineroar and Garchomp are clear examples.' },
-    { q: 'Is Metagross good for beginners?', a: 'Yes. Its bulk, priority move, useful resistances, and direct attacking plan make mistakes less punishing than they are with fragile sweepers.' },
-  ]
-  const description = 'Find the best Metagross build in Pokémon Champions, including recommended moveset, item, teammates, counters, weaknesses, and beginner tips.'
+  const faq = metagrossFaq
+  const description = metagrossDescription
   return <>
     <GuideHero entry={entry} eyebrow="Featured Build Guide" title="Metagross Build for Pokémon Champions" role="Physical attacker / bulky attacker" item="Assault Vest" teammates="Rotom-Wash, Incineroar, Garchomp" weakAgainst="Fire, Ground, burns, Intimidate" bestFor="Ranked battles / beginner teams / Regulation M-B" />
 
@@ -60,7 +55,7 @@ function MetagrossGuide({ entry }: { entry: Pokemon }) {
       <h2>Best Team for Metagross</h2>
       <p>A strong Metagross team pairs it with <Link href="/pokemon/rotom-wash">Rotom-Wash</Link>, <Link href="/pokemon/incineroar">Incineroar</Link>, and <Link href="/pokemon/garchomp">Garchomp</Link>. Rotom-Wash can pressure Fire and Ground matchups while threatening burns. Incineroar lowers opposing physical damage, creates space with Fake Out, and pivots Metagross into favorable turns. Garchomp supplies Ground pressure into Fire and Electric targets that Metagross may not want to face directly.</p>
       <p>For a full six, add a special attacker such as Sylveon or Primarina and a support such as Amoonguss or Whimsicott. This prevents the roster from becoming entirely physical and gives Metagross either redirection or speed control. In Doubles, an Incineroar plus Metagross lead is straightforward when Fake Out creates a safe attack, but Rotom-Wash plus Metagross is often safer into teams with obvious Fire pressure.</p>
-      <div className="button-row"><Link className="btn blue" href="/team-builder?team=metagross,rotom-wash,incineroar,garchomp">Try Metagross in the Team Builder</Link><Link className="btn secondary" href="/best-teams#first-steps-balance">Best team with Metagross</Link></div>
+      <div className="button-row"><Link className="btn blue" href="/team-builder?team=metagross,rotom-wash,incineroar,garchomp">Try Metagross in the Team Builder</Link><Link className="btn secondary" href="/best-teams">Best team with Metagross</Link></div>
 
       <h2>Metagross Strengths and Weaknesses</h2>
       <div className="two-col"><div className="content-card"><h3>Strengths</h3><ul><li>Excellent natural physical bulk and many useful resistances.</li><li>Clear Body protects its Attack from normal stat drops.</li><li>Bullet Punch creates reliable late-game priority.</li><li>Steel and Psychic damage pressure several common roles.</li><li>Simple four-attack plan is friendly to new players.</li></ul></div><div className="content-card"><h3>Weaknesses</h3><ul><li>Fire and Ground attacks force defensive positioning.</li><li>Burn reduces physical damage even when Clear Body is active.</li><li>Assault Vest removes access to Protect.</li><li>Its middling speed requires priority or team speed control.</li><li>Repeated chip can leave it unable to perform its bulky role.</li></ul></div></div>

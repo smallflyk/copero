@@ -1,4 +1,4 @@
-# ChampionsDex Guide
+# Pokémon Champions Wiki
 
 An unofficial, fan-made Pokémon Champions SEO guide and team-building MVP.
 

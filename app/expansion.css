@@ -1,5 +1,6 @@
 .hero-copy h1{font-size:clamp(2.35rem,4.2vw,4.15rem)}
 .hero-actions{gap:9px}.hero-actions .btn{padding:11px 14px;font-size:.83rem}
+.trust-row{flex-wrap:wrap}.nav-links .language-link{color:var(--blue)}.footer .pending-link{font-size:.84rem;color:#9dacbe}
 .no-code-card,.featured-guide{display:flex;align-items:center;justify-content:space-between;gap:30px}
 .regulation-home{background:linear-gradient(120deg,#12233e,#183d5a);color:#fff}
 .regulation-home h2,.regulation-home strong{color:#fff}.regulation-home p{color:#c6d8e4}

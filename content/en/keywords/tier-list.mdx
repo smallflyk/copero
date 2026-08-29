@@ -1,0 +1,73 @@
+import KeywordArticle from '@/components/KeywordArticle'
+import TierSnapshot from '@/components/TierSnapshot'
+
+<KeywordArticle
+  eyebrow="Tournament Snapshot"
+  path="/tier-list"
+  title="Pokémon Champions Tier List"
+  description="In the collected Regulation M-B doubles snapshot, Floette ranked alone in S tier, followed by Kingambit, Venusaur, and Basculegion in A tier."
+  note={<><strong>Snapshot:</strong> Doubles tiers were last updated August 28, 2026 from tournament results. A separate August 29 single-battle ranking is shown later and must not be mixed with the doubles table.</>}
+  related={[{href:'/best-teams',label:'Best Teams'},{href:'/regulation-set-m-b',label:'Regulation M-B'},{href:'/pokemon',label:'Pokémon List'},{href:'/replica-teams',label:'Replica Teams'}]}
+>
+
+## What is the current Pokémon Champions tier list?
+
+The supplied Regulation M-B doubles dataset places Floette in S tier. Kingambit, Venusaur, and Basculegion form A tier; Delphox, Charizard, Sneasler, Incineroar, and Pelipper form B tier. The snapshot was updated August 28, 2026 and says 232 Pokémon were ranked across 625 tournaments.
+
+This is a tournament-performance model, not an official balance label. It measures how teams carrying a Pokémon performed, not how that Pokémon won isolated one-on-one matchups. A high tier therefore describes reliable results within actual teams, under the dataset’s filters, at that point in Regulation M-B.
+
+## Regulation M-B doubles tiers
+
+<TierSnapshot />
+
+The displayed tiers include only qualifying Pokémon, not the entire available roster. The methodology requires at least six percent tournament-team presence before a Pokémon can qualify for the competitive ranking. A missing Pokémon may therefore lack the required sample rather than being proven unusable.
+
+## How the doubles methodology works
+
+The source ranks competitors by the lower bound of a 90 percent Wilson confidence interval on match win rate. It uses tournaments with at least 16 players and cuts tiers by standard deviation from the mean. That rewards Pokémon supported by both good results and enough consistency to keep the confidence bound high.
+
+The “Finishers” view counts matches from players who completed the event. The source explains that excluding players who dropped while losing can produce a cleaner competitive read. The supplied page also distinguishes online tournament data from official in-person VGC data and states that the official-event source had no Regulation M-B data in that snapshot.
+
+## S and A tier performance
+
+Floette’s S-tier line shows a 62.4 percent team match win rate, 15.4 percent usage, and 17,284 matches. The official M-B strategy article supports its importance, describing Mega Floette as a recurring member of tournament-winning teams and part of the Charizard/Whimsicott “Big Six.” The tier statistic still belongs to the dated dataset rather than an eternal power rating. Its place should be rechecked after the regulation changes.
+
+Kingambit appears in A tier at 59.2 percent win rate and 35.3 percent usage. Venusaur shows 59.0 percent and 11.7 percent usage, while Basculegion shows 58.6 percent and 28.7 percent usage. These percentages describe all recorded team matches containing the Pokémon, so they should not be read as individual move accuracy or head-to-head odds.
+
+## B tier performance
+
+Delphox, Charizard, Sneasler, Incineroar, and Pelipper are labeled Strong. Their recorded win rates are close—between 57.1 and 58.7 percent in the supplied snapshot—but their usage differs. Charizard shows 27.0 percent usage, Incineroar 30.1 percent, Sneasler 21.2 percent, Pelipper 15.1 percent, and Delphox 9.1 percent.
+
+The official strategy material explains why several appear frequently. Charizard anchors sun, Incineroar offers Intimidate and Parting Shot support, Sneasler combines damage with Fake Out, and Pelipper enables rain. Delphox is more specialized around Nasty Plot support, illustrating why role and team structure matter beyond the tier letter.
+
+## C and D tier context
+
+C tier contains 13 proven choices, including important enablers such as Whimsicott, Farigiraf, Sinistcha, and Grimmsnarl alongside attackers and weather pieces. Garchomp shows 34.4 percent usage, even though its model tier is C, and the official overview calls it highly impactful. This is a useful warning that tier, popularity, role, and official strategic importance are not interchangeable.
+
+Metagross and Raichu appear in D tier with 54.8 and 54.6 percent recorded win rates. “Viable” does not mean unusable; both lines remain above half in the source snapshot. A lower confidence-bound rank can reflect performance, sample size, variance, or how the Pokémon fits the teams included in the dataset.
+
+## Cross-checking the tier model with official analysis
+
+The official M-B overview calls Garchomp highly impactful, describes Basculegion as a leading late-game threat, and identifies Kingambit as its strongest common check. It also treats Incineroar, Sneasler, and Mega Charizard Y as central pieces of the metagame. Those observations broadly overlap the data list while showing why a role-based article may emphasize a C-tier Pokémon such as Garchomp.
+
+Official analysis does not replace the tournament model, and the tournament model does not replace official rules. One explains interactions and successful structures, while the other applies a statistical ranking to a selected dataset. Reading both helps separate a Pokémon’s job, popularity, and measured team results.
+
+## Singles rankings are a different list
+
+The second collected ranking shows an August 29, 2026 Single Battle top five of Garchomp, Primarina, Meowscarada, Archaludon, and Mimikyu. That source labels the mode as Single Battle and timestamps the update at 12:35 p.m. It does not provide the same Wilson-interval tier methodology in the extracted home-page block.
+
+Do not merge these five names into the M-B doubles tiers. Singles has different board states, partner interactions, and team-building priorities, so a Pokémon can rank differently without either list being wrong. Always identify the mode before copying a recommendation.
+
+## How to use the tier list when building
+
+Choose a plan first, then use the tier list to find tournament-tested pieces for that plan. A sun team may value Charizard, Venusaur, Garchomp, Whimsicott, or Floette; rain structures may use Pelipper, Swampert, or Archaludon. Selecting six high-tier names without compatible weather, speed control, items, and defensive switches does not reproduce the teams behind the statistics.
+
+Check the one-Mega-per-battle and no-duplicate-item rules before finalizing an M-B roster. Look at usage as an estimate of how often a matchup may appear, and look at win rate with sample context rather than as a guaranteed result. Test changes one slot at a time so you can tell whether the tier upgrade actually improves the team.
+
+## What can change the rankings?
+
+New seasons, added Pokémon, changed items, regulation updates, and player adaptation can all move a tier list. The collected source covers Regulation M-B through August 28 and divides seasons within the regulation, so even two M-B snapshots may differ. A page without a date, mode, regulation, and methodology is missing essential context.
+
+The correct reading is therefore: Floette led this specific tournament-backed doubles model, while Garchomp led the separate supplied singles ranking a day later. Future rankings are **待确认** until the source data is refreshed. The current in-game regulation remains the authority for legality even when a data site still displays an older tier.
+
+</KeywordArticle>

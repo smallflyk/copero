@@ -6,15 +6,17 @@ import { site, socialImage } from '@/lib/seo'
 import './globals.css'
 import './expansion.css'
 
-const homeDescription = 'Explore the Pokémon Champions guide with active codes, tier list, best teams, Pokémon builds, Regulation Set M-B tips, and a free team builder.'
+const homeTitle = 'Pokémon Champions Wiki — Codes, Teams & Tier List'
+const homeDescription = 'Explore Pokémon Champions codes, beginner guides, Regulation M-B rules, team ideas, Pokémon lists, release platforms, and cross-platform battle tips.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: 'Pokémon Champions: Codes, Tier List, Best Teams & Builder', template: '%s | ChampionsDex' },
+  title: { default: homeTitle, template: '%s | Pokémon Champions Wiki' },
   description: homeDescription,
-  alternates: { canonical: 'https://www.pokemonchampions.pro/' },
+  keywords: 'Pokémon Champions, codes, tier list, best teams, gameplay, Pokémon list, Regulation M-B',
+  alternates: { canonical: 'https://www.pokemonchampions.pro/', languages: { en: 'https://www.pokemonchampions.pro/', ja: 'https://www.pokemonchampions.pro/ja' } },
   openGraph: {
-    title: 'Pokémon Champions: Codes, Tier List, Best Teams & Builder',
+    title: homeTitle,
     description: homeDescription,
     url: 'https://www.pokemonchampions.pro/',
     siteName: site.name,
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pokémon Champions: Codes, Tier List, Best Teams & Builder',
+    title: homeTitle,
     description: homeDescription,
     images: [socialImage.url],
   },

@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og'
 
-export const alt = 'ChampionsDex – Pokémon Champions codes, teams, tier list and database'
+export const alt = 'Pokémon Champions Wiki – codes, teams, tier list and guides'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 export const dynamic = 'force-static'
@@ -18,7 +18,7 @@ export default function OpenGraphImage() {
       <div style={{ display: 'flex', flexDirection: 'column', width: 770 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 16, fontSize: 30, fontWeight: 800, marginBottom: 42 }}>
           <div style={{ width: 54, height: 54, border: '5px solid #17233d', borderRadius: 99, background: 'linear-gradient(#ef3156 0 43%, #17233d 43% 57%, #ffffff 57%)' }} />
-          <div style={{ display: 'flex' }}>Champions<span style={{ color: '#0e8ed8' }}>Dex</span></div>
+          <div style={{ display: 'flex' }}>Pokémon&nbsp;<span style={{ color: '#0e8ed8' }}>Champions</span></div>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column', fontSize: 66, lineHeight: 1.03, fontWeight: 900, letterSpacing: -3 }}>
           <span>Master every battle.</span>

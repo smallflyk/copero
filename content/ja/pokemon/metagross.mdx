@@ -1,0 +1,54 @@
+import Link from 'next/link'
+import { getPokemon } from '@/data/pokemon'
+import { FAQ } from '@/components/ui'
+import { PokemonGuideHero, PokemonGuideSchemas } from '@/components/PokemonGuideLayout'
+
+export const entry = getPokemon('metagross')
+export const faq = [
+  { q: 'Pokémon Champions のメタグロスでおすすめの構成は？', a: 'Assault Vest を持たせ、Heavy Slam、Psychic Fangs、Ice Punch、Bullet Punch を採用する構成がおすすめです。耐久のある物理アタッカーとして安定した圧力をかけられます。' },
+  { q: 'メタグロスにおすすめの持ち物は？', a: '4つの攻撃技を使いながら特殊耐久を高められる Assault Vest が第一候補です。Intimidate 対策を重視する場合は Clear Amulet も候補になります。' },
+  { q: 'メタグロスと相性の良い味方は？', a: 'Rotom-Wash、Incineroar、Garchomp、Amoonguss が有力です。ほのお・じめんへの回答、安全な行動、異なる攻撃範囲を用意できます。' },
+  { q: 'メタグロスの対策は？', a: '強いほのお・じめん技、やけど、継続的な Intimidate、はがね技を受けられる耐久ポケモンが有効です。' },
+  { q: 'メタグロスは初心者向けですか？', a: 'はい。高い耐久、先制技、多くの耐性、分かりやすい攻撃プランがあり、素早く倒されるアタッカーよりミスを立て直しやすいです。' },
+]
+export const description = 'Pokémon Champions のメタグロス育成論。おすすめの技構成、持ち物、味方、対策、弱点、初心者向けの使い方を解説します。'
+
+<PokemonGuideHero entry={entry} locale="ja" eyebrow="注目の育成ガイド" title="Pokémon Champions メタグロス育成論" role="物理アタッカー / 耐久アタッカー" item="Assault Vest" teammates="Rotom-Wash、Incineroar、Garchomp" weakAgainst="ほのお、じめん、やけど、Intimidate" bestFor="ランクバトル / 初心者チーム / M-B" />
+
+<section className="section"><article className="article wrap featured-guide-copy">
+  <h2>Pokémon Champions のおすすめメタグロス育成論</h2>
+  <p>基本構成は <strong>Assault Vest</strong> と <strong>Heavy Slam、Psychic Fangs、Ice Punch、Bullet Punch</strong> です。耐久のある物理アタッカーとして多くの等倍攻撃を受け、すぐに反撃し、削れた相手を先制技で仕留められます。積み技が不要なので、序盤の盤面が重要なランク戦や初心者にも扱いやすい構成です。</p>
+  <p>チーム全体でほのお・じめん技を受けられるようにしてください。Clear Body は通常の能力低下からこうげきを守るため、Intimidate が多い環境でも安定します。役割は明快です。重要な相手に通る技を選び、耐性が後で必要なら温存し、Bullet Punch は先制する価値がある場面で使います。</p>
+  <div className="table-wrap"><table className="data-table"><thead><tr><th>構成枠</th><th>おすすめ</th><th>目的</th></tr></thead><tbody><tr><td>役割</td><td>耐久のある物理アタッカー</td><td>等倍攻撃を受け、安定したダメージを返す。</td></tr><tr><td>特性</td><td>Clear Body</td><td>通常の能力低下を防ぐ。</td></tr><tr><td>持ち物</td><td>Assault Vest</td><td>4つの攻撃技を使いながら特殊耐久を高める。</td></tr><tr><td>主力技</td><td>Heavy Slam</td><td>フェアリーや軽い相手へのはがね打点。</td></tr><tr><td>先制技</td><td>Bullet Punch</td><td>削れた相手を行動前に倒す。</td></tr></tbody></table></div>
+
+  <h2>メタグロスのおすすめ技構成</h2>
+  <h3>Heavy Slam</h3><p>主力のはがね技で、多くのフェアリーに直接圧力をかけます。威力は重さに左右されるため、すべての等倍相手に押す技ではありません。相手との相性を確認して選びましょう。</p>
+  <h3>Psychic Fangs</h3><p>かくとう・どくへの第2の一致打点です。はがね技を受ける相手にもダメージを通せるため、1匹の受けだけで止まりにくくなります。</p>
+  <h3>Ice Punch</h3><p>ドラゴン、ひこう、くさ、じめんを狙う技です。Garchomp のような相手への重要な回答ですが、等倍時の最大火力ではなく、対象が明確なカバー技として使います。</p>
+  <h3>Bullet Punch</h3><p>先制して削れた相手を倒すための技です。先に動くことで結果が変わる場面まで温存し、健康な相手に弱い先制技を連打してメタグロスの耐久と攻撃範囲を無駄にしないようにします。</p>
+
+  <h2>メタグロスにおすすめの持ち物</h2>
+  <p>Assault Vest は4攻撃構成に最も安定する持ち物です。もともと高い物理耐久と優秀な耐性に特殊耐久を加え、効率の良い交換を増やします。一方で Protect などの変化技は使えないため、交代と味方の守りが重要になります。</p>
+  <p>Clear Amulet は能力低下が大きな問題になる場合の候補です。火力アイテムは瞬間的なダメージを上げますが、初心者向け構成の安定性は下がります。6匹全体で Item Clause も確認してください。</p>
+
+  <h2>メタグロスにおすすめのチーム</h2>
+  <p><Link href="/pokemon/rotom-wash">Rotom-Wash</Link>、<Link href="/pokemon/incineroar">Incineroar</Link>、<Link href="/pokemon/garchomp">Garchomp</Link> と組ませると安定します。Rotom-Wash はほのお・じめんへの圧力とやけど、Incineroar は Intimidate と Fake Out、Garchomp はほのお・でんきへのじめん打点を提供します。</p>
+  <p>6匹にするなら Sylveon や Primarina の特殊アタッカー、Amoonguss や Whimsicott のサポートを追加します。ダブルでは Fake Out で安全な攻撃を作る Incineroar＋Metagross が分かりやすく、ほのおが見える相手には Rotom-Wash＋Metagross が安全です。</p>
+  <div className="button-row"><Link className="btn blue" href="/team-builder?team=metagross,rotom-wash,incineroar,garchomp">チームビルダーで試す</Link><Link className="btn secondary" href="/best-teams#first-steps-balance">メタグロス入りチームを見る</Link></div>
+
+  <h2>メタグロスの強みと弱み</h2>
+  <div className="two-col"><div className="content-card"><h3>強み</h3><ul><li>高い物理耐久と多くの耐性。</li><li>Clear Body で通常の能力低下を防ぐ。</li><li>Bullet Punch による終盤の先制攻撃。</li><li>はがね・エスパーの広い攻撃範囲。</li><li>初心者にも分かりやすい4攻撃構成。</li></ul></div><div className="content-card"><h3>弱み</h3><ul><li>ほのお・じめん技に弱い。</li><li>やけどで物理火力が下がる。</li><li>Assault Vest では Protect を使えない。</li><li>素早さが中程度で補助が必要。</li><li>継続ダメージで耐久役を果たしにくくなる。</li></ul></div></div>
+
+  <h2>メタグロスの対策方法</h2>
+  <p>Assault Vest で解決できない部分を狙います。強い物理のほのお・じめん技で弱点を突き、Will-O-Wisp で全攻撃のダメージを下げます。Incineroar ははがねを受けながらほのお打点を出せます。Garchomp はじめん技で圧力をかけられますが、Ice Punch には注意してください。</p>
+  <p>直接倒せない場合は、効率の良い交換をさせないことが大切です。Bullet Punch の対象を Protect し、Heavy Slam を受けるポケモンへ交代し、守りの味方を先に削ります。Assault Vest 構成は Protect がないため、味方を除けば集中攻撃が通りやすくなります。</p>
+
+  <h2>メタグロスは初心者向け？</h2>
+  <p>メタグロスは役割が見えやすく、耐久が学習の余裕を作るため、初心者に向くアタッカーです。複雑な発動条件なしで仕事ができ、Bullet Punch から先制技の価値も学べます。</p>
+  <p>チームプレビューでは、ほのお、じめん、やけど、Intimidate を確認し、最も大きな問題を補う味方を選びます。対戦後は技の選択と Assault Vest が重要な特殊技を耐えたかを振り返りましょう。</p>
+
+  <h2>メタグロス FAQ</h2><FAQ items={faq} />
+  <div className="related-links"><Link href="/tier-list">Pokémon Champions ティアリスト</Link><Link href="/regulation-set-m-b">レギュレーション M-B ガイド</Link><Link href="/pokemon/mega-raichu-y">メガライチュウY チーム</Link><Link href="/pokemon/tornadus">トルネロス ガイド</Link></div>
+</article></section>
+
+<PokemonGuideSchemas entry={entry} faq={faq} headline="Pokémon Champions メタグロス育成論" description={description} locale="ja" />

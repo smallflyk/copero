@@ -1,0 +1,14 @@
+import Link from 'next/link'
+import PokemonExplorer from '@/components/PokemonExplorer'
+import { PageHero } from '@/components/ui'
+
+<PageHero eyebrow="全80件の育成ガイド" title="Pokémon Champions ポケモン一覧" description="ポケモン名、タイプ、ティア、役割、初心者向け、レギュレーション M-B の使用可否で検索し、詳しい対戦用ビルドを確認できます。" />
+
+<section className="section"><div className="wrap">
+  <PokemonExplorer locale="ja" />
+  <div className="button-row" style={{justifyContent:'center',marginTop:42}}>
+    <Link className="btn secondary" href="/tier-list">ティアを比較する</Link>
+    <Link className="btn secondary" href="/regulation-set-m-b">M-B ガイドを読む</Link>
+    <Link className="btn blue" href="/team-builder">チームビルダーを開く</Link>
+  </div>
+</div></section>

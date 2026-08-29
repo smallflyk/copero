@@ -25,9 +25,9 @@ export const regulationMB: Regulation = {
   singlesTeam: 'Register 3–6 Pokémon and choose 3 for battle',
   doublesTeam: 'Register 4–6 Pokémon and choose 4 for battle',
   battleLevel: 'All participating Pokémon are set to Level 50',
-  playerTime: '10 minutes',
+  playerTime: '7 minutes',
   previewTime: '90 seconds',
-  turnTime: '60 seconds',
+  turnTime: '45 seconds',
   featuredPokemon: ['mega-raichu-x', 'mega-raichu-y', 'incineroar', 'metagross', 'garchomp', 'amoonguss', 'kingambit', 'sneasler'],
   notes: [
     'Only Pokémon shown as eligible by the in-game Regulation Set M-B notice can enter ranked battles.',
