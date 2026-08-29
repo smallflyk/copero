@@ -2,6 +2,8 @@ import type { MetadataRoute } from 'next'
 import { pokemon } from '@/data/pokemon'
 import { site } from '@/lib/seo'
 
+export const dynamic = 'force-static'
+
 const pages = [
   '', '/codes', '/tier-list', '/best-teams', '/pokemon', '/team-builder',
   '/beginner-guide', '/download', '/regulation-guide', '/regulation-set-m-b',

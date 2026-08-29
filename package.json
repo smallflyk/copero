@@ -6,10 +6,12 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "preview:cloudflare": "npm run build && wrangler dev",
+    "deploy:cloudflare": "npm run build && wrangler deploy"
   },
   "dependencies": {
-    "next": "15.5.19",
+    "next": "^15.5.24",
     "react": "19.1.1",
     "react-dom": "19.1.1"
   },
@@ -17,6 +19,7 @@
     "@types/node": "20.19.41",
     "@types/react": "19.1.16",
     "@types/react-dom": "19.1.9",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "wrangler": "^4.127.1"
   }
 }

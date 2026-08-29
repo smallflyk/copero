@@ -11,10 +11,20 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+## Deploy to Cloudflare
+
+The production build is a static Next.js export served by a Cloudflare Worker with Static Assets. The apex domain redirects to `www.pokemonchampions.pro`.
+
+```bash
+npm run deploy:cloudflare
+```
+
+Use `npm run preview:cloudflare` to build and preview the same Worker locally.
+
 ## Content updates
 
 - Pokémon and builds: `data/pokemon.ts`
 - Mystery Gift codes: `data/codes.ts`
 - Sample teams: `data/teams.ts`
 
-Before publishing, replace the placeholder domain in `lib/seo.ts` and review all provisional battle data against official information.
+Review all provisional battle data against official information before publishing content updates.
