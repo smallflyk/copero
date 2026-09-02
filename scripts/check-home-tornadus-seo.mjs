@@ -34,7 +34,7 @@ const visibleText = decodeEntities(main)
 
 const words = visibleText.match(/[\p{L}\p{N}]+(?:['’\-][\p{L}\p{N}]+)*/gu) ?? []
 const occurrences = visibleText.toLowerCase().match(new RegExp(keyword, 'g'))?.length ?? 0
-const density = occurrences * 3 / words.length * 100
+const density = occurrences / words.length * 100
 
 if (words.length < 1000 || words.length > 1200) {
   console.error(`Homepage word count must be 1000-1200; received ${words.length}`)
@@ -79,4 +79,4 @@ if (!main.includes('href="/pokemon/tornadus"')) {
   process.exit(1)
 }
 
-console.log(`PASS: homepage has ${words.length} words, ${occurrences} exact keyword matches, and ${density.toFixed(2)}% phrase-token density`)
+console.log(`PASS: homepage has ${words.length} words, ${occurrences} exact keyword matches, and ${density.toFixed(2)}% exact-phrase density`)
