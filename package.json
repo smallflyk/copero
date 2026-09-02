@@ -9,6 +9,7 @@
     "check:codes-banner": "node scripts/check-codes-banner.mjs",
     "check:code-copy": "npm run build && node scripts/check-code-copy-buttons.mjs",
     "check:footer": "node scripts/check-footer-copy.mjs",
+    "check:home-tornadus": "npm run build && node scripts/check-home-tornadus-seo.mjs",
     "check:inner-spacing": "npm run build && node scripts/check-inner-page-spacing.mjs",
     "check:best-teams-banner": "npm run build && node scripts/check-best-teams-banner.mjs",
     "check:pokemon-banner": "npm run build && node scripts/check-pokemon-banner.mjs",

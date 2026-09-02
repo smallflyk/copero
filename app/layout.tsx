@@ -6,14 +6,14 @@ import { site, socialImage } from '@/lib/seo'
 import './globals.css'
 import './expansion.css'
 
-const homeTitle = 'Pokémon Champions Wiki — Codes, Teams & Tier List'
-const homeDescription = 'Explore Pokémon Champions codes, beginner guides, Regulation M-B rules, team ideas, Pokémon lists, release platforms, and cross-platform battle tips.'
+const homeTitle = 'Tornadus Pokemon Champions Guide — Build, Moves & Team'
+const homeDescription = 'Use this Tornadus Pokemon Champions guide to learn its Tailwind support build, best moveset, item, teammates, weaknesses, counters, and legality notes.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: { default: homeTitle, template: '%s | Pokémon Champions Wiki' },
   description: homeDescription,
-  keywords: 'Pokémon Champions, codes, tier list, best teams, gameplay, Pokémon list, Regulation M-B',
+  keywords: 'tornadus pokemon champions, Tornadus build, moveset, team, Tailwind, counters',
   alternates: { canonical: 'https://www.pokemonchampions.pro/', languages: { en: 'https://www.pokemonchampions.pro/', ja: 'https://www.pokemonchampions.pro/ja' } },
   openGraph: {
     title: homeTitle,
