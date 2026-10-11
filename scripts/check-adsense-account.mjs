@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 
-const publisherId = 'ca-pub-2781955398980978'
+const publisherId = 'ca-pub-3506863457211473'
 const scriptUrl = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${publisherId}`
 
 function htmlFiles(directory) {
@@ -57,7 +57,7 @@ for (const path of pages) {
 }
 
 const adsTxt = readFileSync('out/ads.txt', 'utf8').trim()
-const expectedAdsTxt = 'google.com, pub-2781955398980978, DIRECT, f08c47fec0942fa0'
+const expectedAdsTxt = 'google.com, pub-3506863457211473, DIRECT, f08c47fec0942fa0'
 
 if (adsTxt !== expectedAdsTxt) {
   console.error('Exported ads.txt does not authorize the approved AdSense publisher ID')
