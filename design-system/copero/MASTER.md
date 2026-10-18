@@ -4,27 +4,27 @@
 Free browser football career simulator, built with Next.js 15, React 19 and CSS. The player-creation tool is the homepage Hero. Preserve the compact tool, its ten positions, local saves, all simulation rules, and canonical SEO content.
 
 ## Direction
-A club scouting dossier: warm paper, ink green, condensed sports headlines, technical captions, and one floodlit tactical pitch. The original shirt is the signature visual. Marketing pages read like a football publication; the career dashboard reads like a player report.
+A club scouting dossier: a deep-green football-field background with a subtle grid, cream text, condensed sports headlines, technical captions, and one floodlit tactical pitch. The original shirt is the signature visual. Marketing pages read like a football publication; the career dashboard reads like a player report.
 
 The ui-ux-pro-max search matched block-based sports entertainment and its sports typography entry recommended Barlow Condensed. Its generic luxury serif/pink palette was rejected as unsuitable for this football product. Local Barlow Condensed headings and DM Sans body text keep the athletic character and improve small-text readability.
 
 ## Tokens
-- Paper/background: #f5f4ee
-- Surface: #ffffff; recessed: #eceee6
-- Ink: #18392f; secondary text: #5c6b63
-- Rule/border: #d5dbd1
+- Field background: #0b2118 with a subtle 72px grid
+- Surface: #142d23; raised: #1c392c
+- Text: #f0efdc; secondary text: #b8c7b5
+- Rule/border: #355042
 - Primary action: #bc4429, white text
-- Field: #153f32; field text: #f4f5e9
-- Selected marker on field: #d5ec80, ink text
-- Focus: #a13a23 on light surfaces; #d5ec80 on dark surfaces
-- Error: #8b3025 on #fff1ed
+- Recessed field: #10271d; field text: #f4f5e9
+- Selected marker on field: #d5ec80, #0b2118 text
+- Focus: #d5ec80 on dark surfaces
+- Error: #ffc5ac on #3b211c
 
 ## Type and rhythm
 Barlow Condensed 600 for headings and score numerals; DM Sans 400–700 for copy; system monospace for uppercase utility labels. Body 16px / 1.65, form controls 14–16px, utility text >=12px. Spacing: 4, 8, 12, 16, 24, 32, 48, 80px. Borders and alignment express hierarchy; shadows only distinguish the primary workbench. No decorative rotations.
 
 ## Components
 - Header: compact wordmark, desktop navigation, accessible disclosure menu on mobile.
-- Workbench: light shell, numbered underlined steps, identity shirt stage, searchable white country tiles, dark pitch. Selected nationality uses ink fill plus check; selected pitch position uses lime fill and pressed semantics.
+- Workbench: dark-green shell, numbered underlined steps, identity shirt stage, searchable green country tiles, dark pitch. Selected nationality uses lime fill, dark text and a check; selected pitch position uses lime fill and pressed semantics.
 - Main CTA: solid terracotta, >=44px high. Secondary actions use visible borders.
 - Career: framed player identity, strong OVR block, equal condition columns, selected decision includes a clear border/inset indicator.
 - Results: ink-green legacy ticket and clear six-stat grid, readable charts, original downloadable card with matching colours.
