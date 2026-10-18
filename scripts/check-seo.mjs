@@ -21,6 +21,8 @@ for(const file of htmlFiles){
  assert.ok(!/pokemon|pokémon|tornadus|football destiny|ca-pub-/i.test(html),`Old identity/advertising in ${file}`)
  assert.equal((head.match(/<script[^>]+src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-4JYX8WF2SZ"/g)||[]).length,1,`Expected one Google tag loader in ${file}`)
  assert.equal((head.match(/gtag\('config', 'G-4JYX8WF2SZ'\)/g)||[]).length,1,`Expected one Google tag config in ${file}`)
+ assert.equal((head.match(/<script[^>]+src="https:\/\/plausible\.io\/js\/pa-__HJG7Uwk26jKdaqu23Bn\.js"/g)||[]).length,1,`Expected one Plausible loader in ${file}`)
+ assert.equal((head.match(/plausible\.init\(\)/g)||[]).length,1,`Expected one Plausible initialization in ${file}`)
  assert.ok(/<script[^>]+async=""[^>]*src="https:\/\/www\.googletagmanager\.com|<script[^>]+src="https:\/\/www\.googletagmanager\.com[^>]+async=""/.test(head),`Google tag must load asynchronously: ${file}`)
  const canonical=head.match(/rel="canonical" href="([^"]+)"/)?.[1]
  assert.equal(canonical,publicUrl(localizedPath(contentPath,locale)),`Canonical must point to the same language: ${file}`)

@@ -77,7 +77,7 @@ npm run deploy:cloudflare
 
 Deployment needs Cloudflare authentication and access to the configured account and domain, through `wrangler login` or a suitable `CLOUDFLARE_API_TOKEN`. No gameplay environment variables, AI API keys, or database bindings are needed. The SEO release was deployed on 2026-10-18 to https://copero.pro; see docs/validation.md for the version and live checks.
 
-Google Analytics 4 uses the site-wide Google tag G-4JYX8WF2SZ, included once in the shared document head. Privacy disclosures cover Analytics cookies and usage data in all six languages, alongside local saves, local downloads and hosting requests. No custom Analytics events send player names or career saves; AdSense is not installed. The public contact address is support@copero.pro, displayed consistently in the footer, about page, privacy policy and Organization metadata.
+Google Analytics 4 uses the site-wide Google tag G-4JYX8WF2SZ, included once in the shared document head. Plausible Analytics is also included once using the owner-provided pa-__HJG7Uwk26jKdaqu23Bn.js script and plausible.init(). Privacy disclosures cover both services, distinguishing Plausible’s cookie-free statistics from Google Analytics cookies and usage data in all six languages, alongside local saves, local downloads and hosting requests. No custom Analytics events send player names or career saves; AdSense is not installed. The public contact address is support@copero.pro, displayed consistently in the footer, about page, privacy policy and Organization metadata.
 
 The original template, including the earlier local fixes, was archived outside this repository at `/Users/smallflyk/code/copero-template-backups/pokemon-template-before-copero-20261018.tar.gz`.
 
