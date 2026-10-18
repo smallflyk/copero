@@ -39,7 +39,7 @@ The homepage explains the actual game beneath the playable hero and links direct
 - Sitemap contains only 72 preferred public pages. Robots allows crawling so noindex can be read on career pages. Social image has the correct PNG response type.
 - Static text, links, tables and FAQs remain readable without JavaScript. FAQ content remains visible, but obsolete FAQPage markup was removed; no FAQ search feature is promised.
 - Original unrelated template URLs return 404 rather than misleading redirects to football content. Mobile tables scroll within their container, and long German titles wrap without page overflow.
-- No analytics, advertising or third-party translation requests are introduced. Fonts are local. There is no public indexable save or player-result URL.
+- Google Analytics 4 (G-4JYX8WF2SZ) was added at the owner’s request on 2026-10-18, with matching six-language privacy disclosures. Advertising and third-party translation requests are not introduced. Fonts are local. There is no public indexable save or player-result URL.
 
 ## Validation
 
@@ -53,7 +53,7 @@ The owner confirmed Search Console is not configured. No Google ownership verifi
 2. Submit `https://copero.pro/sitemap.xml`. Inspect the root and `/es/guides/copero-training-strategy`; confirm fetched canonical, rendered content and indexing status. Request indexing where appropriate through the authenticated interface.
 3. After real data accumulates, record a 28-day baseline of impressions, clicks, CTR and average position by query, page, country and device. Track brand queries separately from football-simulator and gameplay queries. Compare like-for-like periods, without promising a ranking deadline.
 4. Improve titles using observed query intent; expand guides when player questions or Search Console evidence reveal a missing answer. Keep content synchronized with changes to engine rules. Do not add thin keyword variants or purchase spam backlinks.
-5. Add analytics only after a separate product/privacy decision; Search Console can measure search visibility without changing the site's current save behavior.
+5. Google Analytics was authorized and installed on 2026-10-18. Use Analytics for site usage and Search Console for search visibility; the game save remains local.
 
 ## Primary references and research sources
 

@@ -2309,13 +2309,6 @@
     "zh": "分析、广告与 Cookie",
     "de": "Analyse, Werbung und Cookies"
   },
-  "This edition has no Google Analytics, AdSense, marketing pixels or advertising cookies. Fonts and interface assets are served locally. The game uses localStorage for its save. This policy must be updated if analytics, advertising or cloud features are added.": {
-    "es": "No hay Google Analytics, AdSense, píxeles de marketing ni cookies publicitarias. Fuentes y recursos se sirven localmente. La partida usa localStorage. Si añadimos analítica, anuncios o funciones en la nube, esta política deberá actualizarse.",
-    "it": "Niente Google Analytics, AdSense, pixel o cookie pubblicitari. Font e risorse sono locali. Il gioco salva in localStorage. Aggiungere analisi, pubblicità o funzioni cloud richiederà l'aggiornamento della policy.",
-    "pt": "Sem Google Analytics, AdSense, pixels ou cookies de publicidade. Fontes e recursos são locais. O progresso usa localStorage. Adicionar análise, anúncios ou nuvem exigirá atualizar esta política.",
-    "zh": "本版本不包含 Google Analytics、AdSense、营销像素或广告 Cookie。字体和界面资源由本站提供，游戏用 localStorage 保存进度。若以后增加分析、广告或云功能，需同步更新政策。",
-    "de": "Keine Google Analytics, AdSense, Marketingpixel oder Werbecookies. Schriften und UI-Dateien werden lokal ausgeliefert. Spielstände nutzen localStorage. Bei Analyse, Werbung oder Cloud-Funktionen muss diese Erklärung aktualisiert werden."
-  },
   "Hosting requests": {
     "es": "Solicitudes de alojamiento",
     "it": "Richieste di hosting",
@@ -3890,5 +3883,12 @@
     "pt": "Atributos e aposentadoria",
     "zh": "属性与退役",
     "de": "Attribute und Karriereende"
+  },
+  "Copero uses Google Analytics 4 (G-4JYX8WF2SZ) to understand page visits and site usage. Google may receive page URLs, referrers, browser and device details and approximate location, and may use first-party cookies such as _ga and _ga_4JYX8WF2SZ to distinguish visits and sessions. We do not deliberately send your chosen player name, career save or season history to Analytics. You can block Google Analytics or manage cookies in your browser. Fonts remain local and game saves remain in localStorage. This edition does not include AdSense.": {
+    "es": "Copero utiliza Google Analytics 4 (G-4JYX8WF2SZ) para analizar las visitas y el uso del sitio. Google puede recibir las URL visitadas, las referencias, datos del navegador y dispositivo y la ubicación aproximada, y usar cookies propias como _ga y _ga_4JYX8WF2SZ para distinguir visitas y sesiones. No enviamos deliberadamente tu nombre de jugador, partida guardada ni historial de temporadas a Analytics. Puedes bloquear Google Analytics o gestionar las cookies en tu navegador. Las fuentes siguen siendo locales y las partidas permanecen en localStorage. Esta edición no incluye AdSense.",
+    "it": "Copero usa Google Analytics 4 (G-4JYX8WF2SZ) per analizzare le visite e l’uso del sito. Google può ricevere URL visitati, riferimenti, dati del browser e del dispositivo e posizione approssimativa, e usare cookie proprietari come _ga e _ga_4JYX8WF2SZ per distinguere visite e sessioni. Non inviamo deliberatamente ad Analytics il nome del giocatore, il salvataggio o lo storico delle stagioni. Puoi bloccare Google Analytics o gestire i cookie nel browser. I font restano locali e le partite rimangono in localStorage. Questa edizione non include AdSense.",
+    "pt": "O Copero usa o Google Analytics 4 (G-4JYX8WF2SZ) para analisar visitas e uso do site. O Google pode receber URLs visitadas, referências, dados do navegador e dispositivo e localização aproximada, e usar cookies próprios como _ga e _ga_4JYX8WF2SZ para distinguir visitas e sessões. Não enviamos deliberadamente o nome do jogador, a carreira salva ou o histórico das temporadas ao Analytics. Você pode bloquear o Google Analytics ou gerenciar cookies no navegador. As fontes continuam locais e as partidas permanecem no localStorage. Esta edição não inclui AdSense.",
+    "zh": "Copero 使用 Google Analytics 4（G-4JYX8WF2SZ）统计页面访问和网站使用情况。Google 可能接收页面网址、来源页面、浏览器和设备信息以及大致位置，并使用 _ga、_ga_4JYX8WF2SZ 等第一方 Cookie 区分访问和会话。我们不会主动向 Analytics 发送你填写的球员姓名、生涯存档或赛季历史。你可以在浏览器中屏蔽 Google Analytics 或管理 Cookie。字体仍由本站提供，游戏存档仍保存在 localStorage 中。本版本未接入 AdSense。",
+    "de": "Copero verwendet Google Analytics 4 (G-4JYX8WF2SZ), um Seitenaufrufe und die Nutzung der Website auszuwerten. Google kann Seiten-URLs, Verweisquellen, Browser- und Geräteinformationen sowie den ungefähren Standort erhalten und eigene Cookies wie _ga und _ga_4JYX8WF2SZ zur Unterscheidung von Besuchen und Sitzungen verwenden. Wir senden deinen Spielernamen, Spielstand oder Saisonverlauf nicht gezielt an Analytics. Du kannst Google Analytics blockieren oder Cookies im Browser verwalten. Schriftarten bleiben lokal und Spielstände verbleiben in localStorage. Diese Version enthält kein AdSense."
   }
 }

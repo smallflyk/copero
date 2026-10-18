@@ -31,7 +31,7 @@ Barlow Condensed 600 for headings and score numerals; DM Sans 400–700 for copy
 - Guides/articles: constrained readable lines, category/reading-time separation, numbered guide cards, lightly ruled data tables.
 
 ## Interaction and accessibility
-Transitions 180ms for colour/border/shadow only. Keep keyboard focus, native controls, real labels, 44px touch controls, visible pressed state and error feedback. Mobile labels remain legible. Respect reduced motion. Never remove content to fit a fixed height. No new third-party runtime requests, tracking, animation library, or UI dependency.
+Transitions 180ms for colour/border/shadow only. Keep keyboard focus, native controls, real labels, 44px touch controls, visible pressed state and error feedback. Mobile labels remain legible. Respect reduced motion. Never remove content to fit a fixed height. Do not add third-party runtime requests, tracking, animation libraries or UI dependencies without a product request. The user-authorized Google Analytics tag G-4JYX8WF2SZ is loaded once in the shared document head.
 
 ## Validation
 Check widths 375, 390, 768, 1024, 1440. Check setup, academy navigation, complete career, result download, corrupt saves, keyboard focus, horizontal overflow, canonical metadata and one H1. Screenshots and engine checks are evidence; do not claim live deployment or rankings.
