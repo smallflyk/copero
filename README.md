@@ -62,6 +62,10 @@ COPERO_BASE_URL=http://localhost:3000 python scripts/check-i18n-browser.py
 
 The engine persists its random state. Identical setup + seed + complete decisions reproduce results under the same engine version. Nationality, preferred foot, and shirt number personalise the career without hidden ability bonuses. Goalkeepers use defending and physical as simplified goalkeeper attributes.
 
+## Automatic deployment
+
+Push to `main` to run [Deploy copero.pro](https://github.com/smallflyk/copero/actions/workflows/deploy-cloudflare.yml). The workflow installs locked dependencies, runs lint/tests/build/TypeScript/SEO checks, deploys the existing Cloudflare Worker, then verifies the live Git commit and key pages. The deployment API token is stored in the repository Actions secret; no local Wrangler login is needed by CI. Failed pre-deployment checks prevent publication. See [deployment setup and operations](docs/automatic-deployment.md).
+
 ## Cloudflare
 
 The existing static Next.js export + Worker Assets deployment mechanism is retained. `wrangler.jsonc` now targets the separate **copero-pro** Worker and **copero.pro**, not the previous template service.

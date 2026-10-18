@@ -6,13 +6,19 @@ Repository: https://github.com/smallflyk/copero. Production: https://copero.pro.
 
 `.github/workflows/deploy-cloudflare.yml` runs on each push to main. Manual runs are supported on main only. Deployments are serialized so two runs cannot upload/promote production simultaneously. GitHub token permissions are contents:read; checkout credentials are not persisted. Official checkout/setup-node actions are pinned to their verified v6 commit SHAs. Node 22 and npm ci use package-lock.json.
 
-The workflow runs lint, Node tests, production build, TypeScript and SEO checks before deploying. Any failure stops deployment and leaves the previously deployed Worker serving. Wrangler is the version locked in package-lock.json, rather than an unpinned CI download. It deploys the existing Worker/domain configured in wrangler.jsonc.
+The workflow runs lint, Node tests, production build, TypeScript and SEO checks before deploying. A failure in these pre-deployment checks prevents publishing and leaves the previously deployed Worker serving. Wrangler is the version locked in package-lock.json, rather than an unpinned CI download. It deploys the existing Worker/domain configured in wrangler.jsonc.
 
 A generated `out/__release.json` identifies the exact Git commit (no token or private data). After deploying, scripts/check-live-deployment.mjs verifies that commit is actually served, then checks all six home languages, game noindex, guides, privacy, sitemap, robots, social image, Spanish alias redirect and real 404 responses. The generated marker remains in ignored out/ and is not committed.
 
+A failed post-deployment probe marks the run failed; it does not automatically roll back a Worker that has already been deployed. Inspect the deployment and use a code revert or an intentional Cloudflare rollback if needed.
+
 The cloud workflow runs Node/build/SEO checks and HTTP smoke checks. Full interactive browser regression scripts remain available separately; this workflow does not claim to run them on every push.
 
-## One required repository secret
+## Configured credentials
+
+Configured on 2026-10-18 after owner confirmation: user API token `copero-github-actions-deploy`, stored only as the repository Actions secret `CLOUDFLARE_API_TOKEN`. Permissions are Workers Scripts Edit in the configured account, and Workers Routes Edit / Zone Read for copero.pro only. Workers Scripts Edit is an account-level permission, while the workflow targets the existing copero-pro Worker. No DNS-record edit permission was granted. Temporary credential transport files were removed. Token values are never included in this document.
+
+## Recreating or rotating the repository secret
 
 CI cannot reuse a developer's interactive Wrangler OAuth login. Create a deployment API token in Cloudflare, using Edit Cloudflare Workers as the starting template and limiting its resources to this account and copero.pro. The deployment needs Workers Scripts Edit for the account, and Zone Read / Workers Routes Edit for the copero.pro custom domain. Account Read may be included for account lookup. Do not grant global administration or unrelated account resources. If customizing the template, retain any additional deployment permission Cloudflare explicitly requires for the existing Worker.
 
