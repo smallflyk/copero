@@ -1,0 +1,98 @@
+{
+  "/": {
+    "es": "Juega gratis a Copero, el simulador de carrera de fútbol. Crea tu jugador, elige tu club y decide cómo entrenar, ganar títulos y construir tu leyenda.",
+    "en": "Play Copero, a free football career simulator. Create your player, choose your club, make training and transfer decisions, and build your football legacy.",
+    "it": "Gioca gratis a Copero, il simulatore di carriera calcistica. Crea il tuo giocatore, scegli un club e decidi come allenarti, vincere e diventare una leggenda.",
+    "pt": "Jogue Copero, o simulador de carreira de futebol grátis. Crie seu jogador, escolha um clube, decida seus treinos e transferências e construa sua história.",
+    "zh": "免费游玩 Copero 在线足球生涯模拟器，从十六岁的青年队球员开始，创建姓名、国籍和场上位置，选择虚构俱乐部，制定训练与转会计划。体验成长、伤病、进球和夺冠，直到退役查看生涯评分与赛季记录。无需注册或下载，支持中文，进度保存在当前浏览器，还能下载退役纪念卡，比较不同选择带来的职业生涯。",
+    "de": "Spiele Copero, den kostenlosen Fußball-Karrieresimulator. Erstelle deinen Spieler, wähle einen Verein und plane Training und Transfers bis zum Karriereende."
+  },
+  "/how-it-works": {
+    "es": "Descubre cómo funciona Copero: atributos, posiciones, entrenamientos, lesiones y traspasos. Consulta las reglas y aprende cómo se calcula tu legado final.",
+    "en": "Learn how Copero works, from position ratings and training to injuries, transfers and retirement. Explore the rules behind each season and your legacy score.",
+    "it": "Scopri come funziona Copero: attributi, ruoli, allenamento, infortuni e trasferimenti. Leggi le regole e capisci come viene calcolato il punteggio finale.",
+    "pt": "Entenda como o Copero funciona: atributos, posições, treinos, lesões e transferências. Veja as regras de cada temporada e o cálculo da pontuação de legado.",
+    "zh": "了解 Copero 足球生涯模拟器的完整规则，查看十种位置的能力权重、初始属性分配、青训俱乐部差异，以及训练、教练信任、伤病和转会如何影响每个赛季。阅读出场机会与退役评分的计算方式，理解从十六岁成长到三十八岁退役的过程。所有俱乐部与赛事均为虚构，规则说明帮助你依据实际游戏机制制定自己的生涯计划。",
+    "de": "Erfahre, wie Copero funktioniert: Positionswerte, Training, Verletzungen und Transfers. Lies die Spielregeln und verstehe die Berechnung deiner Karrierewertung."
+  },
+  "/guides": {
+    "es": "Explora las guías de Copero sobre posiciones, entrenamiento, decisiones, traspasos y retiro. Aprende a planear tu carrera de fútbol con ejemplos del juego.",
+    "en": "Explore Copero guides to player positions, training, transfers and retirement. Understand your choices and plan a football career with practical game advice.",
+    "it": "Esplora le guide di Copero su ruoli, allenamento, decisioni, trasferimenti e ritiro. Scopri le regole e pianifica la tua carriera calcistica passo dopo passo.",
+    "pt": "Explore os guias do Copero sobre posições, treinos, decisões, transferências e aposentadoria. Aprenda as regras e planeje sua carreira de futebol no jogo.",
+    "zh": "浏览 Copero 足球生涯攻略，了解新手创建球员、选择位置、安排训练、处理伤病、与教练沟通及把握转会机会的方法。结合游戏规则和可复现的模拟实验，比较不同青训与训练路线，理解出场数据、冠军记录和退役评分的关系。六篇主题指南帮助你逐步规划虚构球员的职业生涯，支持直接返回首页开始游戏并尝试自己的选择。",
+    "de": "Entdecke Copero-Guides zu Positionen, Training, Entscheidungen, Transfers und Karriereende. Lerne die Regeln und plane deine Laufbahn mit konkreten Spieltipps."
+  },
+  "/about": {
+    "es": "Conoce Copero, un juego gratuito de carrera futbolística con clubes ficticios y reglas originales. Descubre sus idiomas, partidas locales y cómo contactarnos.",
+    "en": "Meet Copero, a free football career game with fictional clubs and original rules. Learn about local saves, six supported languages and how to contact us.",
+    "it": "Conosci Copero, un gioco gratuito di carriera calcistica con club immaginari e regole originali. Scopri salvataggi locali, lingue disponibili e contatti.",
+    "pt": "Conheça o Copero, um jogo grátis de carreira no futebol com clubes fictícios e regras próprias. Saiba mais sobre idiomas, progresso local e como falar conosco.",
+    "zh": "认识 Copero 免费在线足球生涯模拟游戏，了解以单个虚构球员为核心的玩法、原创能力模型、青训成长与退役评价。网站支持西班牙语、英语、意大利语、葡萄牙语、简体中文和德语，游戏进度保存在本地浏览器，无需账号或付费。查看产品定位、现有功能与限制，以及联系支持团队的方式，了解这款独立足球互动娱乐游戏。",
+    "de": "Lerne Copero kennen: ein kostenloses Fußball-Karrierespiel mit fiktiven Vereinen und eigenen Regeln. Erfahre mehr über lokale Spielstände, Sprachen und Kontakt."
+  },
+  "/privacy-policy": {
+    "es": "Lee la política de privacidad de Copero: partidas guardadas, datos del navegador, Google Analytics y Plausible. Conoce el uso de cookies y tus controles.",
+    "en": "Read Copero's privacy policy for local game saves, browser data, Google Analytics and Plausible. Learn about cookies, result images and your privacy controls.",
+    "it": "Leggi la privacy di Copero: salvataggi locali, dati del browser, Google Analytics e Plausible. Scopri come usiamo i cookie e quali controlli puoi utilizzare.",
+    "pt": "Leia a política de privacidade do Copero: progresso local, dados do navegador, Google Analytics e Plausible. Entenda os cookies e seus controles de privacidade.",
+    "zh": "阅读 Copero 隐私政策，了解球员信息与赛季历史如何保存在浏览器，以及清除数据对游戏进度的影响。查看退役纪念卡本地生成、Cloudflare 托管请求、Google Analytics 和 Plausible 访问统计的说明，区分 Cookie 使用与无 Cookie 统计，了解隐私控制及联系支持的方法。",
+    "de": "Lies die Copero-Datenschutzerklärung zu lokalen Spielständen, Google Analytics und Plausible. Erfahre mehr über Cookies, Ergebnisbilder und deine Einstellungen."
+  },
+  "/terms": {
+    "es": "Consulta los términos de Copero: uso del juego gratuito, clubes ficticios, partidas locales y disponibilidad. Conoce las condiciones antes de crear tu carrera.",
+    "en": "Review Copero's terms for the free football career game, fictional results and local saves. Understand permitted use, availability and changes to game rules.",
+    "it": "Leggi i termini di Copero per il gioco gratuito di carriera calcistica. Scopri le condizioni su risultati immaginari, salvataggi locali e accesso al servizio.",
+    "pt": "Consulte os termos do Copero, o jogo grátis de carreira no futebol. Entenda o uso permitido, resultados fictícios, progresso local e disponibilidade do site.",
+    "zh": "查看 Copero 足球生涯模拟游戏的使用条款，了解免费游玩的条件、虚构俱乐部与赛事结果的娱乐性质，以及导出退役图片时的使用要求。阅读本地存档、浏览器存储、服务可用性和规则版本更新的说明，理解相同初始设置与完整选择如何复现生涯。条款同时说明原创内容、功能限制与进度恢复边界，帮助你在开始游戏前了解服务。",
+    "de": "Lies die Copero-Nutzungsbedingungen zum kostenlosen Fußballspiel. Erfahre mehr über fiktive Ergebnisse, lokale Spielstände, Verfügbarkeit und Regeländerungen."
+  },
+  "/guides/how-to-play-copero": {
+    "es": "Aprende a jugar Copero desde tu primera carrera. Crea un futbolista, elige posición y academia, reparte atributos y toma decisiones hasta llegar al retiro.",
+    "en": "Learn how to play Copero from your first season to retirement. Create a player, choose a position and academy, assign attributes and make career decisions.",
+    "it": "Impara a giocare a Copero dalla prima stagione al ritiro. Crea un calciatore, scegli ruolo e accademia, assegna gli attributi e decidi come farlo crescere.",
+    "pt": "Aprenda a jogar Copero da primeira temporada à aposentadoria. Crie seu atleta, escolha posição e academia, distribua atributos e tome decisões de carreira.",
+    "zh": "通过 Copero 新手攻略开启第一段足球生涯，了解如何创建虚拟球员、选择国籍与场上位置、分配六点可选属性，并比较三家虚构青训俱乐部的训练设施和出场机会。学习阅读赛季报告、安排训练、判断转会选择，直到退役查看完整评分。指南还说明本地存档与纪念卡下载，帮助你保留生涯记录，在相同设置下比较不同决策的效果。",
+    "de": "Lerne Copero von der ersten Saison bis zum Karriereende. Erstelle einen Spieler, wähle Position und Akademie, verteile Attribute und triff deine Entscheidungen."
+  },
+  "/guides/copero-positions": {
+    "es": "Compara las diez posiciones de Copero y sus atributos clave. Descubre cómo cambia el OVR y por qué defensas y porteros reciben una valoración diferente.",
+    "en": "Compare all ten Copero positions and their key attributes. Learn how positional OVR works, when to change roles and how defensive careers earn legacy points.",
+    "it": "Confronta i dieci ruoli di Copero e i loro attributi principali. Scopri il calcolo OVR, i cambi di posizione e come vengono valutati difensori e portieri.",
+    "pt": "Compare as dez posições do Copero e seus principais atributos. Entenda o cálculo de OVR, as mudanças de função e a avaliação de defensores e goleiros.",
+    "zh": "比较 Copero 中前锋、边锋、中场、后卫和门将等十种位置，了解速度、射门、传球、盘带、防守与身体属性如何按位置权重计算综合能力。阅读转变场上角色的规则、教练信任成本，以及防守型球员使用零封数据评价贡献的原因。通过具体机制选择适合自己计划的位置，避免只凭进球数量判断每个赛季的表现，规划球员的成长路线。",
+    "de": "Vergleiche alle zehn Copero-Positionen und ihre wichtigsten Attribute. Verstehe den OVR-Wert, Positionswechsel und die Bewertung von Verteidigern und Torhütern."
+  },
+  "/guides/copero-decisions": {
+    "es": "Mejora tus decisiones en Copero con esta guía de entrenamiento, confianza del entrenador, lesiones y recuperación. Evalúa riesgos antes de avanzar de temporada.",
+    "en": "Make informed Copero decisions about training, coach trust, injuries and recovery. Compare the risks of each option before advancing to your next season.",
+    "it": "Decidi meglio in Copero: confronta allenamento, fiducia del tecnico, infortuni e recupero. Valuta vantaggi e rischi prima di passare alla stagione successiva.",
+    "pt": "Tome decisões melhores no Copero sobre treinos, confiança do técnico, lesões e recuperação. Compare os riscos de cada opção antes de avançar a temporada.",
+    "zh": "了解 Copero 每个赛季的关键决策，比较高强度、均衡与恢复训练对成长、体能和受伤风险的影响，分析遵从教练计划、争取出场和调整位置的取舍。指南解释伤病康复与提前复出的区别，帮助你结合年龄、能力、士气和教练信任安排下一步。依据实际赛季报告逐项调整计划，在相同初始设置下比较选择，理解生涯结果背后的机制。",
+    "de": "Triff fundierte Copero-Entscheidungen zu Training, Trainervertrauen, Verletzungen und Erholung. Vergleiche Chancen und Risiken vor der nächsten Saison."
+  },
+  "/guides/copero-transfers": {
+    "es": "Entiende los traspasos de Copero: ofertas, nivel del club, minutos de juego y confianza del técnico. Compara tus opciones antes de cambiar de club.",
+    "en": "Understand Copero transfers, from offer requirements and club tiers to playing time and coach trust. Compare your options before moving to a new football club.",
+    "it": "Capisci i trasferimenti di Copero: requisiti delle offerte, livello dei club, minuti giocati e fiducia del tecnico. Confronta le opzioni prima di cambiare club.",
+    "pt": "Entenda as transferências do Copero: requisitos de ofertas, nível dos clubes, tempo de jogo e confiança do técnico. Compare as opções antes de mudar de equipe.",
+    "zh": "阅读 Copero 转会攻略，了解更高等级俱乐部报价的能力门槛，以及为争取更多出场时间而平级或降级转会的条件。比较训练设施、队内竞争、薪资记录与上场机会，理解转会后教练信任重置如何影响接下来的选择。所有俱乐部和报价均为虚构游戏参数，指南帮助你依据当前球员能力、体能和生涯阶段判断留队或离队的实际价值。",
+    "de": "Verstehe Copero-Transfers: Angebotsvoraussetzungen, Vereinsstufen, Spielzeit und Trainervertrauen. Vergleiche deine Optionen vor einem Vereinswechsel."
+  },
+  "/guides/copero-legacy-score": {
+    "es": "Descubre cómo se calcula el legado en Copero: pico de OVR, aportación, títulos, regularidad y duración. Consulta los puntos y los cinco finales de carrera.",
+    "en": "Understand your Copero legacy score: peak ability, role contribution, trophies, consistency and career length. See the points behind five retirement endings.",
+    "it": "Scopri il punteggio finale di Copero: abilità massima, contributo, trofei, costanza e durata. Consulta i punti e le soglie dei cinque finali di carriera.",
+    "pt": "Entenda a pontuação de legado do Copero: auge, contribuição, títulos, regularidade e duração da carreira. Veja os pontos e os cinco finais de aposentadoria.",
+    "zh": "了解 Copero 退役生涯评分的五项组成：巅峰能力、位置贡献、团队荣誉、出场稳定性与职业生涯长度。查看各项分值上限、进攻与防守角色的不同贡献指标，以及从未尽潜力到足球传奇的五种结局门槛。指南解释评分如何依据实际赛季记录汇总，并说明退役纪念卡的内容和保存方式，帮助你分析自己的生涯表现，再尝试新的发展路线。",
+    "de": "Verstehe deine Copero-Karrierewertung: Spitzenleistung, Beitrag, Titel, Konstanz und Dauer. Erfahre, wie die Punkte und fünf Karriereenden berechnet werden."
+  },
+  "/guides/copero-training-strategy": {
+    "es": "Compara nueve carreras de Copero con tres academias y tres planes de entrenamiento. Revisa resultados, semilla y límites de un experimento reproducible.",
+    "en": "Compare nine Copero careers across three academies and training plans. Explore simulated results, the exact seed and the limits of this reproducible experiment.",
+    "it": "Confronta nove carriere di Copero con tre accademie e tre piani di allenamento. Consulta risultati, seme e limiti di un esperimento riproducibile nel gioco.",
+    "pt": "Compare nove carreiras do Copero em três academias e três planos de treino. Confira resultados simulados, semente e limites de um experimento reproduzível.",
+    "zh": "查看 Copero 九组可复现的足球生涯实验，在相同初始球员与随机种子下，比较三家青训俱乐部和三种训练方案的结果。阅读巅峰能力、出场、进球、伤病与退役评分等实际模拟数据，理解训练设施、比赛机会和恢复安排之间的取舍。攻略公开实验设置、运行规则与适用限制，帮助你复现实验并制定自己的训练计划，不承诺固定夺冠结果。",
+    "de": "Vergleiche neun Copero-Karrieren mit drei Akademien und Trainingsplänen. Prüfe simulierte Ergebnisse, Startwert und Grenzen des reproduzierbaren Experiments."
+  }
+}

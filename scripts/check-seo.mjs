@@ -8,7 +8,7 @@ const {guides}=sourceModule('data/guides.ts')
 const origin='https://copero.pro',languages={es:'es',en:'en',it:'it',pt:'pt',zh:'zh-Hans',de:'de'}
 const files=directory=>fs.readdirSync(directory).flatMap(item=>{const file=path.join(directory,item);return fs.statSync(file).isDirectory()?files(file):[file]})
 const htmlFiles=['out/index.html',...files('out').filter(file=>/out\/(es|en|it|pt|zh|de)(?:\/|\.html)/.test(file)&&file.endsWith('.html')&&file!=='out/es.html')]
-const indexable=[];let localLinks=0
+const indexable=[],descriptions=[];let localLinks=0
 for(const file of htmlFiles){
  const html=fs.readFileSync(file,'utf8'),head=html.match(/<head>([\s\S]*?)<\/head>/)?.[1]||'',visible=html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/g,'')
  const route=file==='out/index.html'?'/':'/'+file.slice(4,-5),locale=route==='/'?'es':route.split('/')[1],contentPath=route==='/'?'/':route.replace(/^\/(es|en|it|pt|zh|de)/,'')||'/'
@@ -29,7 +29,13 @@ for(const file of htmlFiles){
  assert.equal(head.match(/property="og:url" content="([^"]+)"/)?.[1],canonical)
  for(const [lang,tag]of Object.entries(languages))assert.ok(head.includes(`hrefLang="${tag}" href="${publicUrl(localizedPath(contentPath,lang))}"`),`Missing alternate ${tag}: ${file}`)
  assert.ok(head.includes(`hrefLang="x-default" href="${publicUrl(localizedPath(contentPath,'es'))}"`))
- if(!html.includes('noindex'))indexable.push(canonical)
+ if(!html.includes('noindex')){
+  indexable.push(canonical)
+  const description=(head.match(/name="description" content="([^"]*)"/)?.[1]||'').replace(/&(amp|quot|apos|lt|gt|#x[\da-f]+|#\d+);/gi,(_,entity)=>entity[0]==='#'?String.fromCodePoint(entity[1].toLowerCase()==='x'?parseInt(entity.slice(2),16):parseInt(entity.slice(1),10)):({amp:'&',quot:'"',apos:"'",lt:'<',gt:'>'})[entity.toLowerCase()])
+  const length=Array.from(description).length
+  assert.ok(length>=140&&length<=160,`Description must be 140–160 characters: ${file} (${length})`)
+  descriptions.push(description)
+ }
  for(const [,body]of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)){
   const schema=JSON.parse(body);assert.ok(schema['@context']);assert.ok(!body.includes('aggregateRating'))
   if(body.includes('inLanguage'))assert.ok(body.includes(`"inLanguage":"${languages[locale]}"`))
@@ -47,6 +53,7 @@ const sitemap=fs.readFileSync('out/sitemap.xml','utf8')
 assert.ok(!sitemap.includes('/career'))
 assert.equal(indexable.length,Object.keys(languages).length*(6+guides.length))
 assert.equal((sitemap.match(/<loc>/g)||[]).length,indexable.length)
+assert.equal(new Set(descriptions).size,descriptions.length,'Duplicate meta descriptions')
 for(const url of indexable)assert.ok(sitemap.includes(`<loc>${url}</loc>`),`Missing sitemap URL ${url}`)
 for(const locale of Object.keys(languages)){
  const career=fs.readFileSync(`out/${locale}/career.html`,'utf8')
