@@ -1,5 +1,5 @@
 import type { Attributes, Position } from './types'
-export const RULE_VERSION = '1.0'
+export const RULE_VERSION = '1.1'
 export const BONUS_POINTS = 6
 export const MAX_AGE = 38
 export const NATIONALITIES = ['Argentina', 'Brazil', 'England', 'France', 'Germany', 'Italy', 'Japan', 'Mexico', 'Morocco', 'Netherlands', 'Nigeria', 'Portugal', 'South Korea', 'Spain', 'United States', 'Uruguay']

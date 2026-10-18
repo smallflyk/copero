@@ -6,10 +6,11 @@ import CreatePlayer from '@/components/CreatePlayer'
 import { homeFaq } from '@/data/site'
 import { jsonLd } from '@/lib/seo'
 import { createCareer, defaultDecision, nextSeason } from '@/lib/game/engine'
+import {seasonStory} from '@/lib/game/stories'
 import { ZERO_BONUSES } from '@/lib/game/rules'
 import {getGuides} from '@/data/localized-content'
 let sample=createCareer({name:'Alex Rivera',nationality:'England',position:'CM',preferredFoot:'Right',jerseyNumber:8,bonuses:{...ZERO_BONUSES,passing:4,physical:2},seed:'copero-sample',clubId:'riverside'})
-for(let year=0;year<5;year++)sample=nextSeason(sample,defaultDecision(sample))
+for(let year=0;year<5;year++)sample=nextSeason(sample,{...defaultDecision(sample),story:seasonStory(sample).choices[0].id})
 export default function Home({locale}:{locale:Locale}) {const guides=getGuides(locale);return localize(<>
  <script type="application/ld+json" dangerouslySetInnerHTML={{__html:jsonLd(homeSchema(locale))}}/>
  <section className="hero-game container" id="create-player" aria-labelledby="game-title"><CreatePlayer/></section>

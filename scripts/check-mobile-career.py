@@ -1,5 +1,5 @@
 """Responsive game regression using a valid saved-season fixture in isolated contexts."""
-import json,os
+import json,os,re
 from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
 base=os.environ.get('COPERO_BASE_URL','http://localhost:3000').rstrip('/')
@@ -7,8 +7,9 @@ artifacts=Path(os.environ.get('COPERO_ARTIFACT_DIR','/tmp/copero-mobile-career')
 fixture=(Path(__file__).resolve().parent.parent/'tests/fixtures/mobile-season.json').read_text()
 exe=os.environ.get('PLAYWRIGHT_CHROMIUM_EXECUTABLE');measurements=[];errors=[]
 with sync_playwright() as p:
- b=p.chromium.launch(headless=True,args=['--no-proxy-server'] if os.environ.get('COPERO_BROWSER_DIRECT')=='1' else [],**({'executable_path':exe} if exe else {}))
- c=b.new_context(viewport={'width':390,'height':844},has_touch=True,is_mobile=True,accept_downloads=True)
+ b=p.chromium.launch(headless=True,args=['--no-proxy-server','--disable-quic','--disable-http2'] if os.environ.get('COPERO_BROWSER_DIRECT')=='1' else [],**({'executable_path':exe} if exe else {}))
+ c=b.new_context(reduced_motion='reduce',viewport={'width':390,'height':844},has_touch=True,is_mobile=True,accept_downloads=True)
+ c.route(re.compile(r'https://(www\.googletagmanager\.com|www\.google-analytics\.com|plausible\.io)/'),lambda route:route.fulfill(status=200,body=''))
  c.add_init_script('if(!localStorage.getItem("copero.career.v1"))localStorage.setItem("copero.career.v1",'+json.dumps(fixture)+')')
  page=c.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.on('console',lambda m:errors.append(m.text) if m.type=='error' else None)
  def settle():
@@ -35,9 +36,13 @@ with sync_playwright() as p:
    assert footer['y']+footer['height']<=bar['y']+2,('footer obscured',locale,width)
    measurements.append({'locale':locale,'width':width,'height':height,'careerHeight':round(page.locator('.career-page').bounding_box()['height'])})
   page.set_viewport_size({'width':390,'height':844});settle()
-  page.locator('.season-actions-review').click();page.wait_for_function('document.querySelector(".decision-panel").getBoundingClientRect().top>=0 && document.querySelector(".decision-panel").getBoundingClientRect().top<100')
+  page.locator('.season-actions-review').click();page.wait_for_function('document.querySelector("#story-decision").getBoundingClientRect().top>=0 && document.querySelector("#story-decision").getBoundingClientRect().top<100')
   page.locator('.decision-card').first.click();expect(page.locator('.decision-card').first).to_have_attribute('aria-pressed','true')
   assert page.locator('.mobile-training-help').inner_text()
+  expect(page.locator('.next-season')).to_be_disabled()
+  page.locator('.story-option').first.focus();page.keyboard.press('Enter')
+  expect(page.locator('.story-option').first).to_have_attribute('aria-pressed','true')
+  expect(page.locator('.next-season')).to_be_enabled()
   expect(page.locator('.season-actions-review strong')).to_have_text(page.locator('.decision-card').first.locator('span').text_content())
   # Keyboard-operable disclosures; content and retirement remain available.
   page.locator('.career-report>summary').focus();page.keyboard.press('Enter');expect(page.locator('.attribute-report')).to_be_visible()
@@ -67,6 +72,7 @@ with sync_playwright() as p:
  page.locator('.decision-card').first.focus();page.evaluate('scrollTo({top:0,behavior:"instant"})');recovery.focus()
  page.wait_for_function('document.querySelector("select:has(option[value=early])").getBoundingClientRect().bottom<=document.querySelector(".season-actions").getBoundingClientRect().top')
  assert recovery.bounding_box()['y']+recovery.bounding_box()['height']<=page.locator('.season-actions').bounding_box()['y'], 'focused recovery select must not be covered by dock'
+ page.locator('.story-option').first.click()
  page.evaluate('()=>{const b=document.querySelector(".next-season");b.click();b.click()}')
  expect(page.locator('.next-season')).to_be_disabled()
  page.wait_for_function('JSON.parse(localStorage.getItem("copero.career.v1")).history.length===6');settle()
@@ -77,6 +83,7 @@ with sync_playwright() as p:
  assert page.locator('.latest-season').bounding_box()['y']>=0
  fixed();page.reload();settle();assert saved()==state
  for n in range(7,23):
+  page.locator('.story-option').nth(n%3).click()
   page.locator('.next-season').click();page.wait_for_function('(n)=>JSON.parse(localStorage.getItem("copero.career.v1")).history.length===n',arg=n)
   if n<22:fixed()
  expect(page.locator('.result-card')).to_be_visible();settle()

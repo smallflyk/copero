@@ -1,5 +1,6 @@
 import { academies, clubs, getClub } from '../../data/clubs'
-import { ATTRIBUTE_KEYS, POSITIONS, type Attributes, type CareerResult, type Decision, type GameState, type PlayerConfig, type Position, type Season } from './types'
+import { ATTRIBUTE_KEYS, POSITIONS, type Attributes, type CareerResult, type Decision, type GameState, type PlayerConfig, type Position, type Season, type ClubOffer } from './types'
+import {seasonStory,storyChoice} from './stories'
 import { BONUS_POINTS, MAX_AGE, NATIONALITIES, TEMPLATES, WEIGHTS } from './rules'
 
 export const clamp = (value: number, min=1, max=99) => Math.min(max, Math.max(min, value))
@@ -29,11 +30,21 @@ export function transferOffers(state: GameState): { bigger?: string; minutes?: s
  return { bigger:bigger?.id,minutes:minutes?.id }
 }
 export function defaultDecision(state: GameState): Decision { return { training:'balanced',relationship:'follow',transfer:'stay',...(state.player.injuryStatus!=='healthy'?{recovery:'full' as const}:{}) } }
+function selection(opportunity:number,ovr:number,competition:number,trust:number,morale:number) {return clamp((opportunity+(ovr-competition)*.85+(trust-50)*.25+(morale-50)*.1)/100,.12,.98)}
+export function clubOffers(state:GameState):ClubOffer[] {
+ const current=getClub(state.player.clubId),p=state.player,ovr=overall(p.attributes,p.position),offers=transferOffers(state)
+ return (['stay','bigger','minutes'] as const).flatMap(kind=>{
+  const id=kind==='stay'?current.id:offers[kind];if(!id)return []
+  const club=getClub(id),trust=kind==='stay'?p.coachTrust:50
+  return [{kind,clubId:id,salary:kind==='stay'&&p.contract&&p.contract.yearsLeft>0?p.contract.salary:Math.round(club.salary*(.8+ovr/100)),years:kind==='stay'&&p.contract&&p.contract.yearsLeft>0?p.contract.yearsLeft:kind==='bigger'?3:2,projectedApps:Math.round(44*selection(club.opportunity,ovr,club.competition,trust,p.morale)*.94),quality:club.quality,competition:club.competition,trust,upside:kind==='bigger'?'Stronger facilities and a bigger stage.':kind==='minutes'?'More room to compete for regular matches.':'Keep your existing coach relationship.',tradeoff:kind==='bigger'?'More competition; your coach trust resets to 50.':kind==='minutes'?'Facilities and trophy chances may be lower; trust resets to 50.':'Your current facilities and competition stay the same.'}]
+ })
+}
 function validateDecision(state: GameState, decision: Decision) {
  if (!decision || !['intensive','balanced','recovery'].includes(decision.training) || !['follow','ask','position'].includes(decision.relationship) || !['stay','bigger','minutes'].includes(decision.transfer)) throw new Error('Complete the season decisions before continuing.')
  if (state.player.injuryStatus==='healthy' && decision.recovery!==undefined) throw new Error('Rehabilitation is only available while injured.')
  if (state.player.injuryStatus!=='healthy' && !['full','early'].includes(decision.recovery || '')) throw new Error('Choose an injury recovery plan.')
  if (decision.transfer!=='stay' && !transferOffers(state)[decision.transfer]) throw new Error('That transfer offer is not available this season.')
+ storyChoice(state,decision.story)
 }
 const goalRate: Record<Position,number>={ ST:.61,LW:.36,RW:.36,CAM:.24,CM:.12,CDM:.055,LB:.035,RB:.035,CB:.025,GK:0 }
 const assistRate: Record<Position,number>={ ST:.12,LW:.26,RW:.26,CAM:.38,CM:.29,CDM:.15,LB:.18,RB:.18,CB:.035,GK:.006 }
@@ -42,12 +53,22 @@ export function nextSeason(state: GameState, decision: Decision): GameState {
  if (state.status!=='playing' || state.player.age>=MAX_AGE) throw new Error('This career is already complete.')
  validateDecision(state,decision)
  const rng=generator(state.rng), player={ ...state.player,attributes:{...state.player.attributes} }, events: string[]=[]
+ const chosenStory=storyChoice(state,decision.story),effect=chosenStory?.effect
+ const before={fitness:player.fitness,morale:player.morale,coachTrust:player.coachTrust,ovr:overall(player.attributes,player.position)}
+ const contract=clubOffers(state).find(item=>item.kind===decision.transfer)!
  const startingOvr=overall(player.attributes,player.position)
  const offer=decision.transfer==='stay'?undefined:transferOffers(state)[decision.transfer]
  if (offer) { const previous=getClub(player.clubId); player.clubId=offer;player.coachTrust=50;events.push(`Transferred from ${previous.name} to ${getClub(offer).name}.`) }
+ if(chosenStory){
+  player.contract={salary:contract.salary,yearsLeft:contract.years}
+  player.fitness=clamp(player.fitness+(effect?.fitness??0));player.morale=clamp(player.morale+(effect?.morale??0));player.coachTrust=clamp(player.coachTrust+(effect?.coachTrust??0))
+  if(effect?.attribute)player.attributes[effect.attribute]=clamp(Math.min(player.potential,player.attributes[effect.attribute]+(effect.points??0)))
+  events.push('Story decision recorded in your season review.')
+ }
  const club=getClub(player.clubId)
+ let coachRole=0
  if (decision.relationship==='follow') { player.coachTrust=clamp(player.coachTrust+9); player.morale=clamp(player.morale+3) }
- if (decision.relationship==='ask') { const success=startingOvr>=club.competition-6;player.coachTrust=clamp(player.coachTrust+(success?3:-10));player.morale=clamp(player.morale+(success?9:-6));events.push(success?'Your coach accepted a larger role.':'Your request for minutes strained the coach relationship.') }
+ if (decision.relationship==='ask') { const success=startingOvr>=club.competition-6;if(chosenStory&&success)coachRole=.08;player.coachTrust=clamp(player.coachTrust+(success?3:-10));player.morale=clamp(player.morale+(success?9:-6));events.push(success?'Your coach accepted a larger role.':'Your request for minutes strained the coach relationship.') }
  if (decision.relationship==='position') { const previous=player.position;player.position=adjacent[previous];player.coachTrust=clamp(player.coachTrust-5);events.push(previous===player.position?'The coach kept you in goal to develop your specialist role.':`Changed position from ${previous} to ${player.position}; a new role changes your rating weights.`) }
  const fatigue=decision.training==='intensive'?22:decision.training==='balanced'?10:-12
  player.fitness=clamp(player.fitness-fatigue+(player.age<28?7:2))
@@ -59,7 +80,7 @@ export function nextSeason(state: GameState, decision: Decision): GameState {
  player.injuryStatus=injuryRoll<injuryRisk*.22?'major':injuryRoll<injuryRisk?'minor':'healthy'
  if (player.injuryStatus!=='healthy') { availability*=player.injuryStatus==='major'?.5:.79;player.fitness=clamp(player.fitness-(player.injuryStatus==='major'?24:12));events.push(`${player.injuryStatus==='major'?'Major':'Minor'} injury reduced your available matches.`) }
  const ovr=overall(player.attributes,player.position)
- const role=clamp((club.opportunity+(ovr-club.competition)*.85+(player.coachTrust-50)*.25+(player.morale-50)*.1)/100,.12,.98)
+ const role=clamp(selection(club.opportunity,ovr,club.competition,player.coachTrust,player.morale)+(effect?.role??0)+coachRole,.12,.98)
  const appearances=Math.round(clamp(44*role*availability*(.85+rng.next()*.18),0,44))
  const form=.75+rng.next()*.5, skill=.45+ovr/100
  const goals=Math.round(clamp(appearances*goalRate[player.position]*skill*form,0,Math.min(50,appearances*2)))
@@ -72,7 +93,8 @@ export function nextSeason(state: GameState, decision: Decision): GameState {
  const ageFactor=player.age<=22?1.65:player.age<=26?1.1:player.age<=29?.6:player.age<=32?.08:-.55-(player.age-33)*.13
  for (const key of ATTRIBUTE_KEYS) {
   const capacity=Math.max(0,(player.potential-player.attributes[key])/12)
-  const baseGrowth=ageFactor>0?ageFactor*trainingFactor*capacity*(.55+club.quality/120)*(availability*.65+.35):ageFactor
+  const experience=chosenStory ? .75+appearances/44*.5 : 1
+  const baseGrowth=ageFactor>0?ageFactor*trainingFactor*capacity*(.55+club.quality/120)*(availability*.65+.35)*(effect?.growth??1)*experience:ageFactor
   const relevant=WEIGHTS[player.position][key]>.15?1:.58
   const growth=Math.round(baseGrowth*relevant+(rng.next()-.5)*1.3-(decision.recovery==='early'?.3:0))
   player.attributes[key]=clamp(Math.min(player.potential,player.attributes[key]+growth))
@@ -87,6 +109,11 @@ export function nextSeason(state: GameState, decision: Decision): GameState {
  if(cleanSheets>0 && state.history.every((season)=>season.cleanSheets===0)) events.push('First recorded clean sheet: a defensive milestone.')
  const summary=`${appearances} appearances at ${club.name}. ${decision.training==='intensive'?'Intensive work traded fitness for growth.':decision.training==='recovery'?'Recovery training prioritised fitness over growth.':'Balanced training supported steady development.'} ${club.opportunity<50?'Strong facilities came with competition for minutes.':'Playing opportunity helped build experience.'} Rating ${endOvr>=startingOvr?'+':''}${endOvr-startingOvr}.`
  const season: Season={number:state.history.length+1,age:player.age,clubId:player.clubId,position:player.position,ovr,endOvr,appearances,goals,assists,cleanSheets,standing,trophies,marketValue,salary:Math.round(club.salary*(.8+endOvr/100)),fitness:player.fitness,morale:player.morale,injury:player.injuryStatus,summary,decision:{...decision},events}
+ if(chosenStory){
+  season.salary=contract.salary
+  season.review={before,after:{fitness:player.fitness,morale:player.morale,coachTrust:player.coachTrust,ovr:endOvr},expectedApps:contract.projectedApps,fromClubId:state.player.clubId,story:{eventId:seasonStory(state).id,title:seasonStory(state).title,choiceId:chosenStory.id,label:chosenStory.label,effect:{...chosenStory.effect}},bonus:effect?.bonus??0}
+  player.contract={salary:contract.salary,yearsLeft:Math.max(0,contract.years-1)}
+ }
  player.age+=1
  return {...state,player,rng:rng.state(),history:[...state.history,season],status:player.age>=MAX_AGE?'retired':'playing'}
 }

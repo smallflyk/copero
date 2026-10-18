@@ -505,3 +505,17 @@ meter::-moz-meter-bar{background:var(--green)}
 @media(max-width:620px){.hero-game{padding-block:16px 28px}
 .hero-game .workbench-heading h1{font-size:2rem}
 }
+
+/* Compact decision disclosures keep the next-season action within reach on mobile. */
+.story-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:14px 0}
+.story-option{background:var(--surface,#173e31);color:inherit;border:1px solid #70876c;border-radius:6px;padding:14px 12px;text-align:left;font:inherit;font-weight:600;min-height:58px;cursor:pointer;overflow-wrap:anywhere}
+.story-option.selected{border-color:#d5ec80;background:#d5ec80;color:#143728}
+.story-option:focus-visible{outline:3px solid #f4f5e9;outline-offset:3px}
+.story-option:disabled{cursor:wait;opacity:.65}
+.choice-detail{padding:16px;background:rgba(195,221,166,.065);border-left:3px solid #b6ce7b;margin:12px 0}
+.choice-detail p{margin:8px 0}.effect-list{display:flex;gap:6px;flex-wrap:wrap;list-style:none;padding:0;margin:10px 0}.effect-list li{padding:5px 8px;border:1px solid #63775b;border-radius:4px;font-size:.8rem}
+.offer-detail dl,.review-changes,.record-highlights{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:12px 0}.offer-detail dt,.review-changes dt,.record-highlights dt{font-size:.75rem;color:#c1d0b9}.offer-detail dd,.review-changes dd,.record-highlights dd{margin:4px 0;font-weight:600}.review-changes{grid-template-columns:repeat(2,minmax(0,1fr))}.review-changes strong{font-size:.8rem}
+.offer-comparison summary,.season-feedback summary,.career-timeline details summary{cursor:pointer;padding:12px 0;font-weight:600;min-height:44px}.offer-comparison table{min-width:570px}.season-feedback{border-top:1px solid #63775b;margin-top:16px}.season-feedback h3{font-size:1.05rem}
+.club-stints{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0}.club-stints article{border:1px solid #63775b;border-radius:6px;padding:16px}.club-stints h3{margin-top:0}.record-highlights{grid-template-columns:repeat(2,minmax(0,1fr))}.record-highlights dd{font-size:1.6rem}.retirement-record li{margin:8px 0}
+@media(max-width:760px){.story-options{grid-template-columns:1fr}.story-option{min-height:44px;padding:10px 12px;font-size:.85rem}.choice-detail{padding:12px}.offer-detail dl{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.club-stints{grid-template-columns:1fr}.record-highlights dd{font-size:1.15rem}.season-feedback p{font-size:.85rem}.effect-list li{font-size:.72rem}}
+.offer-breakdown summary,.effects-help summary{cursor:pointer;min-height:44px;padding:9px 0;font-size:.8rem}.effects-help p{margin:4px 0 10px}.offer-quote{font-size:.85rem;color:#d5ec80}.season-feedback summary small{display:block;font-weight:400;font-size:.8rem;color:#c1d0b9}

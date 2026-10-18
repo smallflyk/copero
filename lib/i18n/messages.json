@@ -3904,5 +3904,628 @@
     "pt": "O Copero também usa o Plausible Analytics para estatísticas agregadas de visitas, incluindo páginas visitadas, sites de origem, navegador, tipo de dispositivo e país aproximado. O Plausible não usa cookies nem acessa sua carreira salva. Isso não altera o uso separado de cookies pelo Google Analytics descrito acima. Não enviamos nomes de jogadores, carreiras salvas ou históricos de temporadas como dados analíticos personalizados.",
     "zh": "Copero 还使用 Plausible Analytics 统计汇总访问数据，包括访问页面、来源网站、浏览器、设备类型和大致所在国家。Plausible 不使用 Cookie，也不会读取你的生涯存档。这不改变上文说明的 Google Analytics 独立使用 Cookie 的情况。我们不会将球员姓名、生涯存档或赛季历史作为自定义统计数据发送。",
     "de": "Copero verwendet zusätzlich Plausible Analytics für zusammengefasste Besuchsstatistiken, etwa besuchte Seiten, verweisende Websites, Browser, Gerätetyp und ungefähres Land. Plausible verwendet keine Cookies und greift nicht auf deinen Spielstand zu. Dies ändert nichts an der oben beschriebenen separaten Cookie-Nutzung durch Google Analytics. Wir senden keine Spielernamen, Spielstände oder Saisonverläufe als benutzerdefinierte Analysedaten."
+  },
+  "Your decision this season": {
+    "es": "Tu decisión de esta temporada",
+    "it": "La tua decisione stagionale",
+    "pt": "Sua decisão nesta temporada",
+    "zh": "本赛季的抉择",
+    "de": "Deine Entscheidung dieser Saison"
+  },
+  "Choose one story option to play the next season.": {
+    "es": "Elige una opción de la historia para jugar la siguiente temporada.",
+    "it": "Scegli un’opzione della storia per giocare la prossima stagione.",
+    "pt": "Escolha uma opção da história para jogar a próxima temporada.",
+    "zh": "选择一项剧情决策后即可推进下一赛季。",
+    "de": "Wähle eine Handlungsoption für die nächste Saison."
+  },
+  "Choose story": {
+    "es": "Elige una opción",
+    "it": "Scegli un’opzione",
+    "pt": "Escolha uma opção",
+    "zh": "选择剧情",
+    "de": "Entscheidung wählen"
+  },
+  "Effects apply before the season, within attribute and condition limits. Selection and development modifiers last one season. Injuries and results still vary.": {
+    "es": "Los efectos se aplican antes de la temporada, respetando los límites de atributos y estado. Los modificadores de selección y desarrollo duran una temporada. Las lesiones y los resultados siguen siendo variables.",
+    "it": "Gli effetti si applicano prima della stagione, entro i limiti di attributi e condizione. I modificatori di impiego e sviluppo durano una stagione. Infortuni e risultati restano variabili.",
+    "pt": "Os efeitos se aplicam antes da temporada, respeitando os limites de atributos e condição. Modificadores de escalação e desenvolvimento duram uma temporada. Lesões e resultados ainda variam.",
+    "zh": "效果在赛季开始前生效，受属性与状态上下限约束。出场和成长修正仅持续一个赛季，伤病与比赛结果仍有波动。",
+    "de": "Effekte gelten vor Saisonbeginn innerhalb der Attribut- und Zustandsgrenzen. Einsatz- und Entwicklungsmodifikatoren gelten eine Saison. Verletzungen und Ergebnisse schwanken weiterhin."
+  },
+  "Selection this season": {
+    "es": "Selección esta temporada",
+    "it": "Impiego in questa stagione",
+    "pt": "Escalação nesta temporada",
+    "zh": "本赛季出场机会",
+    "de": "Einsatzchance diese Saison"
+  },
+  "percentage points": {
+    "es": "puntos porcentuales",
+    "it": "punti percentuali",
+    "pt": "pontos percentuais",
+    "zh": "个百分点",
+    "de": "Prozentpunkte"
+  },
+  "Development this season": {
+    "es": "Desarrollo esta temporada",
+    "it": "Sviluppo in questa stagione",
+    "pt": "Desenvolvimento nesta temporada",
+    "zh": "本赛季成长",
+    "de": "Entwicklung diese Saison"
+  },
+  "One-off bonus": {
+    "es": "Prima única",
+    "it": "Bonus una tantum",
+    "pt": "Bônus único",
+    "zh": "一次性奖金",
+    "de": "Einmaliger Bonus"
+  },
+  "Stay": {
+    "es": "Quedarse",
+    "it": "Restare",
+    "pt": "Ficar",
+    "zh": "留队",
+    "de": "Bleiben"
+  },
+  "Annual salary": {
+    "es": "Salario anual",
+    "it": "Stipendio annuo",
+    "pt": "Salário anual",
+    "zh": "年薪",
+    "de": "Jahresgehalt"
+  },
+  "Contract years remaining": {
+    "es": "Años de contrato restantes",
+    "it": "Anni di contratto rimanenti",
+    "pt": "Anos restantes de contrato",
+    "zh": "合同剩余年限",
+    "de": "Verbleibende Vertragsjahre"
+  },
+  "Estimated appearances": {
+    "es": "Partidos estimados",
+    "it": "Presenze stimate",
+    "pt": "Jogos estimados",
+    "zh": "预计出场",
+    "de": "Geschätzte Einsätze"
+  },
+  "Actual appearances": {
+    "es": "Partidos jugados",
+    "it": "Presenze effettive",
+    "pt": "Jogos disputados",
+    "zh": "实际出场",
+    "de": "Tatsächliche Einsätze"
+  },
+  "Competition level": {
+    "es": "Nivel de competencia",
+    "it": "Livello della concorrenza",
+    "pt": "Nível da concorrência",
+    "zh": "队内竞争水平",
+    "de": "Konkurrenzniveau"
+  },
+  "Coach trust on arrival": {
+    "es": "Confianza del técnico al llegar",
+    "it": "Fiducia del tecnico all’arrivo",
+    "pt": "Confiança do técnico na chegada",
+    "zh": "加盟时教练信任",
+    "de": "Trainervertrauen bei Ankunft"
+  },
+  "Compare all club offers": {
+    "es": "Comparar todas las ofertas",
+    "it": "Confronta tutte le offerte",
+    "pt": "Comparar todas as propostas",
+    "zh": "比较所有俱乐部报价",
+    "de": "Alle Vereinsangebote vergleichen"
+  },
+  "Stronger facilities and a bigger stage.": {
+    "es": "Mejores instalaciones y un escenario mayor.",
+    "it": "Strutture migliori e un palcoscenico più grande.",
+    "pt": "Melhores instalações e um palco maior.",
+    "zh": "更好的训练设施与更高的舞台。",
+    "de": "Bessere Einrichtungen und eine größere Bühne."
+  },
+  "More room to compete for regular matches.": {
+    "es": "Más oportunidades para jugar con regularidad.",
+    "it": "Più spazio per giocare con regolarità.",
+    "pt": "Mais espaço para disputar jogos regularmente.",
+    "zh": "更多争取稳定出场的空间。",
+    "de": "Mehr Chancen auf regelmäßige Einsätze."
+  },
+  "Keep your existing coach relationship.": {
+    "es": "Conserva tu relación con el técnico.",
+    "it": "Mantieni il rapporto con il tecnico.",
+    "pt": "Mantenha a relação com o técnico.",
+    "zh": "延续已有的教练关系。",
+    "de": "Behalte deine Beziehung zum Trainer."
+  },
+  "More competition; your coach trust resets to 50.": {
+    "es": "Más competencia; la confianza del técnico vuelve a 50.",
+    "it": "Più concorrenza; la fiducia del tecnico riparte da 50.",
+    "pt": "Mais concorrência; a confiança do técnico volta a 50.",
+    "zh": "竞争更激烈；教练信任重置为50。",
+    "de": "Mehr Konkurrenz; das Trainervertrauen wird auf 50 gesetzt."
+  },
+  "Facilities and trophy chances may be lower; trust resets to 50.": {
+    "es": "Las instalaciones y las opciones de títulos pueden ser inferiores; la confianza vuelve a 50.",
+    "it": "Strutture e possibilità di vincere trofei possono essere inferiori; la fiducia riparte da 50.",
+    "pt": "Instalações e chances de títulos podem ser inferiores; a confiança volta a 50.",
+    "zh": "训练设施和夺冠机会可能下降；教练信任重置为50。",
+    "de": "Einrichtungen und Titelchancen können geringer sein; Vertrauen startet bei 50."
+  },
+  "Your current facilities and competition stay the same.": {
+    "es": "Se mantienen las instalaciones y la competencia actuales.",
+    "it": "Strutture e concorrenza attuali restano invariate.",
+    "pt": "Instalações e concorrência atuais permanecem iguais.",
+    "zh": "现有训练设施与队内竞争保持不变。",
+    "de": "Deine Einrichtungen und die Konkurrenz bleiben gleich."
+  },
+  "Estimates use your current rating, morale and coach relationship before training, injuries and story effects. They are not guaranteed matches. Contracts fix salary; transfers remain available each window.": {
+    "es": "Las estimaciones usan tu valoración, moral y relación con el técnico antes del entrenamiento, las lesiones y la historia. No garantizan partidos. El contrato fija el salario; puedes cambiar de club en cada mercado.",
+    "it": "Le stime usano valutazione, morale e rapporto con il tecnico prima di allenamento, infortuni e storia. Non garantiscono presenze. Il contratto fissa lo stipendio; i trasferimenti restano disponibili a ogni mercato.",
+    "pt": "Estimativas usam sua avaliação, moral e relação com o técnico antes de treinos, lesões e história. Não garantem jogos. O contrato fixa o salário; transferências continuam disponíveis em cada janela.",
+    "zh": "预测基于训练、伤病和剧情生效前的当前评分、士气与教练关系，不保证实际出场次数。合同锁定年薪；每个转会窗口仍可转会。",
+    "de": "Schätzungen beruhen auf aktueller Bewertung, Moral und Trainerbeziehung vor Training, Verletzungen und Handlungseffekten. Einsätze sind nicht garantiert. Verträge fixieren das Gehalt; Wechsel bleiben in jedem Fenster möglich."
+  },
+  "Decisions & consequences": {
+    "es": "Decisiones y consecuencias",
+    "it": "Decisioni e conseguenze",
+    "pt": "Decisões e consequências",
+    "zh": "决策与后果",
+    "de": "Entscheidungen und Folgen"
+  },
+  "Chosen effects above; total season changes below include training, coach decisions, injuries and matches.": {
+    "es": "Arriba aparecen los efectos elegidos; los cambios totales de abajo incluyen entrenamiento, decisiones del técnico, lesiones y partidos.",
+    "it": "Sopra gli effetti scelti; le variazioni totali sotto includono allenamento, decisioni del tecnico, infortuni e partite.",
+    "pt": "Acima estão os efeitos escolhidos; as mudanças totais abaixo incluem treino, decisões do técnico, lesões e jogos.",
+    "zh": "上方为所选剧情效果；下方的整季总变化还包含训练、教练决策、伤病和比赛的影响。",
+    "de": "Oben stehen die gewählten Effekte; die gesamten Saisonänderungen unten umfassen auch Training, Trainerentscheidungen, Verletzungen und Spiele."
+  },
+  "Match experience now contributes to development alongside facilities and training. Salary does not add legacy points.": {
+    "es": "La experiencia de juego también influye en el desarrollo, junto con las instalaciones y el entrenamiento. El salario no suma puntos de legado.",
+    "it": "L’esperienza in campo contribuisce allo sviluppo insieme a strutture e allenamento. Lo stipendio non aggiunge punti eredità.",
+    "pt": "A experiência em jogos contribui para o desenvolvimento junto com instalações e treinos. Salário não soma pontos ao legado.",
+    "zh": "比赛经验与设施、训练共同影响成长。薪资不会增加生涯评分。",
+    "de": "Spielerfahrung trägt neben Einrichtungen und Training zur Entwicklung bei. Gehalt bringt keine Vermächtnispunkte."
+  },
+  "Story decision recorded in your season review.": {
+    "es": "Tu decisión está registrada en el balance de temporada.",
+    "it": "Decisione registrata nel resoconto stagionale.",
+    "pt": "Decisão registrada no balanço da temporada.",
+    "zh": "剧情决策已记入赛季复盘。",
+    "de": "Die Entscheidung steht in deinem Saisonrückblick."
+  },
+  "Choose a valid story decision for this season.": {
+    "es": "Elige una decisión válida para esta temporada.",
+    "it": "Scegli una decisione valida per questa stagione.",
+    "pt": "Escolha uma decisão válida para esta temporada.",
+    "zh": "请选择本赛季有效的剧情决策。",
+    "de": "Wähle eine gültige Entscheidung für diese Saison."
+  },
+  "Download career record ↓": {
+    "es": "Descargar registro de carrera ↓",
+    "it": "Scarica il registro carriera ↓",
+    "pt": "Baixar registro da carreira ↓",
+    "zh": "下载完整生涯记录 ↓",
+    "de": "Karrierebericht herunterladen ↓"
+  },
+  "Your career record": {
+    "es": "Tu registro de carrera",
+    "it": "Il tuo registro carriera",
+    "pt": "Seu registro de carreira",
+    "zh": "你的生涯档案",
+    "de": "Dein Karrierebericht"
+  },
+  "Career earnings": {
+    "es": "Ingresos de carrera",
+    "it": "Guadagni in carriera",
+    "pt": "Ganhos na carreira",
+    "zh": "生涯总收入",
+    "de": "Karriereeinnahmen"
+  },
+  "Peak market value": {
+    "es": "Valor de mercado máximo",
+    "it": "Valore di mercato massimo",
+    "pt": "Maior valor de mercado",
+    "zh": "最高身价",
+    "de": "Höchster Marktwert"
+  },
+  "Earnings include recorded annual salaries and story bonuses. All figures are fictional.": {
+    "es": "Los ingresos incluyen salarios anuales registrados y primas de la historia. Todas las cifras son ficticias.",
+    "it": "I guadagni includono stipendi annui registrati e bonus della storia. Tutti i valori sono fittizi.",
+    "pt": "Os ganhos incluem salários anuais registrados e bônus da história. Todos os valores são fictícios.",
+    "zh": "总收入包含记录中的年薪与剧情奖金，所有数值均为虚构。",
+    "de": "Einnahmen umfassen erfasste Jahresgehälter und Handlungsboni. Alle Zahlen sind fiktiv."
+  },
+  "Best rated season: {n} · {club} · {ovr} OVR": {
+    "es": "Mejor temporada por valoración: {n} · {club} · {ovr} OVR",
+    "it": "Miglior stagione per valutazione: {n} · {club} · {ovr} OVR",
+    "pt": "Melhor temporada por avaliação: {n} · {club} · {ovr} OVR",
+    "zh": "最高评分赛季：{n} · {club} · {ovr} OVR",
+    "de": "Beste Saison nach Bewertung: {n} · {club} · {ovr} OVR"
+  },
+  "Best season uses end-of-season rating, then appearances; ties go to the earliest season.": {
+    "es": "La mejor temporada se ordena por valoración final y después por partidos; en caso de empate, gana la primera.",
+    "it": "La miglior stagione usa valutazione finale, poi presenze; a parità prevale la prima.",
+    "pt": "A melhor temporada usa a avaliação final, depois os jogos; empates favorecem a mais antiga.",
+    "zh": "最佳赛季按赛季末评分排序，再比较出场次数；相同则取更早赛季。",
+    "de": "Die beste Saison zählt nach Endbewertung, dann Einsätzen; bei Gleichstand gewinnt die frühere."
+  },
+  "Age {a}–{b} · {n} seasons": {
+    "es": "Edad {a}–{b} · {n} temporadas",
+    "it": "Età {a}–{b} · {n} stagioni",
+    "pt": "Idade {a}–{b} · {n} temporadas",
+    "zh": "{a}–{b}岁 · {n}个赛季",
+    "de": "Alter {a}–{b} · {n} Saisons"
+  },
+  "Career milestones": {
+    "es": "Hitos de carrera",
+    "it": "Traguardi di carriera",
+    "pt": "Marcos da carreira",
+    "zh": "生涯里程碑",
+    "de": "Karrieremeilensteine"
+  },
+  "Senior debut": {
+    "es": "Debut sénior",
+    "it": "Esordio senior",
+    "pt": "Estreia profissional",
+    "zh": "成年队首秀",
+    "de": "Profidebüt"
+  },
+  "First senior goal": {
+    "es": "Primer gol sénior",
+    "it": "Primo gol senior",
+    "pt": "Primeiro gol profissional",
+    "zh": "首粒成年队进球",
+    "de": "Erstes Profitor"
+  },
+  "First clean sheet": {
+    "es": "Primera portería a cero",
+    "it": "Prima porta inviolata",
+    "pt": "Primeiro jogo sem sofrer gols",
+    "zh": "首次零封",
+    "de": "Erstes Spiel ohne Gegentor"
+  },
+  "First team trophy": {
+    "es": "Primer título de equipo",
+    "it": "Primo trofeo di squadra",
+    "pt": "Primeiro título da equipe",
+    "zh": "首座团队奖杯",
+    "de": "Erster Mannschaftstitel"
+  },
+  "Season events": {
+    "es": "Eventos de temporada",
+    "it": "Eventi stagionali",
+    "pt": "Eventos da temporada",
+    "zh": "赛季事件",
+    "de": "Saisonereignisse"
+  },
+  "The saved contract is damaged.": {
+    "es": "El contrato guardado está dañado.",
+    "it": "Il contratto salvato è danneggiato.",
+    "pt": "O contrato salvo está danificado.",
+    "zh": "保存的合同已损坏。",
+    "de": "Der gespeicherte Vertrag ist beschädigt."
+  },
+  "The saved decision review is damaged.": {
+    "es": "El balance de decisiones guardado está dañado.",
+    "it": "Il resoconto decisioni salvato è danneggiato.",
+    "pt": "O balanço de decisões salvo está danificado.",
+    "zh": "保存的决策复盘已损坏。",
+    "de": "Der gespeicherte Entscheidungsbericht ist beschädigt."
+  },
+  "The last player on the training ground": {
+    "es": "El último jugador en el campo de entrenamiento",
+    "it": "L’ultimo giocatore sul campo di allenamento",
+    "pt": "O último jogador no campo de treino",
+    "zh": "训练场上最后一名球员",
+    "de": "Der letzte Spieler auf dem Trainingsplatz"
+  },
+  "The coach offers an extra specialist session. Your body still has to get through a full season.": {
+    "es": "El técnico ofrece una sesión especializada extra. Tu cuerpo aún debe aguantar toda la temporada.",
+    "it": "Il tecnico offre una seduta specialistica extra. Il tuo fisico deve ancora reggere un’intera stagione.",
+    "pt": "O técnico oferece uma sessão especializada extra. Seu corpo ainda precisa aguentar uma temporada inteira.",
+    "zh": "教练安排了一次额外专项训练，但你的身体还需要撑完整个赛季。",
+    "de": "Der Trainer bietet eine zusätzliche Spezialeinheit an. Dein Körper muss aber noch eine ganze Saison durchhalten."
+  },
+  "Work on your strongest skill": {
+    "es": "Entrenar tu mejor habilidad",
+    "it": "Allena la tua abilità migliore",
+    "pt": "Treinar sua melhor habilidade",
+    "zh": "强化最擅长的能力",
+    "de": "Deine stärkste Fähigkeit trainieren"
+  },
+  "Improve your key attribute now, but start the season with less energy.": {
+    "es": "Mejora tu atributo clave ahora, pero empieza la temporada con menos energía.",
+    "it": "Migliora subito l’attributo chiave, ma inizia la stagione con meno energie.",
+    "pt": "Melhore seu atributo principal agora, mas comece a temporada com menos energia.",
+    "zh": "立刻提升位置关键属性，但以更低体能开始赛季。",
+    "de": "Verbessere sofort dein Schlüsselattribut, starte aber mit weniger Energie."
+  },
+  "Study the next opponent": {
+    "es": "Estudiar al próximo rival",
+    "it": "Studia il prossimo avversario",
+    "pt": "Estudar o próximo adversário",
+    "zh": "研究下一位对手",
+    "de": "Den nächsten Gegner analysieren"
+  },
+  "Build trust and passing without the specialist attribute boost.": {
+    "es": "Mejora la confianza y el pase, sin el aumento del atributo especializado.",
+    "it": "Migliora fiducia e passaggi, senza il bonus all’attributo specialistico.",
+    "pt": "Melhore a confiança e o passe, sem o bônus no atributo especializado.",
+    "zh": "提升信任与传球，不获得专项属性加成。",
+    "de": "Baue Vertrauen und Passspiel aus, ohne den Bonus auf dein Spezialattribut."
+  },
+  "Take the recovery day": {
+    "es": "Tomar el día de recuperación",
+    "it": "Prenditi un giorno di recupero",
+    "pt": "Tirar o dia de recuperação",
+    "zh": "选择休息恢复",
+    "de": "Einen Regenerationstag nehmen"
+  },
+  "Restore energy and morale, but miss a chance to impress the coach.": {
+    "es": "Recupera energía y moral, pero pierde una ocasión de impresionar al técnico.",
+    "it": "Recupera energie e morale, ma perdi un’occasione per impressionare il tecnico.",
+    "pt": "Recupere energia e moral, mas perca uma chance de impressionar o técnico.",
+    "zh": "恢复体能与士气，但错过赢得教练认可的机会。",
+    "de": "Erhole Energie und Moral, verpasse aber eine Chance, den Trainer zu beeindrucken."
+  },
+  "A place in the starting eleven": {
+    "es": "Un puesto en el once inicial",
+    "it": "Un posto nell’undici titolare",
+    "pt": "Uma vaga entre os titulares",
+    "zh": "争取首发位置",
+    "de": "Ein Platz in der Startelf"
+  },
+  "The manager asks how you want to earn your next opportunity. More minutes and more preparation are different bets.": {
+    "es": "El técnico pregunta cómo quieres ganarte tu próxima oportunidad. Más minutos y más preparación son apuestas distintas.",
+    "it": "Il tecnico chiede come vuoi guadagnarti la prossima occasione. Più minuti e più preparazione sono scelte diverse.",
+    "pt": "O técnico pergunta como você quer conquistar a próxima chance. Mais minutos e mais preparação são apostas diferentes.",
+    "zh": "主教练询问你准备如何争取机会。增加比赛时间与加强准备，代表不同的选择。",
+    "de": "Der Trainer fragt, wie du dir die nächste Chance verdienen willst. Mehr Einsätze und mehr Vorbereitung sind unterschiedliche Wege."
+  },
+  "Ask for the extra match load": {
+    "es": "Pedir más carga de partidos",
+    "it": "Chiedi più impegni in partita",
+    "pt": "Pedir mais carga de jogos",
+    "zh": "主动承担更多比赛",
+    "de": "Zusätzliche Spiele anfragen"
+  },
+  "Increase selection opportunity this season at a cost to fitness and trust.": {
+    "es": "Aumenta las oportunidades de jugar esta temporada a costa de forma y confianza.",
+    "it": "Aumenta le possibilità di impiego questa stagione, a costo di forma e fiducia.",
+    "pt": "Aumente as chances de jogar nesta temporada, com custo à condição e à confiança.",
+    "zh": "增加本赛季的出场机会，代价是体能和信任。",
+    "de": "Erhöhe die Einsatzchance dieser Saison auf Kosten von Fitness und Vertrauen."
+  },
+  "Develop away from the spotlight": {
+    "es": "Desarrollarse lejos del foco",
+    "it": "Cresci lontano dai riflettori",
+    "pt": "Evoluir longe dos holofotes",
+    "zh": "暂离聚光灯专注成长",
+    "de": "Abseits des Rampenlichts entwickeln"
+  },
+  "More development this season, but fewer selection opportunities.": {
+    "es": "Más desarrollo esta temporada, pero menos oportunidades de jugar.",
+    "it": "Più sviluppo questa stagione, ma meno occasioni di impiego.",
+    "pt": "Mais desenvolvimento nesta temporada, mas menos chances de jogar.",
+    "zh": "本赛季成长更快，但出场机会减少。",
+    "de": "Mehr Entwicklung diese Saison, aber weniger Einsatzchancen."
+  },
+  "Help the squad and stay ready": {
+    "es": "Ayudar al equipo y estar listo",
+    "it": "Aiuta la squadra e resta pronto",
+    "pt": "Ajudar o elenco e ficar pronto",
+    "zh": "帮助球队并保持待命",
+    "de": "Dem Team helfen und bereit bleiben"
+  },
+  "Rebuild fitness and morale while accepting a smaller role this season.": {
+    "es": "Recupera forma y moral aceptando un papel menor esta temporada.",
+    "it": "Recupera forma e morale accettando un ruolo minore questa stagione.",
+    "pt": "Recupere condição e moral aceitando um papel menor nesta temporada.",
+    "zh": "恢复体能和士气，同时接受本赛季更少的出场。",
+    "de": "Baue Fitness und Moral auf und akzeptiere diese Saison eine kleinere Rolle."
+  },
+  "An invitation on your day off": {
+    "es": "Una invitación en tu día libre",
+    "it": "Un invito nel giorno libero",
+    "pt": "Um convite no dia de folga",
+    "zh": "休息日收到的邀请",
+    "de": "Eine Einladung am freien Tag"
+  },
+  "A local sponsor offers a paid appearance. Your teammates are preparing for the next round of fixtures.": {
+    "es": "Un patrocinador local ofrece un acto remunerado. Tus compañeros preparan la próxima jornada.",
+    "it": "Uno sponsor locale offre una presenza retribuita. I compagni preparano il prossimo turno.",
+    "pt": "Um patrocinador local oferece uma participação remunerada. Seus colegas preparam a próxima rodada.",
+    "zh": "当地赞助商邀请你参加付费活动，而队友正在准备下一轮比赛。",
+    "de": "Ein lokaler Sponsor bietet einen bezahlten Auftritt. Deine Mitspieler bereiten sich auf die nächste Runde vor."
+  },
+  "Accept the sponsor appearance": {
+    "es": "Aceptar el acto del patrocinador",
+    "it": "Accetta l’invito dello sponsor",
+    "pt": "Aceitar o evento do patrocinador",
+    "zh": "接受赞助商活动",
+    "de": "Den Sponsorentermin annehmen"
+  },
+  "Earn a one-off bonus, but sacrifice preparation time and coach trust.": {
+    "es": "Gana una prima única, pero sacrifica preparación y confianza del técnico.",
+    "it": "Guadagna un bonus una tantum, sacrificando preparazione e fiducia del tecnico.",
+    "pt": "Ganhe um bônus único, sacrificando preparação e confiança do técnico.",
+    "zh": "获得一次性奖金，但牺牲备战时间与教练信任。",
+    "de": "Erhalte einen einmaligen Bonus, opfere aber Vorbereitung und Trainervertrauen."
+  },
+  "Stay for specialist training": {
+    "es": "Quedarse a entrenar la especialidad",
+    "it": "Resta per l’allenamento specialistico",
+    "pt": "Ficar para o treino especializado",
+    "zh": "留下进行专项训练",
+    "de": "Zum Spezialtraining bleiben"
+  },
+  "Improve your key attribute instead of taking the bonus. The work costs energy.": {
+    "es": "Mejora tu atributo clave en vez de cobrar la prima. El trabajo consume energía.",
+    "it": "Migliora il tuo attributo chiave rinunciando al bonus. Il lavoro consuma energie.",
+    "pt": "Melhore seu atributo principal em vez de receber o bônus. O trabalho gasta energia.",
+    "zh": "放弃奖金，提升关键属性，但会消耗体能。",
+    "de": "Verbessere dein Schlüsselattribut statt den Bonus zu nehmen. Das Training kostet Energie."
+  },
+  "Organise a team session": {
+    "es": "Organizar una sesión de equipo",
+    "it": "Organizza una seduta di squadra",
+    "pt": "Organizar uma sessão em equipe",
+    "zh": "组织全队训练",
+    "de": "Eine Teameinheit organisieren"
+  },
+  "Build trust and morale at the cost of energy, without the personal bonus.": {
+    "es": "Mejora confianza y moral a costa de energía, sin la prima personal.",
+    "it": "Migliora fiducia e morale a costo di energie, senza bonus personale.",
+    "pt": "Melhore confiança e moral gastando energia, sem o bônus pessoal.",
+    "zh": "以体能为代价提升信任和士气，不获得个人奖金。",
+    "de": "Baue Vertrauen und Moral auf Kosten von Energie auf, ohne persönlichen Bonus."
+  },
+  "The academy asks for your time": {
+    "es": "La academia pide tu tiempo",
+    "it": "L’accademia chiede il tuo tempo",
+    "pt": "A academia pede seu tempo",
+    "zh": "青训队需要你的帮助",
+    "de": "Die Akademie bittet um deine Zeit"
+  },
+  "A young teammate wants your help. You can mentor them, focus on yourself, or protect your recovery time.": {
+    "es": "Un joven compañero pide ayuda. Puedes guiarlo, centrarte en ti o proteger tu recuperación.",
+    "it": "Un giovane compagno chiede aiuto. Puoi guidarlo, concentrarti su di te o proteggere il recupero.",
+    "pt": "Um jovem colega pede ajuda. Você pode orientá-lo, focar em si ou proteger a recuperação.",
+    "zh": "一位年轻队友希望得到帮助。你可以指导他、专注自身训练，或保护恢复时间。",
+    "de": "Ein junger Mitspieler bittet um Hilfe. Du kannst ihn fördern, dich auf dich selbst konzentrieren oder deine Erholung schützen."
+  },
+  "Make time for the young player": {
+    "es": "Dedicar tiempo al joven jugador",
+    "it": "Dedica tempo al giovane",
+    "pt": "Dedicar tempo ao jovem jogador",
+    "zh": "抽出时间指导年轻球员",
+    "de": "Zeit für den jungen Spieler nehmen"
+  },
+  "Strengthen trust and morale, with less time for your own development this season.": {
+    "es": "Refuerza confianza y moral, con menos tiempo para tu desarrollo esta temporada.",
+    "it": "Rafforza fiducia e morale, con meno tempo per il tuo sviluppo questa stagione.",
+    "pt": "Reforce confiança e moral, com menos tempo para sua evolução nesta temporada.",
+    "zh": "增强信任与士气，但本赛季用于自身成长的时间减少。",
+    "de": "Stärke Vertrauen und Moral, mit weniger Zeit für deine eigene Entwicklung diese Saison."
+  },
+  "Protect your individual programme": {
+    "es": "Proteger tu programa individual",
+    "it": "Proteggi il programma individuale",
+    "pt": "Proteger seu programa individual",
+    "zh": "坚持个人训练计划",
+    "de": "Dein individuelles Programm schützen"
+  },
+  "Accelerate development this season, but spend energy and lose some coach trust.": {
+    "es": "Acelera el desarrollo esta temporada, pero gasta energía y pierde algo de confianza del técnico.",
+    "it": "Accelera lo sviluppo questa stagione, consumando energie e perdendo fiducia del tecnico.",
+    "pt": "Acelere o desenvolvimento nesta temporada, gastando energia e perdendo confiança do técnico.",
+    "zh": "加快本赛季成长，但消耗体能并损失部分教练信任。",
+    "de": "Beschleunige die Entwicklung diese Saison, verbrauche aber Energie und verliere etwas Trainervertrauen."
+  },
+  "Protect your recovery time": {
+    "es": "Proteger tu tiempo de recuperación",
+    "it": "Proteggi il tempo di recupero",
+    "pt": "Proteger seu tempo de recuperação",
+    "zh": "保障恢复时间",
+    "de": "Deine Erholungszeit schützen"
+  },
+  "Restore fitness, but miss the shared work and lose a little morale.": {
+    "es": "Recupera forma, pero pierde el trabajo conjunto y algo de moral.",
+    "it": "Recupera forma, ma rinuncia al lavoro comune e perdi un po’ di morale.",
+    "pt": "Recupere condição, mas perca o trabalho conjunto e um pouco de moral.",
+    "zh": "恢复体能，但缺席团队活动会损失少量士气。",
+    "de": "Erhole deine Fitness, verpasse aber die gemeinsame Arbeit und verliere etwas Moral."
+  },
+  "Story choices show fixed effects before you confirm. Condition and attribute effects persist; selection and development modifiers last one season. Match experience multiplies positive growth by 0.75 + appearances / 44 × 0.5. Facilities, training, injuries, age and potential still matter. Contract salary is fixed for its remaining term; renewals last two years and bigger-club offers three. Transfers remain possible before expiry. Estimated matches are not guarantees.": {
+    "es": "Las decisiones de la historia muestran efectos fijos antes de confirmar. Los cambios de estado y atributos persisten; los modificadores de selección y desarrollo duran una temporada. La experiencia multiplica el crecimiento positivo por 0,75 + partidos / 44 × 0,5. También influyen instalaciones, entrenamiento, lesiones, edad y potencial. El salario se fija por el plazo restante; renovar dura dos años y fichar por un club mayor, tres. Puedes cambiar antes del vencimiento. Los partidos estimados no se garantizan.",
+    "it": "Le scelte della storia mostrano effetti fissi prima della conferma. Condizione e attributi persistono; i modificatori di impiego e sviluppo durano una stagione. L’esperienza moltiplica la crescita positiva per 0,75 + presenze / 44 × 0,5. Contano anche strutture, allenamento, infortuni, età e potenziale. Lo stipendio resta fisso per la durata residua; i rinnovi durano due anni, le offerte di club maggiori tre. Puoi trasferirti prima della scadenza. Le presenze stimate non sono garantite.",
+    "pt": "As escolhas da história mostram efeitos fixos antes da confirmação. Condição e atributos persistem; modificadores de escalação e desenvolvimento duram uma temporada. A experiência multiplica o crescimento positivo por 0,75 + jogos / 44 × 0,5. Instalações, treinos, lesões, idade e potencial também contam. O salário é fixo pelo prazo restante; renovações duram dois anos e propostas de clubes maiores três. Transferências são possíveis antes do término. Jogos estimados não são garantidos.",
+    "zh": "剧情选择会在确认前显示固定效果。状态与属性变化持续保留，出场和成长修正仅持续一个赛季。比赛经验按“0.75 + 出场次数 / 44 × 0.5”修正正向成长；训练设施、训练计划、伤病、年龄和潜力仍然参与计算。合同年薪在剩余期限内固定，续约为两年，加盟更大俱乐部为三年；到期前仍可转会。预计出场次数不构成保证。",
+    "de": "Handlungsoptionen zeigen vor der Bestätigung feste Effekte. Zustand und Attribute bleiben erhalten; Einsatz- und Entwicklungsmodifikatoren gelten eine Saison. Spielerfahrung multipliziert positives Wachstum mit 0,75 + Einsätze / 44 × 0,5. Einrichtungen, Training, Verletzungen, Alter und Potenzial zählen weiterhin. Das Gehalt bleibt für die Restlaufzeit fest; Verlängerungen dauern zwei Jahre, Angebote größerer Klubs drei. Wechsel sind vor Ablauf möglich. Geschätzte Einsätze sind nicht garantiert."
+  },
+  "Career records include club contracts, story choices, their effects and season reviews in the same local browser save. The optional JSON download contains that record and your chosen player name. It is created locally, is not uploaded, and has no import or cloud recovery feature. Review it before sharing.": {
+    "es": "El mismo guardado local incluye contratos, decisiones de la historia, sus efectos y balances de temporada. La descarga JSON opcional contiene ese registro y el nombre elegido. Se crea localmente, no se sube y no permite importar ni recuperar en la nube. Revísala antes de compartir.",
+    "it": "Lo stesso salvataggio locale include contratti, scelte della storia, effetti e resoconti stagionali. Il download JSON facoltativo contiene il registro e il nome scelto. Viene creato localmente, non caricato e non consente importazione o recupero cloud. Controllalo prima di condividerlo.",
+    "pt": "O mesmo save local inclui contratos, escolhas da história, efeitos e balanços de temporada. O download JSON opcional contém o registro e o nome escolhido. É criado localmente, não é enviado e não permite importação ou recuperação na nuvem. Revise antes de compartilhar.",
+    "zh": "同一浏览器存档还保存俱乐部合同、剧情选择、效果和赛季复盘。可选下载的 JSON 文件包含这些记录及你填写的球员姓名，在本地生成，不会上传，也不支持导入或云端恢复。分享前请检查内容。",
+    "de": "Derselbe lokale Spielstand enthält Verträge, Handlungsentscheidungen, Effekte und Saisonberichte. Der optionale JSON-Download enthält diesen Bericht und deinen gewählten Spielernamen. Er wird lokal erstellt, nicht hochgeladen und bietet weder Import noch Cloud-Wiederherstellung. Prüfe ihn vor dem Teilen."
+  },
+  "Each comparison selects the first story option every season: specialist work, extra match load, sponsor appearance, then mentoring, repeating in that order. This includes story effects and match-experience growth. To reproduce a row, use those story choices as well as the setup above.": {
+    "es": "Cada comparación elige siempre la primera opción: trabajo especializado, más carga de partidos, acto del patrocinador y mentoría, en ese orden repetido. Incluye los efectos de la historia y el crecimiento por experiencia. Para reproducir una fila, usa esas opciones y la configuración anterior.",
+    "it": "Ogni confronto sceglie sempre la prima opzione: lavoro specialistico, più partite, evento dello sponsor e tutoraggio, in ciclo. Include effetti della storia e crescita da esperienza. Per riprodurre una riga, usa queste scelte e la configurazione sopra.",
+    "pt": "Cada comparação escolhe sempre a primeira opção: treino especializado, mais jogos, evento do patrocinador e mentoria, repetindo a ordem. Inclui efeitos da história e crescimento por experiência. Para reproduzir uma linha, use essas escolhas e a configuração acima.",
+    "zh": "每组对照每季均选择第一项剧情：专项训练、增加比赛负荷、赞助商活动、指导年轻球员，按此顺序循环。计算包含剧情效果与比赛经验成长。复现表格时，请同时使用这些剧情选择和上方配置。",
+    "de": "Jeder Vergleich wählt stets die erste Option: Spezialtraining, zusätzliche Spiele, Sponsorentermin und Mentoring, in dieser wiederholten Reihenfolge. Handlungseffekte und Erfahrungswachstum sind enthalten. Nutze diese Optionen und die obigen Einstellungen, um eine Zeile nachzuspielen."
+  },
+  "Contracts, stories and match experience": {
+    "es": "Contratos, historias y experiencia de juego",
+    "it": "Contratti, storie ed esperienza in campo",
+    "pt": "Contratos, histórias e experiência de jogo",
+    "zh": "合同、剧情与比赛经验",
+    "de": "Verträge, Handlung und Spielerfahrung"
+  },
+  "Your downloadable career record": {
+    "es": "Tu registro de carrera descargable",
+    "it": "Il tuo registro carriera scaricabile",
+    "pt": "Seu registro de carreira para download",
+    "zh": "可下载的生涯记录",
+    "de": "Dein herunterladbarer Karrierebericht"
+  },
+  "The first story option is selected in every comparison season.": {
+    "es": "En cada temporada comparada se elige la primera opción de la historia.",
+    "it": "In ogni stagione del confronto viene scelta la prima opzione della storia.",
+    "pt": "A primeira opção da história é escolhida em cada temporada comparada.",
+    "zh": "所有对照赛季均选择第一项剧情。",
+    "de": "In jeder Vergleichssaison wird die erste Handlungsoption gewählt."
+  },
+  "Training quality": {
+    "es": "Calidad del entrenamiento",
+    "it": "Qualità dell’allenamento",
+    "pt": "Qualidade do treino",
+    "zh": "训练质量",
+    "de": "Trainingsqualität"
+  },
+  "An accepted request adds 8 percentage points to selection this season, subject to the selection cap. A rejected request reduces trust and morale.": {
+    "es": "Una petición aceptada añade 8 puntos porcentuales a la selección esta temporada, hasta el límite de selección. Una rechazada reduce confianza y moral.",
+    "it": "Una richiesta accettata aggiunge 8 punti percentuali all’impiego in questa stagione, entro il limite di selezione. Una respinta riduce fiducia e morale.",
+    "pt": "Um pedido aceito adiciona 8 pontos percentuais à escalação nesta temporada, respeitando o limite. Um pedido negado reduz confiança e moral.",
+    "zh": "请求获准后，本赛季出场机会增加8个百分点，受出场机会的上限约束。请求遭拒会降低信任和士气。",
+    "de": "Eine angenommene Anfrage erhöht die Einsatzchance diese Saison um 8 Prozentpunkte bis zur Einsatzgrenze. Eine abgelehnte Anfrage senkt Vertrauen und Moral."
+  },
+  "2-year contract": {
+    "es": "Contrato de 2 años",
+    "it": "Contratto di 2 anni",
+    "pt": "Contrato de 2 anos",
+    "zh": "2年合同",
+    "de": "2-Jahres-Vertrag"
+  },
+  "Offer terms & trade-offs": {
+    "es": "Condiciones y contrapartidas",
+    "it": "Condizioni e compromessi",
+    "pt": "Condições e contrapartidas",
+    "zh": "报价条款与取舍",
+    "de": "Bedingungen und Abwägungen"
+  },
+  "How story effects work": {
+    "es": "Cómo funcionan los efectos de la historia",
+    "it": "Come funzionano gli effetti della storia",
+    "pt": "Como funcionam os efeitos da história",
+    "zh": "剧情效果如何生效",
+    "de": "So wirken Handlungseffekte"
+  },
+  "How estimates and contracts work": {
+    "es": "Cómo funcionan las estimaciones y los contratos",
+    "it": "Come funzionano stime e contratti",
+    "pt": "Como funcionam estimativas e contratos",
+    "zh": "预测与合同如何运作",
+    "de": "So funktionieren Schätzungen und Verträge"
+  },
+  "Development multipliers affect positive growth only; they do not prevent age-related decline.": {
+    "es": "Los multiplicadores de desarrollo solo afectan al crecimiento positivo; no evitan el declive por edad.",
+    "it": "I moltiplicatori di sviluppo agiscono solo sulla crescita positiva; non impediscono il declino legato all’età.",
+    "pt": "Os multiplicadores de desenvolvimento afetam apenas o crescimento positivo; não impedem o declínio pela idade.",
+    "zh": "成长倍率仅影响正向成长，不能阻止年龄带来的衰退。",
+    "de": "Entwicklungsmultiplikatoren wirken nur auf positives Wachstum; sie verhindern keinen altersbedingten Rückgang."
   }
 }

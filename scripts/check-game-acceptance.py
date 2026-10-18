@@ -8,9 +8,10 @@ exe=os.environ.get('PLAYWRIGHT_CHROMIUM_EXECUTABLE')
 positions=['ST','LW','RW','CAM','CM','CDM','LB','RB','CB','GK']
 report={'origin':base,'careers':[],'branches':{'bigger':0,'minutes':0,'full':0,'early':0,'ask':0,'position':0},'errors':[]}
 with sync_playwright() as p:
- b=p.chromium.launch(headless=True,args=['--no-proxy-server'] if os.environ.get('COPERO_BROWSER_DIRECT')=='1' else [],**({'executable_path':exe} if exe else {}))
+ b=p.chromium.launch(headless=True,args=['--no-proxy-server','--disable-quic','--disable-http2'] if os.environ.get('COPERO_BROWSER_DIRECT')=='1' else [],**({'executable_path':exe} if exe else {}))
  def new_player(position,seed,academy,mobile=False):
-  context=b.new_context(viewport={'width':390 if mobile else 1440,'height':844 if mobile else 1000},is_mobile=mobile,has_touch=mobile)
+  context=b.new_context(reduced_motion='reduce',viewport={'width':390 if mobile else 1440,'height':844 if mobile else 1000},is_mobile=mobile,has_touch=mobile)
+  context.route(re.compile(r'https://(www\.googletagmanager\.com|www\.google-analytics\.com|plausible\.io)/'),lambda route:route.fulfill(status=200,body=''))
   page=context.new_page();page.set_default_timeout(12000)
   page.on('pageerror',lambda e:report['errors'].append(str(e)))
   page.on('console',lambda msg:report['errors'].append(msg.text) if msg.type=='error' else None)
@@ -25,14 +26,17 @@ with sync_playwright() as p:
   return context,page
  def saved(page):return page.evaluate("JSON.parse(localStorage.getItem('copero.career.v1'))")
  def advance(page,n):
+  expect(page.locator('.next-season')).to_be_disabled()
+  page.locator('.story-option').nth((n-1)%3).click()
+  expect(page.locator('#story-effects')).to_be_visible()
   page.locator('.next-season').click();page.wait_for_function('(n)=>JSON.parse(localStorage.getItem("copero.career.v1")).history.length===n',arg=n)
-  page.wait_for_function('!document.querySelector(".next-season") || !document.querySelector(".next-season").disabled')
+  page.wait_for_function('!document.querySelector(".next-season") || document.querySelector(".next-season").textContent.includes("Play season")')
  for index,position in enumerate(positions):
   start=time.monotonic();mobile=index>=5
   context,page=new_player(position,'acceptance-'+position,index%3,mobile)
   initial=saved(page);assert initial['player']['age']==16 and initial['player']['position']==position
   assert page.locator('select').filter(has=page.locator('option[value=full]')).count()==0
-  assert page.locator('select').filter(has=page.locator('option[value=stay]')).count()==0
+  assert page.locator('select').filter(has=page.locator('option[value=stay]')).locator('option').count()==1
   for season in range(1,23):
    state=saved(page)
    training='recovery' if state['player']['fitness']<50 else 'intensive'
@@ -51,6 +55,7 @@ with sync_playwright() as p:
     choice='early' if index%2 else 'full';recovery.select_option(choice);report['branches'][choice]+=1
    advance(page,season)
    current=saved(page);latest=current['history'][-1]
+   assert latest['review']['story']['choiceId']==latest['decision']['story']
    assert len(current['history'])==season and current['player']['age']==16+season
    assert 0<=latest['appearances']<=44 and 0<=latest['goals']<=50
    assert all(1<=value<=99 for value in current['player']['attributes'].values())
@@ -67,6 +72,11 @@ with sync_playwright() as p:
   assert page.locator('.score-row').count()==5
   assert page.locator('.career-timeline>ol>li').count()==23
   if position=='GK':assert visible[1]==0 and visible[5]>0
+  if position=='ST':
+   with page.expect_download() as dl:page.locator('.download-record').click()
+   dl.value.save_as(str(artifacts/'career-record.json'))
+   exported=json.loads((artifacts/'career-record.json').read_text());assert exported['career']==final
+   assert exported['records']['earnings']==sum(s['salary']+s['review']['bonus'] for s in final['history'])
   if position in ['ST','GK']:page.screenshot(path=str(artifacts/f'result-{position}.png'),full_page=True)
   elapsed=round(time.monotonic()-start,1)
   report['careers'].append({'initialPosition':position,'mobile':mobile,'automatedSeconds':elapsed,'initial':initial,'final':final,'visibleScore':score})
