@@ -1,0 +1,86 @@
+[
+  {
+    "path": "/",
+    "response": "200 text/html https://copero.pro/",
+    "bytes": 56054
+  },
+  {
+    "path": "/en",
+    "response": "200 text/html https://copero.pro/en",
+    "bytes": 56003
+  },
+  {
+    "path": "/it",
+    "response": "200 text/html https://copero.pro/it",
+    "bytes": 54793
+  },
+  {
+    "path": "/pt",
+    "response": "200 text/html https://copero.pro/pt",
+    "bytes": 54979
+  },
+  {
+    "path": "/zh",
+    "response": "200 text/html https://copero.pro/zh",
+    "bytes": 53942
+  },
+  {
+    "path": "/de",
+    "response": "200 text/html https://copero.pro/de",
+    "bytes": 55647
+  },
+  {
+    "path": "/es/about",
+    "response": "200 text/html https://copero.pro/es/about",
+    "bytes": 23943,
+    "contact": true
+  },
+  {
+    "path": "/es/privacy-policy",
+    "response": "200 text/html https://copero.pro/es/privacy-policy",
+    "bytes": 25478,
+    "contact": true
+  },
+  {
+    "path": "/es/how-it-works",
+    "response": "200 text/html https://copero.pro/es/how-it-works",
+    "bytes": 34435
+  },
+  {
+    "path": "/es/guides/copero-training-strategy",
+    "response": "200 text/html https://copero.pro/es/guides/copero-training-strategy",
+    "bytes": 42429
+  },
+  {
+    "path": "/es/career",
+    "response": "200 text/html https://copero.pro/es/career",
+    "bytes": 16727,
+    "noindex": true
+  },
+  {
+    "path": "/robots.txt",
+    "response": "200 text/plain https://copero.pro/robots.txt",
+    "bytes": 89
+  },
+  {
+    "path": "/sitemap.xml",
+    "response": "200 application/xml https://copero.pro/sitemap.xml",
+    "bytes": 58704,
+    "urls": 72
+  },
+  {
+    "path": "/opengraph-image",
+    "response": "200 image/png https://copero.pro/opengraph-image",
+    "bytes": 27355
+  },
+  {
+    "path": "/es?check=1",
+    "response": "200 text/html https://copero.pro/?check=1",
+    "bytes": 56054
+  },
+  {
+    "path": "/missing-seo-check",
+    "response": "404 text/html https://copero.pro/missing-seo-check",
+    "bytes": 15835
+  }
+]

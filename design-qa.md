@@ -1,39 +1,30 @@
-# Content and UI QA — Pokémon Champions
+# Copero QA
 
-## Scope
+The project has been refactored from the original unrelated template into an English football career simulator.
 
-- English home: `/`
-- Japanese home: `/ja`
-- Codes: `/codes`
-- Keyword guides: `/gameplay`, `/pokemon`, `/regulation-set-m-b`, `/tier-list`, `/best-teams`, `/replica-teams`, `/release-date`, `/mobile`, `/pc`, `/codes`
-- Legal and identity surfaces: `/about`, `/privacy-policy`, `/terms`
-- Shared header, footer, metadata, theme tokens, and locale switch
+See [the implementation and validation report](docs/validation.md) for the changed modules, actual test results, browser checks, SEO validation, deployment dry run, and remaining scope. See [the SEO plan](docs/seo-plan.md) for the query map and post-launch workflow.
 
-## Content verification
+Current screenshots:
 
-- Old site identity: no source occurrences remain.
-- Sidebar codes: two researched active codes render in the desktop hero.
-- Codes page: three active codes, three expired codes, and one documented mailbox distribution render with their researched dates and rewards.
-- Unverified official Discord and YouTube destinations display `待确认` without invented links.
-- Homepage facts are limited to the researched release dates, platforms, Google Play update date, battle modes, cross-platform support, Pokémon HOME support, and Regulation M-B rules.
-- Official website, Nintendo Store, and Google Play URLs returned HTTP 200 during verification.
+- [Desktop home](docs/screenshots/home-desktop.png)
+- [Mobile home](docs/screenshots/home-mobile.png)
+- [Player creator, desktop](docs/screenshots/player-creator-desktop.png)
+- [Player creator, mobile](docs/screenshots/player-creator-mobile.png)
+- [Career result](docs/screenshots/career-result.png)
 
-## Metadata verification
+No live deployment has been performed during this refactor.
 
-- Home title: 49 characters.
-- Home description: 149 characters.
-- Home keywords: 87 characters.
-- Canonical and English/Japanese `hreflang` alternates render.
-- Japanese content is scoped with `lang="ja"`; the document language updates to Japanese on the localized route.
-- All 10 keyword guides have unique 40–60 character titles, 140–160 character descriptions, canonical URLs, article Open Graph metadata, and Article/Breadcrumb JSON-LD.
+## Club dossier visual system
 
-## Visual and runtime verification
+The applied UI/UX Pro Max direction and tokens are in [the design-system master](design-system/copero/MASTER.md). The final light paper / dark field interface was checked at 375, 390, 768, 1024 and 1440px. The homepage tool remains in Hero and keeps its compact height. Browser checks additionally verify true mobile panel stacking, 44px non-overlapping position buttons, and the full career lifecycle. Self-hosted fonts include their OFL licences.
 
-- Desktop viewport: 1280 px wide, no horizontal overflow.
-- Mobile viewport: 390 × 844, no horizontal overflow; the decorative code sidebar hides as designed and the mobile menu remains usable.
-- English and Japanese hero copy, navigation, code sidebar, buttons, and stats render without overlap or clipping.
-- Theme tokens resolve to `--nav-theme: 213 58% 44%` and `--nav-theme-light: 213 58% 56%` in the existing light layout.
-- Browser console warnings/errors: none on the Cloudflare Pages local preview.
-- Production build: passed with 109 statically generated pages.
+Additional reviewed screens:
 
-Final result: passed.
+- [Career, mobile](docs/screenshots/career-mobile.png)
+- [Guides, desktop](docs/screenshots/guides-desktop.png)
+
+Final checks passed: ESLint, TypeScript, 16 engine/Worker tests, production build, SEO export validation, responsive navigation/position checks and full career browser regression. No browser runtime errors or live deployment.
+
+## Six-language interface
+
+The UI now starts in Spanish. Reviewed six language editions at five widths, preserved mobile stacking and 44px pitch targets, and tested that changing language preserves the current career. The three requested Hero marketing lines were removed. See the latest multilingual section in docs/validation.md for actual checks and routing details. Per-language homepage screenshots are in docs/screenshots/languages, and the selector and Chinese downloaded card are also saved in docs/screenshots.

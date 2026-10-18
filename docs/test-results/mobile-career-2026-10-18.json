@@ -1,0 +1,182 @@
+[
+  {
+    "locale": "es",
+    "width": 320,
+    "height": 568,
+    "careerHeight": 2075
+  },
+  {
+    "locale": "es",
+    "width": 375,
+    "height": 667,
+    "careerHeight": 1849
+  },
+  {
+    "locale": "es",
+    "width": 390,
+    "height": 844,
+    "careerHeight": 1812
+  },
+  {
+    "locale": "es",
+    "width": 430,
+    "height": 932,
+    "careerHeight": 1774
+  },
+  {
+    "locale": "es",
+    "width": 760,
+    "height": 1024,
+    "careerHeight": 1618
+  },
+  {
+    "locale": "en",
+    "width": 320,
+    "height": 568,
+    "careerHeight": 1919
+  },
+  {
+    "locale": "en",
+    "width": 375,
+    "height": 667,
+    "careerHeight": 1787
+  },
+  {
+    "locale": "en",
+    "width": 390,
+    "height": 844,
+    "careerHeight": 1742
+  },
+  {
+    "locale": "en",
+    "width": 430,
+    "height": 932,
+    "careerHeight": 1699
+  },
+  {
+    "locale": "en",
+    "width": 760,
+    "height": 1024,
+    "careerHeight": 1618
+  },
+  {
+    "locale": "it",
+    "width": 320,
+    "height": 568,
+    "careerHeight": 2069
+  },
+  {
+    "locale": "it",
+    "width": 375,
+    "height": 667,
+    "careerHeight": 1840
+  },
+  {
+    "locale": "it",
+    "width": 390,
+    "height": 844,
+    "careerHeight": 1819
+  },
+  {
+    "locale": "it",
+    "width": 430,
+    "height": 932,
+    "careerHeight": 1709
+  },
+  {
+    "locale": "it",
+    "width": 760,
+    "height": 1024,
+    "careerHeight": 1599
+  },
+  {
+    "locale": "pt",
+    "width": 320,
+    "height": 568,
+    "careerHeight": 2022
+  },
+  {
+    "locale": "pt",
+    "width": 375,
+    "height": 667,
+    "careerHeight": 1811
+  },
+  {
+    "locale": "pt",
+    "width": 390,
+    "height": 844,
+    "careerHeight": 1774
+  },
+  {
+    "locale": "pt",
+    "width": 430,
+    "height": 932,
+    "careerHeight": 1722
+  },
+  {
+    "locale": "pt",
+    "width": 760,
+    "height": 1024,
+    "careerHeight": 1618
+  },
+  {
+    "locale": "zh",
+    "width": 320,
+    "height": 568,
+    "careerHeight": 1845
+  },
+  {
+    "locale": "zh",
+    "width": 375,
+    "height": 667,
+    "careerHeight": 1774
+  },
+  {
+    "locale": "zh",
+    "width": 390,
+    "height": 844,
+    "careerHeight": 1774
+  },
+  {
+    "locale": "zh",
+    "width": 430,
+    "height": 932,
+    "careerHeight": 1700
+  },
+  {
+    "locale": "zh",
+    "width": 760,
+    "height": 1024,
+    "careerHeight": 1595
+  },
+  {
+    "locale": "de",
+    "width": 320,
+    "height": 568,
+    "careerHeight": 2016
+  },
+  {
+    "locale": "de",
+    "width": 375,
+    "height": 667,
+    "careerHeight": 1884
+  },
+  {
+    "locale": "de",
+    "width": 390,
+    "height": 844,
+    "careerHeight": 1796
+  },
+  {
+    "locale": "de",
+    "width": 430,
+    "height": 932,
+    "careerHeight": 1736
+  },
+  {
+    "locale": "de",
+    "width": 760,
+    "height": 1024,
+    "careerHeight": 1599
+  }
+]

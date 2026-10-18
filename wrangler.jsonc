@@ -1,21 +1,12 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "pokemonchampions-pro",
+  "name": "copero-pro",
   "main": "./cloudflare-worker.mjs",
   "account_id": "f374eebcbf49e49d869c284792be5d54",
-  "compatibility_date": "2026-08-28",
+  "compatibility_date": "2026-10-18",
   "workers_dev": true,
   "preview_urls": true,
-  "routes": [
-    {
-      "pattern": "pokemonchampions.pro",
-      "custom_domain": true
-    },
-    {
-      "pattern": "www.pokemonchampions.pro",
-      "custom_domain": true
-    }
-  ],
+  "routes": [{ "pattern": "copero.pro", "custom_domain": true }],
   "assets": {
     "directory": "./out",
     "binding": "ASSETS",

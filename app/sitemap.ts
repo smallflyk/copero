@@ -1,37 +1,7 @@
-import type { MetadataRoute } from 'next'
-import { pokemon } from '@/data/pokemon'
-import { site } from '@/lib/seo'
-
-export const dynamic = 'force-static'
-
-const pages = [
-  '', '/codes', '/tier-list', '/best-teams', '/replica-teams', '/pokemon', '/team-builder',
-  '/gameplay', '/release-date', '/mobile', '/pc',
-  '/beginner-guide', '/download', '/regulation-guide', '/regulation-set-m-b',
-  '/best-regulation-m-b-teams', '/best-mega-pokemon', '/about', '/privacy-policy', '/terms',
-]
-const localizedPages = ['/ja', '/ja/pokemon', '/ja/pokemon/metagross']
-const contentUpdatedAt = new Date('2026-08-29T00:00:00.000Z')
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    ...pages.map((path) => ({
-      url: new URL(path || '/', site.url).toString(),
-      lastModified: contentUpdatedAt,
-      changeFrequency: path === '/codes' ? 'daily' as const : 'weekly' as const,
-      priority: path === '' ? 1 : ['/privacy-policy','/terms'].includes(path) ? 0.3 : 0.8,
-    })),
-    ...pokemon.map((entry) => ({
-      url: `${site.url}/pokemon/${entry.slug}`,
-      lastModified: contentUpdatedAt,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    })),
-    ...localizedPages.map((path) => ({
-      url: `${site.url}${path}`,
-      lastModified: contentUpdatedAt,
-      changeFrequency: 'weekly' as const,
-      priority: path === '/ja' ? 0.9 : 0.7,
-    })),
-  ]
-}
+import type {MetadataRoute} from 'next'
+import {publicUrl} from '@/lib/seo'
+import {site} from '@/data/site'
+import {guides} from '@/data/guides'
+import {LOCALES,LANGUAGE_TAGS,localizedPath} from '@/lib/i18n/config'
+export const dynamic='force-static'
+export default function sitemap():MetadataRoute.Sitemap{return LOCALES.flatMap(locale=>['/','/how-it-works','/guides','/about','/privacy-policy','/terms',...guides.map(guide=>`/guides/${guide.slug}`)].map(path=>({url:publicUrl(localizedPath(path,locale)),lastModified:new Date(`${site.updated}T00:00:00Z`),changeFrequency:path==='/'?'weekly' as const:'monthly' as const,priority:path==='/'?1:path.startsWith('/guides')?.8:.5,alternates:{languages:Object.fromEntries([...LOCALES.map(lang=>[LANGUAGE_TAGS[lang],publicUrl(localizedPath(path,lang))]),['x-default',publicUrl(localizedPath(path,'es'))]])}})))}

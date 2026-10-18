@@ -1,0 +1,16 @@
+export const POSITIONS = ['ST', 'LW', 'RW', 'CAM', 'CM', 'CDM', 'LB', 'RB', 'CB', 'GK'] as const
+export type Position = typeof POSITIONS[number]
+export const ATTRIBUTE_KEYS = ['pace', 'shooting', 'passing', 'dribbling', 'defending', 'physical'] as const
+export type Attribute = typeof ATTRIBUTE_KEYS[number]
+export type Attributes = Record<Attribute, number>
+export type Injury = 'healthy' | 'minor' | 'major'
+export type Training = 'intensive' | 'balanced' | 'recovery'
+export type Relationship = 'follow' | 'ask' | 'position'
+export type Transfer = 'stay' | 'bigger' | 'minutes'
+export type Decision = { training: Training; relationship: Relationship; transfer: Transfer; recovery?: 'full' | 'early' }
+export type Club = { id: string; name: string; city: string; tier: number; league: string; quality: number; opportunity: number; competition: number; strength: number; salary: number; color: string; identity: string }
+export type PlayerConfig = { name: string; nationality: string; position: Position; preferredFoot: 'Left' | 'Right'; jerseyNumber: number; bonuses: Attributes; seed: string; clubId: string }
+export type Player = { name: string; nationality: string; position: Position; preferredFoot: 'Left' | 'Right'; jerseyNumber: number; age: number; attributes: Attributes; potential: number; fitness: number; morale: number; coachTrust: number; injuryStatus: Injury; clubId: string }
+export type Season = { number: number; age: number; clubId: string; position: Position; ovr: number; endOvr: number; appearances: number; goals: number; assists: number; cleanSheets: number; standing: number; trophies: number; marketValue: number; salary: number; fitness: number; morale: number; injury: Injury; summary: string; decision: Decision; events: string[] }
+export type GameState = { version: 1; id: string; seed: string; rng: number; player: Player; history: Season[]; status: 'playing' | 'retired' }
+export type CareerResult = { matches: number; goals: number; assists: number; cleanSheets: number; trophies: number; peakOvr: number; clubs: string[]; score: number; ending: 'Football Legend' | 'World-Class Star' | 'Club Hero' | 'Professional Veteran' | 'Unfulfilled Potential'; breakdown: { label: string; points: number; maximum: number; explanation: string }[] }
