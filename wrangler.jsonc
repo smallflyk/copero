@@ -6,7 +6,10 @@
   "compatibility_date": "2026-10-18",
   "workers_dev": true,
   "preview_urls": true,
-  "routes": [{ "pattern": "copero.pro", "custom_domain": true }],
+  "routes": [
+    { "pattern": "copero.pro", "custom_domain": true },
+    { "pattern": "www.copero.pro", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./out",
     "binding": "ASSETS",

@@ -1,6 +1,17 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import worker from '../cloudflare-worker.mjs'
+test('www redirects permanently to HTTPS apex while preserving localized paths and query parameters',async()=>{
+ for (const [source,target] of [
+  ['https://www.copero.pro/','https://copero.pro/'],
+  ['https://www.copero.pro/en/guides?source=www&topic=training','https://copero.pro/en/guides?source=www&topic=training'],
+  ['http://www.copero.pro/zh/career?x=1','https://copero.pro/zh/career?x=1'],
+  ['https://www.copero.pro/es?from=home','https://copero.pro/?from=home'],
+ ]) {
+  const response=await worker.fetch(new Request(source),{})
+  assert.equal(response.status,301);assert.equal(response.headers.get('location'),target)
+ }
+})
 test('the old template host is never a redirect target',async()=>{
  const response=await worker.fetch(new Request('https://www.copero.pro/how-it-works?x=1'),{})
  assert.equal(response.status,301);assert.equal(response.headers.get('location'),'https://copero.pro/es/how-it-works?x=1')

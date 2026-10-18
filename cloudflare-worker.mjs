@@ -6,6 +6,7 @@ export default {
     else if (unprefixed) url.pathname = '/es' + url.pathname.replace(/\/$/, '')
     if (url.hostname === 'www.copero.pro' || url.pathname !== new URL(request.url).pathname) {
       url.hostname = 'copero.pro'
+      url.protocol = 'https:'
       return Response.redirect(url, 301)
     }
     let response = await env.ASSETS.fetch(request)
