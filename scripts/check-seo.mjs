@@ -18,12 +18,16 @@ for(const file of htmlFiles){
  assert.equal((head.match(/name="description"/g)||[]).length,1,file)
  assert.equal((head.match(/rel="canonical"/g)||[]).length,1,file)
  assert.equal((visible.match(/<h1\b/g)||[]).length,1,`Expected one H1 in ${file}`)
- assert.ok(!/pokemon|pokémon|tornadus|football destiny|ca-pub-/i.test(html),`Old identity/advertising in ${file}`)
+ assert.ok(!/pokemon|pokémon|tornadus|football destiny/i.test(html),`Old identity in ${file}`)
  assert.equal((head.match(/<script[^>]+src="https:\/\/www\.googletagmanager\.com\/gtag\/js\?id=G-4JYX8WF2SZ"/g)||[]).length,1,`Expected one Google tag loader in ${file}`)
  assert.equal((head.match(/gtag\('config', 'G-4JYX8WF2SZ'\)/g)||[]).length,1,`Expected one Google tag config in ${file}`)
  assert.equal((head.match(/<script[^>]+src="https:\/\/plausible\.io\/js\/pa-__HJG7Uwk26jKdaqu23Bn\.js"/g)||[]).length,1,`Expected one Plausible loader in ${file}`)
  assert.equal((head.match(/plausible\.init\(\)/g)||[]).length,1,`Expected one Plausible initialization in ${file}`)
  assert.ok(/<script[^>]+async=""[^>]*src="https:\/\/www\.googletagmanager\.com|<script[^>]+src="https:\/\/www\.googletagmanager\.com[^>]+async=""/.test(head),`Google tag must load asynchronously: ${file}`)
+ const ads=[...head.matchAll(/<script\b[^>]*src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3506863457211473"[^>]*>/g)]
+ assert.equal(ads.length,1,`Expected exactly one owner AdSense loader in head: ${file}`)
+ assert.ok(ads[0][0].includes('async=""')&&ads[0][0].includes('crossorigin="anonymous"'),`AdSense loader attributes: ${file}`)
+ assert.ok([...html.matchAll(/ca-pub-\d+/g)].every(match=>match[0]==='ca-pub-3506863457211473'),`Unexpected advertising account: ${file}`)
  const canonical=head.match(/rel="canonical" href="([^"]+)"/)?.[1]
  assert.equal(canonical,publicUrl(localizedPath(contentPath,locale)),`Canonical must point to the same language: ${file}`)
  assert.equal(head.match(/property="og:url" content="([^"]+)"/)?.[1],canonical)
