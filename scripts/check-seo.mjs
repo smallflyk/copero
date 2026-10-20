@@ -53,6 +53,7 @@ for(const file of htmlFiles){
   localLinks++
  }
 }
+assert.equal(fs.readFileSync('out/ads.txt','utf8').trim(),'google.com, pub-3506863457211473, DIRECT, f08c47fec0942fa0','Root ads.txt must contain the owner advertising record')
 const sitemap=fs.readFileSync('out/sitemap.xml','utf8')
 assert.ok(!sitemap.includes('/career'))
 assert.equal(indexable.length,Object.keys(languages).length*(6+guides.length))
