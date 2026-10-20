@@ -24,6 +24,9 @@ for(const file of htmlFiles){
  assert.equal((head.match(/<script[^>]+src="https:\/\/plausible\.io\/js\/pa-__HJG7Uwk26jKdaqu23Bn\.js"/g)||[]).length,1,`Expected one Plausible loader in ${file}`)
  assert.equal((head.match(/plausible\.init\(\)/g)||[]).length,1,`Expected one Plausible initialization in ${file}`)
  assert.ok(/<script[^>]+async=""[^>]*src="https:\/\/www\.googletagmanager\.com|<script[^>]+src="https:\/\/www\.googletagmanager\.com[^>]+async=""/.test(head),`Google tag must load asynchronously: ${file}`)
+ const adAccounts=[...head.matchAll(/<meta\b[^>]*name="google-adsense-account"[^>]*>/g)]
+ assert.equal(adAccounts.length,1,`Expected exactly one AdSense account meta tag in head: ${file}`)
+ assert.ok(adAccounts[0][0].includes('content="ca-pub-3506863457211473"'),`Incorrect AdSense account meta tag: ${file}`)
  const ads=[...head.matchAll(/<script\b[^>]*src="https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js\?client=ca-pub-3506863457211473"[^>]*>/g)]
  assert.equal(ads.length,1,`Expected exactly one owner AdSense loader in head: ${file}`)
  assert.ok(ads[0][0].includes('async=""')&&ads[0][0].includes('crossorigin="anonymous"'),`AdSense loader attributes: ${file}`)
