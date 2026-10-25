@@ -1,4 +1,4 @@
-"""Six-language UI check for choice effects, quote details and saved season feedback."""
+"""Six-language regression for contextual choices, attribution, legacy saves and retirement."""
 import json,os,re
 from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
@@ -11,7 +11,7 @@ with sync_playwright() as p:
  errors=[]
  for locale in ['es','en','it','pt','zh','de']:
   c=b.new_context(viewport={'width':390,'height':844},is_mobile=True,has_touch=True,reduced_motion='reduce')
-  c.route(re.compile(r'https://(www\.googletagmanager\.com|www\.google-analytics\.com|plausible\.io)/'),lambda r:r.fulfill(status=200,body=''))
+  c.route(re.compile(r'https://(www\.googletagmanager\.com|www\.google-analytics\.com|plausible\.io|pagead2\.googlesyndication\.com)/'),lambda r:r.fulfill(status=200,body=''))
   c.add_init_script('if(!localStorage.getItem("copero.career.v1"))localStorage.setItem("copero.career.v1",'+json.dumps(fixture)+')')
   page=c.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.on('console',lambda m:errors.append(m.text) if m.type=='error' else None)
   page.goto(base+'/'+locale+'/career');page.wait_for_load_state('networkidle')
@@ -23,6 +23,18 @@ with sync_playwright() as p:
    for button in story.locator('.story-option').all():
     text=button.inner_text()
     if locale!='en':assert text in [m[locale] for m in messages.values()],text
+   assert story.locator('.story-trigger').inner_text()
+   state=page.evaluate('JSON.parse(localStorage.getItem("copero.career.v1"))')
+   if state['player']['injuryStatus']!='healthy':
+    key='Recovering from a '+state['player']['injuryStatus']+' injury'
+    expect(page.locator('legend[translate=no]')).to_have_text(key if locale=='en' else messages[key][locale])
+   # A club change must require a fresh story decision.
+   if n==6:
+    story.locator('.story-option').first.click()
+    transfer=page.locator('select').filter(has=page.locator('option[value=stay]'))
+    if transfer.locator('option[value=bigger]').count():
+     transfer.select_option('bigger');expect(page.locator('.next-season')).to_be_disabled()
+     expect(story.locator('[aria-pressed=true]')).to_have_count(0)
    # Each choice is operable by keyboard, announces its selection and shows its costs.
    choice=story.locator('.story-option').nth((n-6)%3);choice.focus();page.keyboard.press('Enter');expect(choice).to_have_attribute('aria-pressed','true')
    expect(page.locator('#story-effects .effect-list li').first).to_be_visible()
@@ -34,12 +46,34 @@ with sync_playwright() as p:
    review=page.locator('.latest-season .season-feedback')
    review.locator('summary').click();expect(review.locator('.review-changes')).to_be_visible()
    save=page.evaluate('JSON.parse(localStorage.getItem("copero.career.v1"))')
-   selected=save['history'][-1]['review']['story']['label']
+   latest=save['history'][-1];trace=latest['review']['changes']
+   assert len(trace)==8
+   assert latest['decision']['storyEvent']==latest['review']['story']['eventId']
+   assert latest['decision']['storyEvent'] not in [h.get('review',{}).get('story',{}).get('eventId') for h in save['history'][-5:-1]]
+   for metric in ['fitness','morale','coachTrust','ovr']:
+    assert sum(step['after'][metric]-step['before'][metric] for step in trace)==latest['review']['after'][metric]-latest['review']['before'][metric]
+   expect(review.locator('.change-breakdown ol>li')).to_have_count(8)
+   if locale!='en':
+    assert all(label in [m[locale] for m in messages.values()] for label in review.locator('.change-breakdown li>strong').all_text_contents())
+   selected=latest['review']['story']['label']
    expect(review).to_contain_text(selected if locale=='en' else messages[selected][locale])
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),locale
    page.reload();page.wait_for_load_state('networkidle')
    assert page.evaluate('JSON.parse(localStorage.getItem("copero.career.v1"))')==save
-  print('PASS',locale,'four story events, keyboard choices, translated quotes/effects/reviews, reload',flush=True)
+  # Retire through the actual UI and check complete translated result sentences.
+  page.locator('.career-report>summary').click();page.on('dialog',lambda d:d.accept())
+  label='Retire and see my legacy' if locale=='en' else messages['Retire and see my legacy'][locale]
+  page.get_by_role('button',name=label,exact=True).click();expect(page.locator('.result-card')).to_be_visible()
+  result=page.locator('.result-intro').inner_text()
+  retirement='Retired at {age}' if locale=='en' else messages['Retired at {age}'][locale]
+  assert retirement.replace('{age}','25') in result
+  ending=page.locator('.career-timeline>ol>li').last.inner_text()
+  assert '25' in ending
+  if locale!='en':assert 'Retired as a' not in ending and 'Retired at' not in result
+  with page.expect_download() as dl:page.locator('.result-page .button').first.click()
+  assert dl.value.suggested_filename.endswith('.png')
+  page.reload();page.wait_for_load_state('networkidle');expect(page.locator('.result-card')).to_be_visible()
+  print('PASS',locale,'contextual cooldown, transfer invalidation, 8-step attribution, translated effects/results, PNG, reload',flush=True)
   c.close()
  assert not errors,errors
  b.close()

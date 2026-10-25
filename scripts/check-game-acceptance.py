@@ -11,7 +11,7 @@ with sync_playwright() as p:
  b=p.chromium.launch(headless=True,args=['--no-proxy-server','--disable-quic','--disable-http2'] if os.environ.get('COPERO_BROWSER_DIRECT')=='1' else [],**({'executable_path':exe} if exe else {}))
  def new_player(position,seed,academy,mobile=False):
   context=b.new_context(reduced_motion='reduce',viewport={'width':390 if mobile else 1440,'height':844 if mobile else 1000},is_mobile=mobile,has_touch=mobile)
-  context.route(re.compile(r'https://(www\.googletagmanager\.com|www\.google-analytics\.com|plausible\.io)/'),lambda route:route.fulfill(status=200,body=''))
+  context.route(re.compile(r'https://(www\.googletagmanager\.com|www\.google-analytics\.com|plausible\.io|pagead2\.googlesyndication\.com)/'),lambda route:route.fulfill(status=200,body=''))
   page=context.new_page();page.set_default_timeout(12000)
   page.on('pageerror',lambda e:report['errors'].append(str(e)))
   page.on('console',lambda msg:report['errors'].append(msg.text) if msg.type=='error' else None)

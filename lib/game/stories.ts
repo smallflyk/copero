@@ -1,9 +1,9 @@
 import {getClub} from '../../data/clubs'
 import {WEIGHTS} from './rules'
-import {ATTRIBUTE_KEYS,type GameState,type StoryEvent,type StoryChoice} from './types'
+import {ATTRIBUTE_KEYS,type GameState,type StoryEvent,type StoryChoice,type Transfer} from './types'
 
 // No random roll: the shown effects are applied exactly, then the normal season runs.
-export function seasonStory(state:GameState):StoryEvent {
+function baseStories(state:GameState):StoryEvent[] {
  const primary=[...ATTRIBUTE_KEYS].sort((a,b)=>WEIGHTS[state.player.position][b]-WEIGHTS[state.player.position][a])[0]
  const events:StoryEvent[]=[
   {id:'extra-session',title:'The last player on the training ground',description:'The coach offers an extra specialist session. Your body still has to get through a full season.',choices:[
@@ -27,11 +27,75 @@ export function seasonStory(state:GameState):StoryEvent {
    {id:'recover',label:'Protect your recovery time',detail:'Restore fitness, but miss the shared work and lose a little morale.',effect:{fitness:14,morale:-3,coachTrust:-2}},
   ]},
  ]
- return events[state.history.length%events.length]
+ return events
 }
-export function storyChoice(state:GameState,id?:string):StoryChoice|undefined {
- if(id===undefined)return undefined // Original saves and published controlled comparisons remain replayable.
- const choice=seasonStory(state).choices.find(item=>item.id===id)
+// Kept only for replaying decisions recorded by rules 1.1.
+export function legacySeasonStory(state:GameState):StoryEvent {return baseStories(state)[state.history.length%4]}
+export function storyCatalog(state:GameState):StoryEvent[] {
+ const base=baseStories(state),primary=[...ATTRIBUTE_KEYS].sort((a,b)=>WEIGHTS[state.player.position][b]-WEIGHTS[state.player.position][a])[0]
+ const choice=(id:string,label:string,detail:string,effect:StoryChoice['effect']):StoryChoice=>({id,label,detail,effect})
+ return [...base,
+  {id:'new-club',title:'A new shirt, a new dressing room',description:'A club move means a fresh relationship with the coach. Decide how to settle into the squad.',choices:[
+   choice('adapt','Earn trust before asking for a bigger role','Build trust and morale, accepting fewer selection opportunities this season.',{coachTrust:12,morale:5,role:-.06}),
+   base[0].choices[0],base[2].choices[2],
+  ]},
+  {id:'rehab',title:'The next step in your recovery',description:'You enter this season injured. Choose how to use your recovery time alongside your rehabilitation plan.',choices:[
+   choice('protect','Protect the rehabilitation routine','Restore fitness but accept a smaller role while you recover.',{fitness:14,morale:-3,coachTrust:1,role:-.05}),
+   choice('footage','Review match footage','Work on passing and coach trust with a small energy cost.',{attribute:'passing',points:1,coachTrust:6,fitness:-3}),
+   choice('light','Stay involved with the squad','Gain morale and trust, spending energy to keep a place in the group.',{fitness:-6,morale:7,coachTrust:5,role:.04}),
+  ]},
+  {id:'fatigue',title:'Your legs need a different plan',description:'Your fitness is low. Extra preparation competes with the need to recover before the next season.',choices:[base[0].choices[2],base[0].choices[1],base[2].choices[2]]},
+  {id:'breakthrough',title:'Too much time on the bench',description:'You played fewer than twenty-two matches last season. Choose between asking for a role and rebuilding your position in the squad.',choices:[base[1].choices[0],base[1].choices[1],base[0].choices[1]]},
+  {id:'honours',title:'What comes after a trophy?',description:'Last season brought a team trophy. The squad must balance another push for success with recovery.',choices:[
+   choice('lead','Set the standard for the next campaign','Build trust and morale at a physical cost.',{coachTrust:7,morale:5,fitness:-8}),
+   choice('repeat','Push for a bigger role in the title defence','Gain selection opportunity while spending fitness and coach trust.',{role:.08,fitness:-10,coachTrust:-3}),
+   base[0].choices[2],
+  ]},
+  {id:'veteran',title:'Experience changes your role',description:'You are in the later years of your career. Match preparation and recovery matter more than chasing a youth development plan.',choices:[
+   choice('manage','Manage your match load','Recover fitness while accepting fewer selection opportunities.',{fitness:14,role:-.08}),
+   choice('leader','Lead the squad through experience','Build trust and morale, leaving a little more room for teammates.',{coachTrust:8,morale:5,role:-.04}),
+   choice('compete','Compete for every available match','Protect your playing role at a cost to fitness and coach trust.',{role:.08,fitness:-12,coachTrust:-4}),
+  ]},
+  {id:'renewal',title:'A contract year needs a plan',description:'Your previous contract has expired. Choose what to prioritise as you consider this season’s club offer.',choices:[
+   choice('stability','Show the coach you want continuity','Gain trust and morale, with less selection opportunity this season.',{coachTrust:10,morale:4,role:-.05}),
+   choice('prove','Make your case on the pitch','Increase selection opportunity with a physical cost.',{role:.08,fitness:-8}),
+   base[0].choices[1],
+  ]},
+  {id:'tactical-focus',title:'A different way to read the game',description:'The coaching staff offer time to study team patterns. You can prepare through analysis, specialist work or recovery.',choices:[
+   choice('patterns','Practise the team’s passing patterns','Improve passing and coach trust, spending energy.',{attribute:'passing',points:1,coachTrust:4,fitness:-5}),
+   base[0].choices[0],base[0].choices[2],
+  ]},
+  {id:'team-bond',title:'A place in the dressing room',description:'A teammate asks you to help the group prepare. Balance time with the squad against your own programme.',choices:[
+   choice('listen','Make time to listen to your teammates','Build morale and trust, accepting fewer selection opportunities.',{morale:8,coachTrust:5,role:-.04}),
+   base[2].choices[2],choice('individual','Focus on your positional skills','Improve your key attribute, with a cost to fitness and morale.',{attribute:primary,points:1,fitness:-6,morale:-3}),
+  ]},
+  {id:'setback',title:'Responding to a difficult season',description:'Your rating fell last season. Decide whether to protect recovery, rebuild confidence or focus on your positional skills.',choices:[base[0].choices[2],base[0].choices[1],base[0].choices[0]]},
+ ]
+}
+function stableRank(state:GameState,id:string) {let n=state.history.length+1;for(const char of state.seed+id)n=Math.imul(n^char.charCodeAt(0),16777619);return n>>>0}
+export function seasonStory(state:GameState,transfer:Transfer='stay'):StoryEvent {
+ const last=state.history.at(-1),p=state.player,recent=new Set(state.history.slice(-4).map(s=>s.review?.story?.eventId))
+ const priorities:Record<string,[number,string]>={
+  rehab:[p.injuryStatus!=='healthy'?120:0,'You start the season injured.'],
+  fatigue:[p.fitness<=45?110:0,'Your fitness is low.'],
+  'new-club':[transfer!=='stay'?100:0,'You selected a club move.'],
+  honours:[last?.trophies?95:0,'You won a team trophy last season.'],
+  breakthrough:[last&&last.appearances<22?90:0,'You had limited match time last season.'],
+  setback:[last&&last.endOvr<last.ovr?85:0,'Your rating fell last season.'],
+  veteran:[p.age>=32?80:0,'You are in the later years of your career.'],
+  renewal:[p.contract?.yearsLeft===0?75:0,'Your previous contract has expired.'],
+ }
+ const candidates=storyCatalog(state).filter(e=>!recent.has(e.id)&&(!(e.id in priorities)||priorities[e.id][0]>0))
+ // Six general stories keep a four-season cooldown possible even without a special trigger.
+ if(!state.history.length&&p.injuryStatus==='healthy'&&p.fitness>45)return {...candidates.find(e=>e.id==='extra-session')!,reason:'Your first senior season.'}
+ candidates.sort((a,b)=>(priorities[b.id]?.[0]??10)-(priorities[a.id]?.[0]??10)||stableRank(state,b.id)-stableRank(state,a.id))
+ const event=candidates[0]
+ return {...event,reason:priorities[event.id]?.[1]??'A fresh situation after the recent-story cooldown.'}
+}
+export function storyChoice(state:GameState,id?:string,eventId?:string,transfer:Transfer='stay'):StoryChoice|undefined {
+ if(id===undefined){if(eventId!==undefined)throw new Error('Choose a valid story decision for this season.');return undefined}
+ const event=eventId===undefined?legacySeasonStory(state):seasonStory(state,transfer)
+ const choice=(eventId===undefined||eventId===event.id)?event.choices.find(item=>item.id===id):undefined
  if(!choice)throw new Error('Choose a valid story decision for this season.')
  return choice
 }

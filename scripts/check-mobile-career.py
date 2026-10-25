@@ -9,7 +9,7 @@ exe=os.environ.get('PLAYWRIGHT_CHROMIUM_EXECUTABLE');measurements=[];errors=[]
 with sync_playwright() as p:
  b=p.chromium.launch(headless=True,args=['--no-proxy-server','--disable-quic','--disable-http2'] if os.environ.get('COPERO_BROWSER_DIRECT')=='1' else [],**({'executable_path':exe} if exe else {}))
  c=b.new_context(reduced_motion='reduce',viewport={'width':390,'height':844},has_touch=True,is_mobile=True,accept_downloads=True)
- c.route(re.compile(r'https://(www\.googletagmanager\.com|www\.google-analytics\.com|plausible\.io)/'),lambda route:route.fulfill(status=200,body=''))
+ c.route(re.compile(r'https://(www\.googletagmanager\.com|www\.google-analytics\.com|plausible\.io|pagead2\.googlesyndication\.com)/'),lambda route:route.fulfill(status=200,body=''))
  c.add_init_script('if(!localStorage.getItem("copero.career.v1"))localStorage.setItem("copero.career.v1",'+json.dumps(fixture)+')')
  page=c.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.on('console',lambda m:errors.append(m.text) if m.type=='error' else None)
  def settle():

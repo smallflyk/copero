@@ -4541,5 +4541,719 @@
     "pt": "Copero inclui o script do Google AdSense (ca-pub-3506863457211473) para habilitar publicidade. O Google pode receber informações do navegador, dispositivo e página e usar cookies ou tecnologias semelhantes para exibir e medir anúncios. Você pode gerenciar cookies no navegador e preferências de anúncios pelo Google. Não enviamos nome do jogador, save ou histórico como dados publicitários personalizados.",
     "zh": "Copero 已加入 Google AdSense 脚本（ca-pub-3506863457211473）以启用广告。Google 可能接收浏览器、设备和页面信息，并使用 Cookie 或类似技术投放和衡量广告。你可以在浏览器中管理 Cookie，并通过 Google 管理广告偏好。我们不会将你填写的球员姓名、生涯存档或赛季历史作为自定义广告数据发送。",
     "de": "Copero bindet das Google-AdSense-Skript (ca-pub-3506863457211473) ein, um Werbung zu ermöglichen. Google kann Browser-, Geräte- und Seiteninformationen erhalten und Cookies oder ähnliche Technologien zur Auslieferung und Messung von Anzeigen verwenden. Cookies lassen sich im Browser und Anzeigenpräferenzen über Google verwalten. Wir senden Spielernamen, Spielstände oder Saisonverläufe nicht als benutzerdefinierte Werbedaten."
+  },
+  "A new shirt, a new dressing room": {
+    "es": "Una nueva camiseta, un nuevo vestuario",
+    "it": "Una nuova maglia, un nuovo spogliatoio",
+    "pt": "Uma nova camisa, um novo vestiário",
+    "zh": "新球衣，新更衣室",
+    "de": "Neues Trikot, neue Kabine"
+  },
+  "A club move means a fresh relationship with the coach. Decide how to settle into the squad.": {
+    "es": "Cambiar de club significa empezar una nueva relación con el técnico. Decide cómo integrarte en el equipo.",
+    "it": "Cambiare club significa ricostruire il rapporto con il tecnico. Decidi come inserirti nella squadra.",
+    "pt": "Mudar de clube significa iniciar uma nova relação com o técnico. Decida como se integrar ao elenco.",
+    "zh": "转会意味着重新建立教练关系。决定如何融入新球队。",
+    "de": "Ein Vereinswechsel bedeutet eine neue Trainerbeziehung. Entscheide, wie du dich einfügst."
+  },
+  "Earn trust before asking for a bigger role": {
+    "es": "Ganar confianza antes de pedir un papel mayor",
+    "it": "Guadagna fiducia prima di chiedere più spazio",
+    "pt": "Ganhar confiança antes de pedir um papel maior",
+    "zh": "先建立信任，再争取更大角色",
+    "de": "Erst Vertrauen gewinnen, dann mehr Einsatzzeit fordern"
+  },
+  "Build trust and morale, accepting fewer selection opportunities this season.": {
+    "es": "Mejora confianza y moral aceptando menos oportunidades de jugar esta temporada.",
+    "it": "Migliora fiducia e morale accettando meno occasioni di impiego questa stagione.",
+    "pt": "Melhore confiança e moral aceitando menos chances de jogar nesta temporada.",
+    "zh": "提升信任与士气，同时接受本赛季更少的出场机会。",
+    "de": "Stärke Vertrauen und Moral und akzeptiere diese Saison weniger Einsatzchancen."
+  },
+  "The next step in your recovery": {
+    "es": "El siguiente paso de tu recuperación",
+    "it": "Il prossimo passo del recupero",
+    "pt": "O próximo passo da recuperação",
+    "zh": "康复的下一步",
+    "de": "Der nächste Schritt deiner Genesung"
+  },
+  "You enter this season injured. Choose how to use your recovery time alongside your rehabilitation plan.": {
+    "es": "Empiezas la temporada lesionado. Decide cómo aprovechar la recuperación junto con tu plan de rehabilitación.",
+    "it": "Inizi la stagione infortunato. Decidi come usare il recupero insieme al piano riabilitativo.",
+    "pt": "Você começa a temporada lesionado. Escolha como usar o tempo de recuperação junto ao plano de reabilitação.",
+    "zh": "你将带伤进入本赛季。结合康复方案，决定如何安排恢复时间。",
+    "de": "Du beginnst die Saison verletzt. Plane deine Erholungszeit ergänzend zur Rehabilitation."
+  },
+  "Protect the rehabilitation routine": {
+    "es": "Proteger la rutina de rehabilitación",
+    "it": "Proteggi la routine riabilitativa",
+    "pt": "Proteger a rotina de reabilitação",
+    "zh": "保障康复安排",
+    "de": "Den Rehaplan schützen"
+  },
+  "Restore fitness but accept a smaller role while you recover.": {
+    "es": "Recupera forma, aceptando un papel menor mientras te recuperas.",
+    "it": "Recupera forma, accettando un ruolo minore durante la riabilitazione.",
+    "pt": "Recupere condição, aceitando um papel menor durante a recuperação.",
+    "zh": "恢复体能，但在康复期间接受较小的出场角色。",
+    "de": "Erhole deine Fitness und akzeptiere während der Genesung eine kleinere Rolle."
+  },
+  "Review match footage": {
+    "es": "Analizar vídeos de partidos",
+    "it": "Analizza i filmati delle partite",
+    "pt": "Analisar vídeos de jogos",
+    "zh": "分析比赛录像",
+    "de": "Spielaufnahmen analysieren"
+  },
+  "Work on passing and coach trust with a small energy cost.": {
+    "es": "Trabaja el pase y la confianza del técnico con un pequeño coste de energía.",
+    "it": "Lavora su passaggi e fiducia del tecnico con un piccolo costo energetico.",
+    "pt": "Trabalhe o passe e a confiança do técnico com um pequeno gasto de energia.",
+    "zh": "以少量体能为代价，提高传球与教练信任。",
+    "de": "Verbessere Passspiel und Trainervertrauen mit geringem Energieaufwand."
+  },
+  "Stay involved with the squad": {
+    "es": "Seguir implicado con el equipo",
+    "it": "Resta coinvolto nella squadra",
+    "pt": "Continuar envolvido com o elenco",
+    "zh": "继续参与球队活动",
+    "de": "Im Team eingebunden bleiben"
+  },
+  "Gain morale and trust, spending energy to keep a place in the group.": {
+    "es": "Gana moral y confianza, gastando energía para mantener tu lugar en el grupo.",
+    "it": "Guadagna morale e fiducia, spendendo energie per restare nel gruppo.",
+    "pt": "Ganhe moral e confiança, gastando energia para manter seu lugar no grupo.",
+    "zh": "消耗体能保持团队参与，换取士气和信任。",
+    "de": "Gewinne Moral und Vertrauen und investiere Energie in deinen Platz im Team."
+  },
+  "Your legs need a different plan": {
+    "es": "Tus piernas necesitan otro plan",
+    "it": "Le tue gambe hanno bisogno di un altro piano",
+    "pt": "Suas pernas precisam de outro plano",
+    "zh": "双腿需要不同的计划",
+    "de": "Deine Beine brauchen einen anderen Plan"
+  },
+  "Your fitness is low. Extra preparation competes with the need to recover before the next season.": {
+    "es": "Tu forma es baja. La preparación extra compite con la necesidad de recuperarte antes de la próxima temporada.",
+    "it": "La tua forma è bassa. La preparazione extra compete con il recupero prima della prossima stagione.",
+    "pt": "Sua condição está baixa. A preparação extra compete com a necessidade de recuperar antes da próxima temporada.",
+    "zh": "当前体能偏低。额外备战与赛前恢复需要作出取舍。",
+    "de": "Deine Fitness ist niedrig. Zusätzliche Vorbereitung und Erholung vor der Saison stehen im Wettbewerb."
+  },
+  "Too much time on the bench": {
+    "es": "Demasiado tiempo en el banquillo",
+    "it": "Troppo tempo in panchina",
+    "pt": "Tempo demais no banco",
+    "zh": "替补席上的时间太多了",
+    "de": "Zu viel Zeit auf der Bank"
+  },
+  "You played fewer than twenty-two matches last season. Choose between asking for a role and rebuilding your position in the squad.": {
+    "es": "Jugaste menos de veintidós partidos la temporada pasada. Elige entre pedir más protagonismo y reconstruir tu posición en el equipo.",
+    "it": "Hai giocato meno di ventidue partite la scorsa stagione. Scegli tra chiedere più spazio e ricostruire il tuo posto in squadra.",
+    "pt": "Você jogou menos de vinte e duas partidas na temporada passada. Escolha entre pedir mais espaço e reconstruir sua posição no elenco.",
+    "zh": "上赛季出场不足22场。选择争取更多机会，或先重新巩固队内位置。",
+    "de": "Du hast letzte Saison weniger als 22 Spiele bestritten. Fordere mehr Einsatzzeit oder festige erst deinen Platz."
+  },
+  "What comes after a trophy?": {
+    "es": "¿Qué viene después de un título?",
+    "it": "Cosa viene dopo un trofeo?",
+    "pt": "O que vem depois de um título?",
+    "zh": "夺冠之后如何选择？",
+    "de": "Was kommt nach einem Titel?"
+  },
+  "Last season brought a team trophy. The squad must balance another push for success with recovery.": {
+    "es": "La temporada pasada dejó un título colectivo. El equipo debe equilibrar otra lucha por el éxito con la recuperación.",
+    "it": "La scorsa stagione ha portato un trofeo di squadra. Occorre bilanciare nuovi successi e recupero.",
+    "pt": "A temporada passada trouxe um título coletivo. O elenco precisa equilibrar novas conquistas e recuperação.",
+    "zh": "上赛季赢得了团队奖杯。球队需要平衡继续争冠与体能恢复。",
+    "de": "Letzte Saison brachte einen Mannschaftstitel. Das Team muss neue Erfolge und Erholung ausbalancieren."
+  },
+  "Set the standard for the next campaign": {
+    "es": "Marcar el nivel para la próxima campaña",
+    "it": "Dai l’esempio per la prossima stagione",
+    "pt": "Definir o padrão para a próxima campanha",
+    "zh": "为新赛季树立榜样",
+    "de": "Maßstäbe für die nächste Saison setzen"
+  },
+  "Build trust and morale at a physical cost.": {
+    "es": "Mejora confianza y moral a costa de forma física.",
+    "it": "Migliora fiducia e morale a costo della forma fisica.",
+    "pt": "Melhore confiança e moral com custo à condição física.",
+    "zh": "以体能为代价，提升信任与士气。",
+    "de": "Stärke Vertrauen und Moral auf Kosten der Fitness."
+  },
+  "Push for a bigger role in the title defence": {
+    "es": "Pedir un papel mayor en la defensa del título",
+    "it": "Chiedi più spazio nella difesa del titolo",
+    "pt": "Buscar um papel maior na defesa do título",
+    "zh": "争取在卫冕中承担更多比赛",
+    "de": "Mehr Verantwortung bei der Titelverteidigung fordern"
+  },
+  "Gain selection opportunity while spending fitness and coach trust.": {
+    "es": "Gana oportunidades de jugar a costa de forma y confianza del técnico.",
+    "it": "Guadagna occasioni di impiego spendendo forma e fiducia del tecnico.",
+    "pt": "Ganhe chances de jogar gastando condição e confiança do técnico.",
+    "zh": "增加出场机会，但消耗体能与教练信任。",
+    "de": "Gewinne Einsatzchancen auf Kosten von Fitness und Trainervertrauen."
+  },
+  "Experience changes your role": {
+    "es": "La experiencia cambia tu papel",
+    "it": "L’esperienza cambia il tuo ruolo",
+    "pt": "A experiência muda seu papel",
+    "zh": "经验让角色发生变化",
+    "de": "Erfahrung verändert deine Rolle"
+  },
+  "You are in the later years of your career. Match preparation and recovery matter more than chasing a youth development plan.": {
+    "es": "Estás en los últimos años de tu carrera. Preparar partidos y recuperarte importa más que seguir un plan de desarrollo juvenil.",
+    "it": "Sei negli ultimi anni di carriera. Preparazione e recupero contano più di un programma di crescita giovanile.",
+    "pt": "Você está nos últimos anos da carreira. Preparação e recuperação importam mais que um plano de desenvolvimento juvenil.",
+    "zh": "你已进入职业生涯后期。比赛准备与恢复，比沿用年轻球员的成长计划更重要。",
+    "de": "Du bist in den späten Karrierejahren. Spielvorbereitung und Erholung zählen mehr als ein Jugendentwicklungsplan."
+  },
+  "Manage your match load": {
+    "es": "Gestionar tu carga de partidos",
+    "it": "Gestisci il carico di partite",
+    "pt": "Gerenciar sua carga de jogos",
+    "zh": "管理比赛负荷",
+    "de": "Deine Spielbelastung steuern"
+  },
+  "Recover fitness while accepting fewer selection opportunities.": {
+    "es": "Recupera forma aceptando menos oportunidades de jugar.",
+    "it": "Recupera forma accettando meno occasioni di impiego.",
+    "pt": "Recupere condição aceitando menos chances de jogar.",
+    "zh": "恢复体能，同时接受更少的出场机会。",
+    "de": "Erhole Fitness und akzeptiere weniger Einsatzchancen."
+  },
+  "Lead the squad through experience": {
+    "es": "Liderar al equipo con tu experiencia",
+    "it": "Guida la squadra con l’esperienza",
+    "pt": "Liderar o elenco com experiência",
+    "zh": "用经验带领球队",
+    "de": "Das Team mit Erfahrung führen"
+  },
+  "Build trust and morale, leaving a little more room for teammates.": {
+    "es": "Mejora confianza y moral dejando algo más de espacio a tus compañeros.",
+    "it": "Migliora fiducia e morale lasciando un po’ più di spazio ai compagni.",
+    "pt": "Melhore confiança e moral deixando um pouco mais de espaço aos colegas.",
+    "zh": "提升信任与士气，并给队友留出更多出场空间。",
+    "de": "Stärke Vertrauen und Moral und lasse den Mitspielern etwas mehr Raum."
+  },
+  "Compete for every available match": {
+    "es": "Competir por cada partido disponible",
+    "it": "Competi per ogni partita disponibile",
+    "pt": "Disputar cada jogo disponível",
+    "zh": "争取每一场比赛",
+    "de": "Um jeden möglichen Einsatz kämpfen"
+  },
+  "Protect your playing role at a cost to fitness and coach trust.": {
+    "es": "Protege tu papel en el campo a costa de forma y confianza del técnico.",
+    "it": "Proteggi il tuo ruolo in campo a costo di forma e fiducia del tecnico.",
+    "pt": "Proteja seu papel em campo com custo à condição e à confiança do técnico.",
+    "zh": "保住比赛角色，代价是体能与教练信任。",
+    "de": "Behaupte deine Rolle auf Kosten von Fitness und Trainervertrauen."
+  },
+  "A contract year needs a plan": {
+    "es": "Un año de contrato necesita un plan",
+    "it": "Un anno di contratto richiede un piano",
+    "pt": "Um ano de contrato precisa de um plano",
+    "zh": "合同到期，需要新的计划",
+    "de": "Ein Vertragsjahr braucht einen Plan"
+  },
+  "Your previous contract has expired. Choose what to prioritise as you consider this season’s club offer.": {
+    "es": "Tu contrato anterior ha terminado. Elige tus prioridades al valorar la oferta del club para esta temporada.",
+    "it": "Il contratto precedente è scaduto. Scegli le priorità valutando l’offerta del club per questa stagione.",
+    "pt": "Seu contrato anterior terminou. Escolha prioridades ao avaliar a proposta do clube nesta temporada.",
+    "zh": "上一份合同已到期。在考虑本赛季报价时，决定自己的优先目标。",
+    "de": "Dein bisheriger Vertrag ist ausgelaufen. Setze Prioritäten für das Vereinsangebot dieser Saison."
+  },
+  "Show the coach you want continuity": {
+    "es": "Mostrar al técnico que buscas continuidad",
+    "it": "Mostra al tecnico che vuoi continuità",
+    "pt": "Mostrar ao técnico que busca continuidade",
+    "zh": "向教练表达长期效力的意愿",
+    "de": "Dem Trainer deinen Wunsch nach Kontinuität zeigen"
+  },
+  "Gain trust and morale, with less selection opportunity this season.": {
+    "es": "Gana confianza y moral con menos oportunidades de jugar esta temporada.",
+    "it": "Guadagna fiducia e morale con meno occasioni di impiego questa stagione.",
+    "pt": "Ganhe confiança e moral com menos chances de jogar nesta temporada.",
+    "zh": "获得信任与士气，但本赛季出场机会减少。",
+    "de": "Gewinne Vertrauen und Moral mit weniger Einsatzchancen diese Saison."
+  },
+  "Make your case on the pitch": {
+    "es": "Demostrar tu valor en el campo",
+    "it": "Dimostra il tuo valore in campo",
+    "pt": "Mostrar seu valor em campo",
+    "zh": "用场上表现证明自己",
+    "de": "Dich auf dem Platz beweisen"
+  },
+  "Increase selection opportunity with a physical cost.": {
+    "es": "Aumenta las oportunidades de jugar con un coste físico.",
+    "it": "Aumenta le occasioni di impiego con un costo fisico.",
+    "pt": "Aumente as chances de jogar com um custo físico.",
+    "zh": "以体能为代价，增加出场机会。",
+    "de": "Erhöhe Einsatzchancen gegen einen Fitnessverlust."
+  },
+  "A different way to read the game": {
+    "es": "Otra forma de leer el juego",
+    "it": "Un altro modo di leggere il gioco",
+    "pt": "Outra forma de ler o jogo",
+    "zh": "换个角度阅读比赛",
+    "de": "Das Spiel anders lesen"
+  },
+  "The coaching staff offer time to study team patterns. You can prepare through analysis, specialist work or recovery.": {
+    "es": "El cuerpo técnico ofrece tiempo para estudiar patrones del equipo. Puedes prepararte con análisis, trabajo específico o recuperación.",
+    "it": "Lo staff offre tempo per studiare gli schemi di squadra. Preparati con analisi, lavoro specifico o recupero.",
+    "pt": "A comissão oferece tempo para estudar padrões da equipe. Prepare-se com análise, trabalho específico ou recuperação.",
+    "zh": "教练组安排时间研究球队配合。你可以选择战术分析、专项训练或恢复。",
+    "de": "Das Trainerteam bietet Zeit für Mannschaftsabläufe. Wähle Analyse, Spezialtraining oder Erholung."
+  },
+  "Practise the team’s passing patterns": {
+    "es": "Practicar los patrones de pase del equipo",
+    "it": "Allena gli schemi di passaggio",
+    "pt": "Praticar os padrões de passe da equipe",
+    "zh": "演练球队传球配合",
+    "de": "Passmuster der Mannschaft üben"
+  },
+  "Improve passing and coach trust, spending energy.": {
+    "es": "Mejora pase y confianza del técnico gastando energía.",
+    "it": "Migliora passaggi e fiducia del tecnico spendendo energie.",
+    "pt": "Melhore passe e confiança do técnico gastando energia.",
+    "zh": "消耗体能，提升传球与教练信任。",
+    "de": "Verbessere Passspiel und Trainervertrauen gegen Energieaufwand."
+  },
+  "A place in the dressing room": {
+    "es": "Un lugar en el vestuario",
+    "it": "Un posto nello spogliatoio",
+    "pt": "Um lugar no vestiário",
+    "zh": "更衣室中的位置",
+    "de": "Ein Platz in der Kabine"
+  },
+  "A teammate asks you to help the group prepare. Balance time with the squad against your own programme.": {
+    "es": "Un compañero te pide ayuda para preparar al grupo. Equilibra el tiempo con el equipo y tu programa individual.",
+    "it": "Un compagno chiede aiuto per preparare il gruppo. Bilancia il tempo con la squadra e il tuo programma.",
+    "pt": "Um colega pede ajuda para preparar o grupo. Equilibre o tempo com o elenco e seu programa individual.",
+    "zh": "队友邀请你帮助全队备战。平衡团队活动与个人计划的时间。",
+    "de": "Ein Mitspieler bittet um Hilfe bei der Vorbereitung. Balanciere Teamzeit und dein eigenes Programm."
+  },
+  "Make time to listen to your teammates": {
+    "es": "Dedicar tiempo a escuchar a tus compañeros",
+    "it": "Trova tempo per ascoltare i compagni",
+    "pt": "Reservar tempo para ouvir os colegas",
+    "zh": "抽出时间倾听队友",
+    "de": "Zeit zum Zuhören für Mitspieler nehmen"
+  },
+  "Build morale and trust, accepting fewer selection opportunities.": {
+    "es": "Mejora moral y confianza aceptando menos oportunidades de jugar.",
+    "it": "Migliora morale e fiducia accettando meno occasioni di impiego.",
+    "pt": "Melhore moral e confiança aceitando menos chances de jogar.",
+    "zh": "提升士气与信任，同时接受更少的出场机会。",
+    "de": "Stärke Moral und Vertrauen und akzeptiere weniger Einsatzchancen."
+  },
+  "Focus on your positional skills": {
+    "es": "Centrarte en las habilidades de tu posición",
+    "it": "Concentrati sulle abilità del tuo ruolo",
+    "pt": "Focar nas habilidades da posição",
+    "zh": "专注位置专项能力",
+    "de": "Auf positionsbezogene Fähigkeiten konzentrieren"
+  },
+  "Improve your key attribute, with a cost to fitness and morale.": {
+    "es": "Mejora tu atributo clave a costa de forma y moral.",
+    "it": "Migliora l’attributo chiave a costo di forma e morale.",
+    "pt": "Melhore seu atributo principal com custo à condição e à moral.",
+    "zh": "提升位置关键属性，代价是体能和士气。",
+    "de": "Verbessere dein Schlüsselattribut auf Kosten von Fitness und Moral."
+  },
+  "Responding to a difficult season": {
+    "es": "Responder a una temporada difícil",
+    "it": "Reagire a una stagione difficile",
+    "pt": "Reagir a uma temporada difícil",
+    "zh": "回应一个艰难的赛季",
+    "de": "Auf eine schwierige Saison reagieren"
+  },
+  "Your rating fell last season. Decide whether to protect recovery, rebuild confidence or focus on your positional skills.": {
+    "es": "Tu valoración bajó la temporada pasada. Decide entre cuidar la recuperación, reconstruir confianza o trabajar tu posición.",
+    "it": "La valutazione è scesa la scorsa stagione. Scegli recupero, fiducia o abilità del tuo ruolo.",
+    "pt": "Sua avaliação caiu na temporada passada. Escolha entre recuperação, confiança ou habilidades da posição.",
+    "zh": "上赛季评分下降。选择优先恢复、重建信任，或强化位置专项能力。",
+    "de": "Deine Bewertung sank letzte Saison. Wähle Erholung, Vertrauensaufbau oder positionsbezogenes Training."
+  },
+  "You start the season injured.": {
+    "es": "Empiezas la temporada lesionado.",
+    "it": "Inizi la stagione infortunato.",
+    "pt": "Você começa a temporada lesionado.",
+    "zh": "本赛季开始时仍有伤病。",
+    "de": "Du beginnst die Saison verletzt."
+  },
+  "Your fitness is low.": {
+    "es": "Tu forma física es baja.",
+    "it": "La tua forma fisica è bassa.",
+    "pt": "Sua condição física está baixa.",
+    "zh": "当前体能偏低。",
+    "de": "Deine Fitness ist niedrig."
+  },
+  "You selected a club move.": {
+    "es": "Has elegido cambiar de club.",
+    "it": "Hai scelto di cambiare club.",
+    "pt": "Você escolheu mudar de clube.",
+    "zh": "你已选择转会。",
+    "de": "Du hast einen Vereinswechsel gewählt."
+  },
+  "You won a team trophy last season.": {
+    "es": "Ganaste un título colectivo la temporada pasada.",
+    "it": "Hai vinto un trofeo di squadra la scorsa stagione.",
+    "pt": "Você ganhou um título coletivo na temporada passada.",
+    "zh": "上赛季赢得了团队奖杯。",
+    "de": "Du hast letzte Saison einen Mannschaftstitel gewonnen."
+  },
+  "You had limited match time last season.": {
+    "es": "Tuviste pocos minutos la temporada pasada.",
+    "it": "Hai avuto poco spazio la scorsa stagione.",
+    "pt": "Você teve poucos minutos na temporada passada.",
+    "zh": "上赛季出场机会偏少。",
+    "de": "Du hattest letzte Saison wenig Spielzeit."
+  },
+  "Your rating fell last season.": {
+    "es": "Tu valoración bajó la temporada pasada.",
+    "it": "La tua valutazione è scesa la scorsa stagione.",
+    "pt": "Sua avaliação caiu na temporada passada.",
+    "zh": "上赛季评分下降。",
+    "de": "Deine Bewertung sank letzte Saison."
+  },
+  "You are in the later years of your career.": {
+    "es": "Estás en los últimos años de tu carrera.",
+    "it": "Sei negli ultimi anni della carriera.",
+    "pt": "Você está nos últimos anos da carreira.",
+    "zh": "你已进入职业生涯后期。",
+    "de": "Du bist in den späten Karrierejahren."
+  },
+  "Your previous contract has expired.": {
+    "es": "Tu contrato anterior ha terminado.",
+    "it": "Il tuo contratto precedente è scaduto.",
+    "pt": "Seu contrato anterior terminou.",
+    "zh": "上一份合同已到期。",
+    "de": "Dein bisheriger Vertrag ist ausgelaufen."
+  },
+  "Your first senior season.": {
+    "es": "Tu primera temporada profesional.",
+    "it": "La tua prima stagione professionistica.",
+    "pt": "Sua primeira temporada profissional.",
+    "zh": "你的第一个成年队赛季。",
+    "de": "Deine erste Profisaison."
+  },
+  "A fresh situation after the recent-story cooldown.": {
+    "es": "Una nueva situación tras el descanso de las historias recientes.",
+    "it": "Una nuova situazione dopo la pausa delle storie recenti.",
+    "pt": "Uma nova situação após a pausa das histórias recentes.",
+    "zh": "避开近期剧情后的新情境。",
+    "de": "Eine neue Situation nach der Handlungspause."
+  },
+  "{metric}: listed {requested}, actual {applied} after limits.": {
+    "es": "{metric}: anunciado {requested}, real {applied} tras aplicar límites.",
+    "it": "{metric}: indicato {requested}, effettivo {applied} dopo i limiti.",
+    "pt": "{metric}: indicado {requested}, real {applied} após os limites.",
+    "zh": "{metric}：标示 {requested}，受上下限约束后实际 {applied}。",
+    "de": "{metric}: angegeben {requested}, tatsächlich {applied} nach Begrenzung."
+  },
+  "Growth multiplier inactive: age-related decline is active.": {
+    "es": "Multiplicador de crecimiento inactivo: se aplica el declive por edad.",
+    "it": "Moltiplicatore di crescita inattivo: è attivo il declino legato all’età.",
+    "pt": "Multiplicador de crescimento inativo: o declínio pela idade está ativo.",
+    "zh": "成长倍率本季不生效：当前适用年龄衰退。",
+    "de": "Wachstumsmultiplikator inaktiv: altersbedingter Rückgang ist aktiv."
+  },
+  "Where the changes came from": {
+    "es": "De dónde vienen los cambios",
+    "it": "Da dove vengono le variazioni",
+    "pt": "De onde vieram as mudanças",
+    "zh": "变化来自哪里",
+    "de": "Woher die Änderungen kommen"
+  },
+  "Actual changes in the order applied. Each step starts where the previous one ended.": {
+    "es": "Cambios reales en el orden aplicado. Cada paso empieza donde terminó el anterior.",
+    "it": "Variazioni effettive nell’ordine applicato. Ogni passo parte dalla fine del precedente.",
+    "pt": "Mudanças reais na ordem aplicada. Cada etapa começa onde a anterior terminou.",
+    "zh": "按实际生效顺序记录变化，每一步衔接上一步的结果。",
+    "de": "Tatsächliche Änderungen in ihrer Reihenfolge. Jeder Schritt beginnt beim Ergebnis des vorigen."
+  },
+  "Club move or continuity": {
+    "es": "Cambio de club o continuidad",
+    "it": "Cambio di club o continuità",
+    "pt": "Mudança de clube ou continuidade",
+    "zh": "转会或留队",
+    "de": "Vereinswechsel oder Verbleib"
+  },
+  "Story choice": {
+    "es": "Decisión de la historia",
+    "it": "Scelta della storia",
+    "pt": "Escolha da história",
+    "zh": "剧情选择",
+    "de": "Handlungsentscheidung"
+  },
+  "Following the coach plan": {
+    "es": "Seguir el plan del técnico",
+    "it": "Seguire il piano del tecnico",
+    "pt": "Seguir o plano do técnico",
+    "zh": "服从教练计划",
+    "de": "Dem Trainerplan folgen"
+  },
+  "Request for minutes accepted": {
+    "es": "Petición de minutos aceptada",
+    "it": "Richiesta di minuti accettata",
+    "pt": "Pedido de minutos aceito",
+    "zh": "争取出场的请求获准",
+    "de": "Anfrage nach Spielzeit angenommen"
+  },
+  "Request for minutes refused": {
+    "es": "Petición de minutos rechazada",
+    "it": "Richiesta di minuti respinta",
+    "pt": "Pedido de minutos negado",
+    "zh": "争取出场的请求遭拒",
+    "de": "Anfrage nach Spielzeit abgelehnt"
+  },
+  "Position review": {
+    "es": "Revisión de posición",
+    "it": "Revisione del ruolo",
+    "pt": "Revisão da posição",
+    "zh": "位置调整",
+    "de": "Positionsüberprüfung"
+  },
+  "Training load and seasonal recovery": {
+    "es": "Carga de entrenamiento y recuperación habitual",
+    "it": "Carico di allenamento e recupero stagionale",
+    "pt": "Carga de treino e recuperação habitual",
+    "zh": "训练负荷与常规恢复",
+    "de": "Trainingsbelastung und saisonale Erholung"
+  },
+  "Full rehabilitation": {
+    "es": "Rehabilitación completa",
+    "it": "Riabilitazione completa",
+    "pt": "Reabilitação completa",
+    "zh": "完整康复",
+    "de": "Vollständige Rehabilitation"
+  },
+  "Early return from injury": {
+    "es": "Regreso anticipado tras lesión",
+    "it": "Rientro anticipato dall’infortunio",
+    "pt": "Retorno antecipado da lesão",
+    "zh": "提前复出",
+    "de": "Vorzeitige Rückkehr nach Verletzung"
+  },
+  "No rehabilitation needed": {
+    "es": "Sin necesidad de rehabilitación",
+    "it": "Nessuna riabilitazione necessaria",
+    "pt": "Sem necessidade de reabilitação",
+    "zh": "无需伤病康复",
+    "de": "Keine Rehabilitation nötig"
+  },
+  "No new injury": {
+    "es": "Sin nueva lesión",
+    "it": "Nessun nuovo infortunio",
+    "pt": "Sem nova lesão",
+    "zh": "没有新增伤病",
+    "de": "Keine neue Verletzung"
+  },
+  "New minor injury": {
+    "es": "Nueva lesión leve",
+    "it": "Nuovo infortunio lieve",
+    "pt": "Nova lesão leve",
+    "zh": "新增轻伤",
+    "de": "Neue leichte Verletzung"
+  },
+  "New major injury": {
+    "es": "Nueva lesión grave",
+    "it": "Nuovo infortunio grave",
+    "pt": "Nova lesão grave",
+    "zh": "新增重伤",
+    "de": "Neue schwere Verletzung"
+  },
+  "Development and ageing": {
+    "es": "Desarrollo y envejecimiento",
+    "it": "Sviluppo e invecchiamento",
+    "pt": "Desenvolvimento e envelhecimento",
+    "zh": "成长与年龄变化",
+    "de": "Entwicklung und Alterung"
+  },
+  "Match time and team honours": {
+    "es": "Participación y títulos colectivos",
+    "it": "Presenze e trofei di squadra",
+    "pt": "Participação e títulos coletivos",
+    "zh": "出场表现与团队荣誉",
+    "de": "Spielzeit und Mannschaftserfolge"
+  },
+  "No numerical change.": {
+    "es": "Sin cambios numéricos.",
+    "it": "Nessuna variazione numerica.",
+    "pt": "Sem mudança numérica.",
+    "zh": "数值没有变化。",
+    "de": "Keine numerische Änderung."
+  },
+  "Detailed attribution was not recorded for this historical season.": {
+    "es": "No se registró el desglose detallado de esta temporada histórica.",
+    "it": "Per questa stagione passata non è stata registrata l’attribuzione dettagliata.",
+    "pt": "O detalhamento das causas não foi registrado nesta temporada histórica.",
+    "zh": "该历史赛季未记录逐项归因。",
+    "de": "Für diese frühere Saison wurde keine detaillierte Zuordnung erfasst."
+  },
+  "Selection share: {before}% → {after}%. Injury-adjusted availability: {availability}%.": {
+    "es": "Participación estimada: {before}% → {after}%. Disponibilidad tras lesiones: {availability}%.",
+    "it": "Quota di impiego: {before}% → {after}%. Disponibilità dopo gli infortuni: {availability}%.",
+    "pt": "Participação estimada: {before}% → {after}%. Disponibilidade após lesões: {availability}%.",
+    "zh": "出场份额：{before}% → {after}%；伤病调整后的可出场比例：{availability}%。",
+    "de": "Einsatzanteil: {before}% → {after}%. Verletzungsbereinigte Verfügbarkeit: {availability}%."
+  },
+  "Retired at {age}": {
+    "es": "Retirado a los {age} años",
+    "it": "Ritirato a {age} anni",
+    "pt": "Aposentado aos {age} anos",
+    "zh": "{age}岁退役",
+    "de": "Karriereende mit {age} Jahren"
+  },
+  "Age {n}": {
+    "es": "Edad {n}",
+    "it": "Età {n}",
+    "pt": "Idade {n}",
+    "zh": "{n}岁",
+    "de": "Alter {n}"
+  },
+  "Age {from}–{to}": {
+    "es": "Edad {from}–{to}",
+    "it": "Età {from}–{to}",
+    "pt": "Idade {from}–{to}",
+    "zh": "{from}–{to}岁",
+    "de": "Alter {from}–{to}"
+  },
+  "{seasons} · Fictional career · Your decisions": {
+    "es": "{seasons} · Carrera ficticia · Tus decisiones",
+    "it": "{seasons} · Carriera fittizia · Le tue scelte",
+    "pt": "{seasons} · Carreira fictícia · Suas decisões",
+    "zh": "{seasons} · 虚拟生涯 · 你的选择",
+    "de": "{seasons} · Fiktive Karriere · Deine Entscheidungen"
+  },
+  "Your {position} rating uses position-specific weights.": {
+    "es": "Tu valoración como {position} usa pesos específicos de la posición.",
+    "it": "La valutazione nel ruolo di {position} usa pesi specifici.",
+    "pt": "Sua avaliação como {position} usa pesos específicos da posição.",
+    "zh": "你的{position}评分采用该位置专用的属性权重。",
+    "de": "Deine Bewertung als {position} verwendet positionsabhängige Gewichtungen."
+  },
+  "1 season": {
+    "es": "1 temporada",
+    "it": "1 stagione",
+    "pt": "1 temporada",
+    "zh": "1个赛季",
+    "de": "1 Saison"
+  },
+  "{n} seasons": {
+    "es": "{n} temporadas",
+    "it": "{n} stagioni",
+    "pt": "{n} temporadas",
+    "zh": "{n}个赛季",
+    "de": "{n} Saisons"
+  },
+  "1 match": {
+    "es": "1 partido",
+    "it": "1 partita",
+    "pt": "1 jogo",
+    "zh": "1场比赛",
+    "de": "1 Spiel"
+  },
+  "{n} matches": {
+    "es": "{n} partidos",
+    "it": "{n} partite",
+    "pt": "{n} jogos",
+    "zh": "{n}场比赛",
+    "de": "{n} Spiele"
+  },
+  "1 goal": {
+    "es": "1 gol",
+    "it": "1 gol",
+    "pt": "1 gol",
+    "zh": "1粒进球",
+    "de": "1 Tor"
+  },
+  "{n} goals": {
+    "es": "{n} goles",
+    "it": "{n} gol",
+    "pt": "{n} gols",
+    "zh": "{n}粒进球",
+    "de": "{n} Tore"
+  },
+  "1 assist": {
+    "es": "1 asistencia",
+    "it": "1 assist",
+    "pt": "1 assistência",
+    "zh": "1次助攻",
+    "de": "1 Vorlage"
+  },
+  "{n} assists": {
+    "es": "{n} asistencias",
+    "it": "{n} assist",
+    "pt": "{n} assistências",
+    "zh": "{n}次助攻",
+    "de": "{n} Vorlagen"
+  },
+  "1 clean sheet": {
+    "es": "1 portería a cero",
+    "it": "1 porta inviolata",
+    "pt": "1 jogo sem sofrer gols",
+    "zh": "1次零封",
+    "de": "1 Spiel ohne Gegentor"
+  },
+  "{n} clean sheets": {
+    "es": "{n} porterías a cero",
+    "it": "{n} porte inviolate",
+    "pt": "{n} jogos sem sofrer gols",
+    "zh": "{n}次零封",
+    "de": "{n} Spiele ohne Gegentor"
+  },
+  "1 trophy": {
+    "es": "1 trofeo",
+    "it": "1 trofeo",
+    "pt": "1 troféu",
+    "zh": "1座奖杯",
+    "de": "1 Titel"
+  },
+  "{n} trophies": {
+    "es": "{n} trofeos",
+    "it": "{n} trofei",
+    "pt": "{n} troféus",
+    "zh": "{n}座奖杯",
+    "de": "{n} Titel"
+  },
+  "Each comparison selects the first available story option every season. Stories depend on player condition and recent history, with a four-season cooldown. This includes story effects and match-experience growth. To reproduce a row under rules 1.2, use the first option as well as the setup above.": {
+    "es": "Cada comparación elige la primera opción de historia disponible cada temporada. Las historias dependen del estado del jugador y del historial reciente, con cuatro temporadas de espera antes de repetirse. Se incluyen sus efectos y el desarrollo por experiencia en partidos. Para reproducir una fila con las reglas 1.2, usa la primera opción y la configuración anterior.",
+    "it": "Ogni confronto sceglie la prima opzione narrativa disponibile in ogni stagione. Le storie dipendono dalle condizioni del giocatore e dalla cronologia recente, con quattro stagioni di attesa prima di ripetersi. Sono inclusi gli effetti e la crescita dovuta alle partite. Per riprodurre una riga con le regole 1.2, usa la prima opzione e la configurazione indicata.",
+    "pt": "Cada comparação escolhe a primeira opção narrativa disponível em cada temporada. As histórias dependem da condição do jogador e do histórico recente, com quatro temporadas de intervalo antes de se repetirem. Incluem os efeitos e o desenvolvimento pela experiência em jogos. Para reproduzir uma linha com as regras 1.2, usa a primeira opção e a configuração acima.",
+    "zh": "每组对比在每个赛季选择当前剧情的第一个选项。剧情根据球员状态和近期记录触发，四个赛季内不会重复。结果包含剧情效果和比赛经验成长。要按 1.2 规则复现某一行，请使用上述配置并选择第一个剧情选项。",
+    "de": "Jeder Vergleich wählt pro Saison die erste verfügbare Story-Option. Die Geschichten richten sich nach Spielerzustand und Verlauf und wiederholen sich frühestens nach vier anderen Saisons. Story-Effekte und Entwicklung durch Spielpraxis sind enthalten. Für die Reproduktion unter Regeln 1.2 verwende die erste Option und die obige Konfiguration."
+  },
+  "Stories and decision feedback": {
+    "es": "Historias y consecuencias de las decisiones",
+    "it": "Storie e conseguenze delle decisioni",
+    "pt": "Histórias e consequências das decisões",
+    "zh": "剧情与决策反馈",
+    "de": "Geschichten und Entscheidungsfolgen"
+  },
+  "Stories respond to injuries, fatigue, transfers, playing time, trophies, contract expiry and age. A story cannot repeat within the previous four seasons. Season reviews show actual changes in order, including caps and coach decisions; older saved seasons retain their original records.": {
+    "es": "Las historias responden a lesiones, fatiga, fichajes, minutos de juego, títulos, fin de contrato y edad. No se repiten dentro de las cuatro temporadas anteriores. El resumen muestra los cambios reales en orden, incluidos los límites y las decisiones del entrenador; las temporadas antiguas conservan sus registros originales.",
+    "it": "Le storie rispondono a infortuni, fatica, trasferimenti, presenze, trofei, scadenza del contratto ed età. Non si ripetono nelle quattro stagioni precedenti. I riepiloghi mostrano le variazioni effettive in ordine, inclusi limiti e decisioni del tecnico; le vecchie stagioni conservano i registri originali.",
+    "pt": "As histórias respondem a lesões, fadiga, transferências, tempo de jogo, títulos, fim de contrato e idade. Não se repetem nas quatro temporadas anteriores. O resumo mostra as alterações reais por ordem, incluindo limites e decisões do treinador; as temporadas antigas mantêm os registos originais.",
+    "zh": "剧情根据伤病、疲劳、转会、出场时间、冠军、合同到期和年龄触发，最近四个赛季的剧情不会重复。赛季复盘按顺序展示实际变化，包括数值上限和教练决定；旧赛季保留原始记录。",
+    "de": "Geschichten reagieren auf Verletzungen, Müdigkeit, Transfers, Spielzeit, Titel, Vertragsende und Alter. Keine Geschichte wiederholt sich innerhalb der letzten vier Saisons. Saisonberichte zeigen tatsächliche Änderungen in Reihenfolge, einschließlich Grenzen und Trainerentscheidungen; ältere Saisons behalten ihre ursprünglichen Aufzeichnungen."
+  },
+  "Recovering from a major injury": {
+    "es": "Recuperación de una lesión grave",
+    "it": "Recupero da un infortunio grave",
+    "pt": "Recuperação de uma lesão grave",
+    "zh": "严重伤病康复中",
+    "de": "Genesung nach einer schweren Verletzung"
+  },
+  "Recovering from a minor injury": {
+    "es": "Recuperación de una lesión leve",
+    "it": "Recupero da un infortunio lieve",
+    "pt": "Recuperação de uma lesão leve",
+    "zh": "轻伤康复中",
+    "de": "Genesung nach einer leichten Verletzung"
   }
 }
