@@ -17,6 +17,7 @@ with sync_playwright() as p:
    page.set_viewport_size({'width':width,'height':height});page.goto(base+('/' if locale=='es' else '/'+locale));page.wait_for_load_state('networkidle');page.evaluate('document.fonts.ready')
    box=page.locator('.player-workbench').bounding_box();assert box['y']>=0 and box['y']+box['height']<=height,(locale,width,height,box)
    expect(page.locator('.creation-footer button')).to_be_in_viewport(ratio=1)
+   assert page.locator('.hero-game').evaluate('e=>e.nextElementSibling.getBoundingClientRect().top>=innerHeight'),(locale,width,height,'editorial content enters first screen')
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(locale,width,height,'page overflow')
    if width<960:
     menu=page.locator('.mobile-nav summary');r=menu.bounding_box();assert r['y']>=0 and 44<=r['height']<=56;menu.click();expect(page.locator('.mobile-nav nav a').first).to_be_visible();assert page.locator('.mobile-nav nav').bounding_box()['x']>=0;menu.click()
