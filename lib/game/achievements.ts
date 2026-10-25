@@ -1,3 +1,4 @@
+import {competitionMilestones} from './competitions'
 import type {GameState,Season,StageGoal} from './types'
 export type Achievement={id:string;label:string;season:Season;target:number;metric:string}
 const thresholds={appearances:[100,300,500],goals:[100,200,300,400,500],assists:[50,100,200],cleanSheets:[50,100,200]} as const
@@ -6,6 +7,7 @@ export function achievements(state:GameState):Achievement[] {
  for(const metric of Object.keys(thresholds) as (keyof typeof thresholds)[]){let total=0;const seen=new Set<number>();for(const season of state.history){total+=season[metric];for(const target of thresholds[metric])if(total>=target&&!seen.has(target)){seen.add(target);found.push({id:`${metric}-${target}`,label:`${target} career ${metric==='appearances'?'appearances':metric==='cleanSheets'?'clean sheets':metric}`,season,target,metric})}}}
  let club='',run=0;const loyal=new Set<number>()
  for(const season of state.history){run=season.clubId===club?run+1:1;club=season.clubId;for(const target of [5,10])if(run>=target&&!loyal.has(target)){loyal.add(target);found.push({id:`loyalty-${target}`,label:`${target} consecutive seasons at one club`,season,target,metric:'loyalty'})}}
+ found.push(...competitionMilestones(state))
  return found.sort((a,b)=>a.season.number-b.season.number||a.id.localeCompare(b.id))
 }
 export function stageGoal(state:GameState):Pick<StageGoal,'id'|'target'> {return state.player.age<=22?{id:'breakthrough',target:22}:state.player.age<=29?{id:'regular',target:30}:{id:'longevity',target:60}}

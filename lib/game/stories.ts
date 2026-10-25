@@ -1,3 +1,4 @@
+import {usesProgression} from './types'
 import {hasStoryBenefit,hasStoryCost} from './effects'
 import {threadOutcome} from './threads'
 import {getClub} from '../../data/clubs'
@@ -118,7 +119,7 @@ export function seasonStory(state:GameState,transfer:Transfer='stay',decision?:D
 }
 export function storyChoice(state:GameState,id?:string,eventId?:string,transfer:Transfer='stay',decision?:Decision):StoryChoice|undefined {
  if(id===undefined){if(eventId!==undefined||decision?.rules)throw new Error('Choose a valid story decision for this season.');return undefined}
- const modern=decision?.rules==='1.3'
+ const modern=decision!==undefined&&usesProgression(decision)
  const event=eventId===undefined?legacySeasonStory(state):modern?seasonStory(state,transfer,decision):legacyContextStory(state,transfer)
  const choice=(eventId===undefined||eventId===event.id)?event.choices.find(item=>item.id===id):undefined
  if(!choice||modern&&choice.unavailableReason)throw new Error('Choose a valid story decision for this season.')

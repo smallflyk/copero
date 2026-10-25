@@ -1,3 +1,4 @@
+import {usesProgression} from './types'
 import {getClub} from '../../data/clubs'
 import {transferOffers} from './effects'
 import type {Decision,GameState,StoryThread} from './types'
@@ -10,7 +11,7 @@ export function threadOutcome(state:GameState,decision:Decision):StoryThread|und
  return {...pending,status}
 }
 export function nextThread(state:GameState,decision:Decision):StoryThread|undefined {
- if(decision.rules!=='1.3')return
+ if(!usesProgression(decision))return
  const closing=threadOutcome(state,decision);if(closing)return closing
  if(state.player.age>=37)return
  const kind=decision.storyEvent==='breakthrough'&&decision.story==='minutes'?'minutes':decision.storyEvent==='rehab'&&decision.story==='protect'?'recovery':decision.storyEvent==='renewal'&&decision.story==='stability'?'loyalty':undefined

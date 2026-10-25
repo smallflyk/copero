@@ -48,7 +48,7 @@ with sync_playwright() as p:
    review.locator('summary').first.click();expect(review.locator('.review-changes')).to_be_visible()
    save=page.evaluate('JSON.parse(localStorage.getItem("copero.career.v1"))')
    latest=save['history'][-1];trace=latest['review']['changes']
-   assert len(trace)==8
+   assert len(trace)==10
    assert latest['decision']['storyEvent']==latest['review']['story']['eventId']
    assert latest['decision']['storyEvent'] not in [h.get('review',{}).get('story',{}).get('eventId') for h in save['history'][-5:-1]]
    for metric in ['fitness','morale','coachTrust','ovr']:
@@ -58,8 +58,8 @@ with sync_playwright() as p:
    compact_height=review.bounding_box()['height'];full.locator('summary').click()
    expect(full.locator('.change-breakdown')).to_be_visible()
    assert compact_height<review.bounding_box()['height']*.8
-   expect(review.locator('.change-breakdown ol>li')).to_have_count(8)
-   assert latest['decision']['rules']=='1.3' and 'goal' in latest['review']
+   expect(review.locator('.change-breakdown ol>li')).to_have_count(10)
+   assert latest['decision']['rules']=='1.4' and 'goal' in latest['review']
    if locale!='en':
     assert all(label in [m[locale] for m in messages.values()] for label in review.locator('.change-breakdown li>strong').all_text_contents())
    selected=latest['review']['story']['label']
@@ -80,7 +80,7 @@ with sync_playwright() as p:
   with page.expect_download() as dl:page.locator('.result-page .button').first.click()
   assert dl.value.suggested_filename.endswith('.png')
   page.reload();page.wait_for_load_state('networkidle');expect(page.locator('.result-card')).to_be_visible()
-  print('PASS',locale,'contextual cooldown, transfer invalidation, 8-step attribution, translated effects/results, PNG, reload',flush=True)
+  print('PASS',locale,'contextual cooldown, transfer invalidation, 10-step attribution, translated effects/results, PNG, reload',flush=True)
   c.close()
  assert not errors,errors
  b.close()

@@ -1,3 +1,4 @@
+import {competitionRecords} from './competitions'
 import {achievements} from './achievements'
 import type {GameState,Season} from './types'
 
@@ -11,7 +12,7 @@ export function careerRecords(state:GameState) {
  // Best season means highest end-of-season rating, then appearances, then earliest season.
  const bestSeason=[...state.history].sort((a,b)=>b.endOvr-a.endOvr||b.appearances-a.appearances||a.number-b.number)[0]
  const first=(test:(s:Season)=>boolean)=>state.history.find(test)
- return {stints,bestSeason,achievements:achievements(state),earnings:stints.reduce((sum,s)=>sum+s.earnings,0),peakValue:Math.max(0,...state.history.map(s=>s.marketValue)),milestones:[
+ return {stints,bestSeason,competitions:competitionRecords(state),achievements:achievements(state),earnings:stints.reduce((sum,s)=>sum+s.earnings,0),peakValue:Math.max(0,...state.history.map(s=>s.marketValue)),milestones:[
   {label:'Senior debut',season:first(s=>s.appearances>0)},
   {label:'First senior goal',season:first(s=>s.goals>0)},
   {label:'First clean sheet',season:first(s=>s.cleanSheets>0)},

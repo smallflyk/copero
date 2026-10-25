@@ -27,7 +27,7 @@ with sync_playwright() as p:
    else:
     expect(page.locator('.chain-origin')).to_contain_text('Harbor Athletic');expect(page.locator('#story-decision')).to_contain_text(text('Your previous decision is ready for a follow-up.',locale))
    page.locator('.story-option:not(:disabled)').first.click();page.locator('.next-season').click();page.wait_for_function('(n)=>JSON.parse(localStorage.getItem("copero.career.v1")).history.length===n',arg=len(save['history'])+1)
-   after=page.evaluate('JSON.parse(localStorage.getItem("copero.career.v1"))');latest=after['history'][-1];assert after['history'][:-1]==save['history'];assert latest['decision']['rules']=='1.3';assert latest['review']['goal']
+   after=page.evaluate('JSON.parse(localStorage.getItem("copero.career.v1"))');latest=after['history'][-1];assert after['history'][:-1]==save['history'];assert latest['decision']['rules']=='1.4';assert latest['review']['goal']
    if scenario=='followup':assert latest['review']['thread']['origin']==1 and latest['review']['thread']['status'] in ['fulfilled','missed'];assert page.locator('.chain-origin').count()==0
    review=page.locator('.latest-season .season-feedback');review.locator('summary').first.click()
    full=review.locator('.full-attribution');assert full.get_attribute('open') is None;assert review.locator('.key-changes li').count()<=3

@@ -53,11 +53,13 @@ with sync_playwright() as p:
    assert bool(recovery.count())==(state['player']['injuryStatus']!='healthy')
    if recovery.count():
     choice='early' if index%2 else 'full';recovery.select_option(choice);report['branches'][choice]+=1
+   page.locator(".competition-plans select").nth(0).select_option(["balanced","push","rotate"][(season+index)%3])
+   page.locator(".competition-plans select").nth(1).select_option("rest" if season%5==0 else "accept")
    advance(page,season)
    current=saved(page);latest=current['history'][-1]
    assert latest['review']['story']['choiceId']==latest['decision']['story']
    assert len(current['history'])==season and current['player']['age']==16+season
-   assert 0<=latest['appearances']<=44 and 0<=latest['goals']<=50
+   assert 0<=latest['appearances']<=41 and 0<=latest['goals']<=62
    assert all(1<=value<=99 for value in current['player']['attributes'].values())
    if season==5:
     page.reload();page.wait_for_load_state('networkidle');assert saved(page)==current
