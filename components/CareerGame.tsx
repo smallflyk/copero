@@ -1,4 +1,5 @@
 'use client'
+import {careerLoaded,careerAdvanced,restartRequested,careerError} from '@/lib/analytics/career'
 import {CompetitionPlans,SeasonCompetitions} from './Competitions'
 import {CareerProgress} from './CareerProgress'
 import {seasonStory} from '@/lib/game/stories'
@@ -21,10 +22,10 @@ import {ClubChoices,StoryChoices,SeasonFeedback} from './CareerChoices'
 export default function CareerGame() {
  const locale=useLanguage()
  const router=useRouter(),[state,setState]=useState<GameState|null>(null),[loaded,setLoaded]=useState(false),[warning,setWarning]=useState(''),[decision,setDecision]=useState<Decision|null>(null),[busy,setBusy]=useState(false),[error,setError]=useState(''),lock=useRef(false),summary=useRef<HTMLElement>(null),actions=useRef<HTMLDivElement>(null),[compact,setCompact]=useState(false)
- useEffect(()=>{const saved=readSave();setState(saved.state);setWarning(saved.warning);setDecision(saved.state?competitionDecision(saved.state):null);setLoaded(true)},[])
+ useEffect(()=>{const saved=readSave();setState(saved.state);setWarning(saved.warning);setDecision(saved.state?competitionDecision(saved.state):null);setLoaded(true);if(saved.state)careerLoaded(saved.state,locale)},[locale])
  useEffect(()=>{const query=window.matchMedia('(max-width:760px), (max-width:1024px) and (max-height:500px) and (pointer:coarse)');const update=()=>setCompact(query.matches);update();query.addEventListener('change',update);return()=>query.removeEventListener('change',update)},[])
  useEffect(()=>{const node=actions.current;if(!node)return;const update=()=>document.documentElement.style.setProperty('--season-dock-height',node.offsetHeight+'px');update();const observer=new ResizeObserver(update);observer.observe(node);return()=>{observer.disconnect();document.documentElement.style.removeProperty('--season-dock-height')}},[loaded,state?.status])
- function commit(next:GameState) {setWarning(saveCareer(next));setState(next);setDecision(competitionDecision(next));if(next.status==='retired')window.requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'instant'}))}
+ function commit(next:GameState) {setWarning(saveCareer(next));if(state)careerAdvanced(state,next,locale);setState(next);setDecision(competitionDecision(next));if(next.status==='retired')window.requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'instant'}))}
  function updateDecision(next:Decision) {
   if(state&&next.story){const event=seasonStory(state,next.transfer,next);if(event.id!==next.storyEvent||!event.choices.some(c=>c.id===next.story&&!c.unavailableReason))next={...next,story:undefined,storyEvent:undefined}}
   setDecision(next)
@@ -33,9 +34,9 @@ export default function CareerGame() {
   if (!state || !decision || !decision.story || lock.current) return
   lock.current=true;setBusy(true);setError('')
   // Holding the lock until the next paint also guards rapid duplicate submissions.
-  window.setTimeout(()=>{try {commit(nextSeason(state,decision));window.setTimeout(()=>{summary.current?.focus({preventScroll:compact});if(compact)summary.current?.scrollIntoView({block:'start',behavior:'instant'})},0)}catch(problem){setError(problem instanceof Error?problem.message:'Could not complete the season.')}finally{setBusy(false);lock.current=false}},250)
+  window.setTimeout(()=>{try {commit(nextSeason(state,decision));window.setTimeout(()=>{summary.current?.focus({preventScroll:compact});if(compact)summary.current?.scrollIntoView({block:'start',behavior:'instant'})},0)}catch(problem){careerError(locale,'season');setError(problem instanceof Error?problem.message:'Could not complete the season.')}finally{setBusy(false);lock.current=false}},250)
  }
- function restart() {if(window.confirm(t('Start a new career? This replaces the saved career in this browser.',locale))){clearCareer();router.push(localizedPath('/#create-player',locale))}}
+ function restart() {if(window.confirm(t('Start a new career? This replaces the saved career in this browser.',locale))){if(state)restartRequested(state);clearCareer();router.push(localizedPath('/#create-player',locale))}}
  if(!loaded) return localize(<div className="container game-loading"><h1>Your Copero career</h1><p role="status">Opening your career…</p></div>,locale)
  if(!state) return localize(<section className="container empty-career"><span className="eyebrow">A blank team sheet</span><h1>Your story<br/>starts at sixteen.</h1><p>Create a player and choose an academy to begin your Copero career.</p>{warning&&<p role="alert" className="error-message">{warning}</p>}<Link href="/#create-player" className="button">Create my player ↗</Link></section>,locale)
  if(state.status==='retired') return <CareerResult state={state} warning={warning} onRestart={restart}/>

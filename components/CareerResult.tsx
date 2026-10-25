@@ -1,4 +1,5 @@
 'use client'
+import {careerExported,careerError} from '@/lib/analytics/career'
 import {useLanguage} from './LanguageProvider'
 import {localize} from '@/lib/i18n/render'
 import {countLabel} from '@/lib/i18n/format'
@@ -21,7 +22,7 @@ export default function CareerResult({state,warning,onRestart}:{state:GameState;
  const result=careerResult(state),[error,setError]=useState(''),[downloading,setDownloading]=useState(false)
  function downloadRecord() {
   const blob=new Blob([JSON.stringify({format:'copero-career-record-v1',career:state,result,records},null,2)],{type:'application/json'})
-  const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`copero-record-${state.id}.json`;link.click();window.setTimeout(()=>URL.revokeObjectURL(url),10000)
+  const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`copero-record-${state.id}.json`;link.click();careerExported(state,locale,'json');window.setTimeout(()=>URL.revokeObjectURL(url),10000)
  }
  async function download() {
   setDownloading(true);setError('')
@@ -30,8 +31,8 @@ export default function CareerResult({state,warning,onRestart}:{state:GameState;
    const ctx=canvas.getContext('2d');if(!ctx)throw new Error('Image download is unavailable in this browser.')
    drawCareerCard(ctx,state,locale,new URL(site.url).hostname)
    const blob=await new Promise<Blob>((resolve,reject)=>canvas.toBlob((value)=>value?resolve(value):reject(new Error('Could not create your image.')),'image/png'))
-   const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`copero-career-${state.id}.png`;document.body.appendChild(link);link.click();link.remove();window.setTimeout(()=>URL.revokeObjectURL(url),10000)
-  }catch(problem){setError(problem instanceof Error?problem.message:'Could not download the result card.')}finally{setDownloading(false)}
+   const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`copero-career-${state.id}.png`;document.body.appendChild(link);link.click();link.remove();careerExported(state,locale,'png');window.setTimeout(()=>URL.revokeObjectURL(url),10000)
+  }catch(problem){careerError(locale,'export');setError(problem instanceof Error?problem.message:'Could not download the result card.')}finally{setDownloading(false)}
  }
  const chart=state.history.map((season,index)=>`${50+index/Math.max(1,state.history.length-1)*800},${255-(season.endOvr-20)/80*200}`).join(' ')
  return localize(<div className="container result-page">

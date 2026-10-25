@@ -1,4 +1,5 @@
 'use client'
+import {prepareCareer,careerError} from '@/lib/analytics/career'
 import {useLanguage} from './LanguageProvider'
 import {localize} from '@/lib/i18n/render'
 import {localizedPath} from '@/lib/i18n/config'
@@ -15,7 +16,7 @@ import { readSave, saveCareer } from '@/lib/game/storage'
 
 export default function CreatePlayer() {
  const locale=useLanguage()
- const academyHeading=useRef<HTMLHeadingElement>(null),panels=useRef<HTMLDivElement>(null),[activePanel,setActivePanel]=useState(0)
+ const signing=useRef(false),academyHeading=useRef<HTMLHeadingElement>(null),panels=useRef<HTMLDivElement>(null),[activePanel,setActivePanel]=useState(0)
  function showPanel(index:number){setActivePanel(index);const el=panels.current;if(el)el.scrollTo({left:index*el.clientWidth,behavior:'instant'})}
  const router=useRouter(),[name,setName]=useState(''),[nationality,setNationality]=useState('England'),[position,setPosition]=useState<Position>('ST'),[foot,setFoot]=useState<'Left'|'Right'>('Right'),[number,setNumber]=useState(10),[seed,setSeed]=useState('kickoff-10'),[bonuses,setBonuses]=useState<Attributes>({...ZERO_BONUSES}),[club,setClub]=useState('riverside'),[step,setStep]=useState<'player'|'academy'>('player'),[error,setError]=useState(''),[busy,setBusy]=useState(false),[saved,setSaved]=useState(false),[countrySearch,setCountrySearch]=useState('')
  useEffect(()=>{setSaved(Boolean(readSave().state))},[])
@@ -24,14 +25,14 @@ export default function CreatePlayer() {
  const spent=ATTRIBUTE_KEYS.reduce((sum,key)=>sum+bonuses[key],0)
  const attributes=Object.fromEntries(ATTRIBUTE_KEYS.map((key)=>[key,TEMPLATES[position][key]+bonuses[key]])) as Attributes
  function submit(event:React.FormEvent<HTMLFormElement>) {
-  event.preventDefault();setError('')
+  event.preventDefault();if(signing.current)return;setError('')
   try {
    const config={name,nationality,position,preferredFoot:foot,jerseyNumber:number,seed,bonuses,clubId:club}
    validateConfig(config)
    if (step==='player') {setStep('academy');return}
    if (saved && !window.confirm(t('Replace your saved Copero career? The previous local save will be removed.',locale))) return
-   setBusy(true);saveCareer(createCareer(config));router.push(localizedPath('/career',locale))
-  } catch(problem) { setError(problem instanceof Error?problem.message:'Check your player details and try again.');setBusy(false);if(step==='player'){const form=event.currentTarget;const invalid=name.trim().length<2?form.querySelector<HTMLInputElement>('.identity-fields input'):Array.from(form.querySelectorAll('input')).find(input=>!input.checkValidity());if(invalid){if(invalid.closest('.identity-panel'))showPanel(0);const advanced=invalid.closest('details');if(advanced)advanced.open=true;invalid.focus()}} }
+   signing.current=true;setBusy(true);const previous=readSave().state,next=createCareer(config);saveCareer(next);prepareCareer(next,previous,locale);router.push(localizedPath('/career',locale))
+  } catch(problem) { careerError(locale,'profile');signing.current=false;setError(problem instanceof Error?problem.message:'Check your player details and try again.');setBusy(false);if(step==='player'){const form=event.currentTarget;const invalid=name.trim().length<2?form.querySelector<HTMLInputElement>('.identity-fields input'):Array.from(form.querySelectorAll('input')).find(input=>!input.checkValidity());if(invalid){if(invalid.closest('.identity-panel'))showPanel(0);const advanced=invalid.closest('details');if(advanced)advanced.open=true;invalid.focus()}} }
  }
  const countryOptions=NATIONALITIES.filter(item=>(t(item,locale)+' '+item).toLocaleLowerCase().includes(countrySearch.trim().toLocaleLowerCase()))
  const coordinates:Record<Position,[number,number]>={ST:[50,9],LW:[18,21],RW:[82,21],CAM:[50,26],CM:[50,43],CDM:[50,60],LB:[18,73],RB:[82,73],CB:[50,77],GK:[50,94]}
