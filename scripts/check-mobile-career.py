@@ -40,8 +40,8 @@ with sync_playwright() as p:
   page.locator('.decision-card').first.click();expect(page.locator('.decision-card').first).to_have_attribute('aria-pressed','true')
   assert page.locator('.mobile-training-help').inner_text()
   expect(page.locator('.next-season')).to_be_disabled()
-  page.locator('.story-option').first.focus();page.keyboard.press('Enter')
-  expect(page.locator('.story-option').first).to_have_attribute('aria-pressed','true')
+  page.locator('.story-option:not(:disabled)').first.focus();page.keyboard.press('Enter')
+  expect(page.locator('.story-option:not(:disabled)').first).to_have_attribute('aria-pressed','true')
   expect(page.locator('.next-season')).to_be_enabled()
   expect(page.locator('.season-actions-review strong')).to_have_text(page.locator('.decision-card').first.locator('span').text_content())
   # Keyboard-operable disclosures; content and retirement remain available.
@@ -72,7 +72,7 @@ with sync_playwright() as p:
  page.locator('.decision-card').first.focus();page.evaluate('scrollTo({top:0,behavior:"instant"})');recovery.focus()
  page.wait_for_function('document.querySelector("select:has(option[value=early])").getBoundingClientRect().bottom<=document.querySelector(".season-actions").getBoundingClientRect().top')
  assert recovery.bounding_box()['y']+recovery.bounding_box()['height']<=page.locator('.season-actions').bounding_box()['y'], 'focused recovery select must not be covered by dock'
- page.locator('.story-option').first.click()
+ page.locator('.story-option:not(:disabled)').first.click()
  page.evaluate('()=>{const b=document.querySelector(".next-season");b.click();b.click()}')
  expect(page.locator('.next-season')).to_be_disabled()
  page.wait_for_function('JSON.parse(localStorage.getItem("copero.career.v1")).history.length===6');settle()
@@ -83,7 +83,7 @@ with sync_playwright() as p:
  assert page.locator('.latest-season').bounding_box()['y']>=0
  fixed();page.reload();settle();assert saved()==state
  for n in range(7,23):
-  page.locator('.story-option').nth(n%3).click()
+  page.locator('.story-option:not(:disabled)').nth(n%page.locator('.story-option:not(:disabled)').count()).click()
   page.locator('.next-season').click();page.wait_for_function('(n)=>JSON.parse(localStorage.getItem("copero.career.v1")).history.length===n',arg=n)
   if n<22:fixed()
  expect(page.locator('.result-card')).to_be_visible();settle()

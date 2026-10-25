@@ -20,23 +20,24 @@ with sync_playwright() as p:
    story=page.locator('#story-decision')
    title=story.locator('h3').inner_text()
    if locale!='en':assert title in [m[locale] for m in messages.values()],title
-   for button in story.locator('.story-option').all():
+   for button in story.locator('.story-option:not(:disabled)').all():
     text=button.inner_text()
     if locale!='en':assert text in [m[locale] for m in messages.values()],text
    assert story.locator('.story-trigger').inner_text()
+   for reason in story.locator('.story-option:disabled small').all_text_contents():assert locale=='en' or reason==messages['No usable benefit with your current limits. Choose another option.'][locale]
    state=page.evaluate('JSON.parse(localStorage.getItem("copero.career.v1"))')
    if state['player']['injuryStatus']!='healthy':
     key='Recovering from a '+state['player']['injuryStatus']+' injury'
     expect(page.locator('legend[translate=no]')).to_have_text(key if locale=='en' else messages[key][locale])
    # A club change must require a fresh story decision.
    if n==6:
-    story.locator('.story-option').first.click()
+    story.locator('.story-option:not(:disabled)').first.click()
     transfer=page.locator('select').filter(has=page.locator('option[value=stay]'))
     if transfer.locator('option[value=bigger]').count():
      transfer.select_option('bigger');expect(page.locator('.next-season')).to_be_disabled()
      expect(story.locator('[aria-pressed=true]')).to_have_count(0)
    # Each choice is operable by keyboard, announces its selection and shows its costs.
-   choice=story.locator('.story-option').nth((n-6)%3);choice.focus();page.keyboard.press('Enter');expect(choice).to_have_attribute('aria-pressed','true')
+   choice=story.locator('.story-option:not(:disabled)').nth((n-6)%story.locator('.story-option:not(:disabled)').count());choice.focus();page.keyboard.press('Enter');expect(choice).to_have_attribute('aria-pressed','true')
    expect(page.locator('#story-effects .effect-list li').first).to_be_visible()
    page.locator('.offer-breakdown summary').click()
    quality='Training quality' if locale=='en' else messages['Training quality'][locale]
@@ -44,7 +45,7 @@ with sync_playwright() as p:
    expect(page.locator('.offer-detail')).to_contain_text('100')
    page.locator('.next-season').click();page.wait_for_function('(n)=>JSON.parse(localStorage.getItem("copero.career.v1")).history.length===n',arg=n)
    review=page.locator('.latest-season .season-feedback')
-   review.locator('summary').click();expect(review.locator('.review-changes')).to_be_visible()
+   review.locator('summary').first.click();expect(review.locator('.review-changes')).to_be_visible()
    save=page.evaluate('JSON.parse(localStorage.getItem("copero.career.v1"))')
    latest=save['history'][-1];trace=latest['review']['changes']
    assert len(trace)==8
@@ -52,7 +53,13 @@ with sync_playwright() as p:
    assert latest['decision']['storyEvent'] not in [h.get('review',{}).get('story',{}).get('eventId') for h in save['history'][-5:-1]]
    for metric in ['fitness','morale','coachTrust','ovr']:
     assert sum(step['after'][metric]-step['before'][metric] for step in trace)==latest['review']['after'][metric]-latest['review']['before'][metric]
+   full=review.locator('.full-attribution');assert full.get_attribute('open') is None
+   assert review.locator('.key-changes li').count()<=3
+   compact_height=review.bounding_box()['height'];full.locator('summary').click()
+   expect(full.locator('.change-breakdown')).to_be_visible()
+   assert compact_height<review.bounding_box()['height']*.8
    expect(review.locator('.change-breakdown ol>li')).to_have_count(8)
+   assert latest['decision']['rules']=='1.3' and 'goal' in latest['review']
    if locale!='en':
     assert all(label in [m[locale] for m in messages.values()] for label in review.locator('.change-breakdown li>strong').all_text_contents())
    selected=latest['review']['story']['label']

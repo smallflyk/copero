@@ -27,7 +27,7 @@ with sync_playwright() as p:
  def saved(page):return page.evaluate("JSON.parse(localStorage.getItem('copero.career.v1'))")
  def advance(page,n):
   expect(page.locator('.next-season')).to_be_disabled()
-  page.locator('.story-option').nth((n-1)%3).click()
+  page.locator('.story-option:not(:disabled)').nth((n-1)%page.locator('.story-option:not(:disabled)').count()).click()
   expect(page.locator('#story-effects')).to_be_visible()
   page.locator('.next-season').click();page.wait_for_function('(n)=>JSON.parse(localStorage.getItem("copero.career.v1")).history.length===n',arg=n)
   page.wait_for_function('!document.querySelector(".next-season") || document.querySelector(".next-season").textContent.includes("Play season")')

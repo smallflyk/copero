@@ -1,6 +1,8 @@
+import {hasStoryBenefit,hasStoryCost} from './effects'
+import {threadOutcome} from './threads'
 import {getClub} from '../../data/clubs'
 import {WEIGHTS} from './rules'
-import {ATTRIBUTE_KEYS,type GameState,type StoryEvent,type StoryChoice,type Transfer} from './types'
+import {ATTRIBUTE_KEYS,type GameState,type StoryEvent,type StoryChoice,type Transfer,type Decision} from './types'
 
 // No random roll: the shown effects are applied exactly, then the normal season runs.
 function baseStories(state:GameState):StoryEvent[] {
@@ -31,7 +33,7 @@ function baseStories(state:GameState):StoryEvent[] {
 }
 // Kept only for replaying decisions recorded by rules 1.1.
 export function legacySeasonStory(state:GameState):StoryEvent {return baseStories(state)[state.history.length%4]}
-export function storyCatalog(state:GameState):StoryEvent[] {
+function contextCatalog(state:GameState):StoryEvent[] {
  const base=baseStories(state),primary=[...ATTRIBUTE_KEYS].sort((a,b)=>WEIGHTS[state.player.position][b]-WEIGHTS[state.player.position][a])[0]
  const choice=(id:string,label:string,detail:string,effect:StoryChoice['effect']):StoryChoice=>({id,label,detail,effect})
  return [...base,
@@ -73,7 +75,7 @@ export function storyCatalog(state:GameState):StoryEvent[] {
  ]
 }
 function stableRank(state:GameState,id:string) {let n=state.history.length+1;for(const char of state.seed+id)n=Math.imul(n^char.charCodeAt(0),16777619);return n>>>0}
-export function seasonStory(state:GameState,transfer:Transfer='stay'):StoryEvent {
+export function legacyContextStory(state:GameState,transfer:Transfer='stay'):StoryEvent {
  const last=state.history.at(-1),p=state.player,recent=new Set(state.history.slice(-4).map(s=>s.review?.story?.eventId))
  const priorities:Record<string,[number,string]>={
   rehab:[p.injuryStatus!=='healthy'?120:0,'You start the season injured.'],
@@ -85,17 +87,40 @@ export function seasonStory(state:GameState,transfer:Transfer='stay'):StoryEvent
   veteran:[p.age>=32?80:0,'You are in the later years of your career.'],
   renewal:[p.contract?.yearsLeft===0?75:0,'Your previous contract has expired.'],
  }
- const candidates=storyCatalog(state).filter(e=>!recent.has(e.id)&&(!(e.id in priorities)||priorities[e.id][0]>0))
+ const candidates=contextCatalog(state).filter(e=>!recent.has(e.id)&&(!(e.id in priorities)||priorities[e.id][0]>0))
  // Six general stories keep a four-season cooldown possible even without a special trigger.
  if(!state.history.length&&p.injuryStatus==='healthy'&&p.fitness>45)return {...candidates.find(e=>e.id==='extra-session')!,reason:'Your first senior season.'}
  candidates.sort((a,b)=>(priorities[b.id]?.[0]??10)-(priorities[a.id]?.[0]??10)||stableRank(state,b.id)-stableRank(state,a.id))
  const event=candidates[0]
  return {...event,reason:priorities[event.id]?.[1]??'A fresh situation after the recent-story cooldown.'}
 }
-export function storyChoice(state:GameState,id?:string,eventId?:string,transfer:Transfer='stay'):StoryChoice|undefined {
- if(id===undefined){if(eventId!==undefined)throw new Error('Choose a valid story decision for this season.');return undefined}
- const event=eventId===undefined?legacySeasonStory(state):seasonStory(state,transfer)
+
+function followUpCatalog(state:GameState):StoryEvent[] {
+ const base=baseStories(state)
+ const variants:[string,string,string,StoryChoice][]=[
+  ['minutes-fulfilled','You earned a bigger role','You reached the 22-match target at the club. Choose how to build on that progress.',{id:'build',label:'Build on the progress',detail:'More selection opportunity costs energy this season.',effect:{role:.08,fitness:-6}}],
+  ['minutes-missed','The promised breakthrough needs another plan','You did not reach the 22-match target. Decide how to rebuild your place at the club.',{id:'rebuild',label:'Rebuild trust before asking again',detail:'Build trust and morale while accepting a smaller role.',effect:{coachTrust:10,morale:4,role:-.04}}],
+  ['minutes-left','A new club ends the old playing-time plan','You selected a move away from the club where you set the match target. Your next role starts with a new coach.',{id:'settle',label:'Earn your new coach’s trust',detail:'Build trust at a small physical cost.',effect:{coachTrust:12,fitness:-4}}],
+  ['recovery-fulfilled','Your recovery plan paid off','You returned healthy with at least 60 fitness. Decide how to protect that progress.',{id:'measured',label:'Return with a measured workload',detail:'Protect fitness while accepting fewer selection opportunities.',effect:{fitness:8,role:-.04}}],
+  ['recovery-missed','Recovery needs another chapter','You have not yet returned healthy with 60 fitness. Choose your response alongside this season’s rehabilitation plan.',{id:'block',label:'Commit to another recovery block',detail:'Prioritise fitness over morale and selection this season.',effect:{fitness:16,morale:-4,role:-.08}}],
+  ['loyalty-fulfilled','Staying becomes a new chapter','You chose to stay after committing to continuity. Decide how to use the relationship you kept.',{id:'responsibility',label:'Take responsibility for the squad',detail:'Build trust and selection opportunity at a physical cost.',effect:{coachTrust:6,role:.04,fitness:-6}}],
+  ['loyalty-left','A departure changes your continuity plan','You selected a move after committing to continuity. That chapter closes and a new coach relationship begins.',{id:'settle',label:'Earn your new coach’s trust',detail:'Build trust at a small physical cost.',effect:{coachTrust:12,fitness:-4}}],
+ ]
+ return variants.map(([id,title,description,first])=>({id:`followup-${id}`,title,description,choices:[first,base[0].choices[1],base[0].choices[2]]}))
+}
+export function storyCatalog(state:GameState):StoryEvent[] {return [...contextCatalog(state),...followUpCatalog(state)]}
+export function seasonStory(state:GameState,transfer:Transfer='stay',decision?:Decision):StoryEvent {
+ const d=decision??{training:'balanced',relationship:'follow',transfer},outcome=threadOutcome(state,d)
+ const event=outcome?followUpCatalog(state).find(e=>e.id===`followup-${outcome.kind}-${outcome.status}`)!:legacyContextStory(state,transfer)
+ const choices=event.choices.map(choice=>hasStoryCost(choice.effect)&&!hasStoryBenefit(state,d,choice.effect)?{...choice,unavailableReason:'No usable benefit with your current limits. Choose another option.'}:choice)
+ if(choices.every(c=>c.unavailableReason))choices.push({id:'hold',label:'Keep your current routine',detail:'There is no useful extra gain available. Continue without an extra story cost.',effect:{}})
+ return {...event,reason:outcome?'Your previous decision is ready for a follow-up.':event.reason==='A fresh situation after the recent-story cooldown.'?'A new week of preparation with your squad.':event.reason,choices}
+}
+export function storyChoice(state:GameState,id?:string,eventId?:string,transfer:Transfer='stay',decision?:Decision):StoryChoice|undefined {
+ if(id===undefined){if(eventId!==undefined||decision?.rules)throw new Error('Choose a valid story decision for this season.');return undefined}
+ const modern=decision?.rules==='1.3'
+ const event=eventId===undefined?legacySeasonStory(state):modern?seasonStory(state,transfer,decision):legacyContextStory(state,transfer)
  const choice=(eventId===undefined||eventId===event.id)?event.choices.find(item=>item.id===id):undefined
- if(!choice)throw new Error('Choose a valid story decision for this season.')
+ if(!choice||modern&&choice.unavailableReason)throw new Error('Choose a valid story decision for this season.')
  return choice
 }

@@ -5255,5 +5255,551 @@
     "pt": "Recuperação de uma lesão leve",
     "zh": "轻伤康复中",
     "de": "Genesung nach einer leichten Verletzung"
+  },
+  "You earned a bigger role": {
+    "es": "Te ganaste un papel mayor",
+    "it": "Hai conquistato un ruolo più importante",
+    "pt": "Conquistaste um papel maior",
+    "zh": "你赢得了更重要的位置",
+    "de": "Du hast dir eine größere Rolle verdient"
+  },
+  "You reached the 22-match target at the club. Choose how to build on that progress.": {
+    "es": "Alcanzaste el objetivo de 22 partidos en el club. Decide cómo seguir progresando.",
+    "it": "Hai raggiunto le 22 presenze nel club. Scegli come proseguire.",
+    "pt": "Atingiste a meta de 22 jogos no clube. Decide como continuar a progredir.",
+    "zh": "你在这家俱乐部达成了出场 22 场的目标。决定如何继续进步。",
+    "de": "Du hast das Ziel von 22 Spielen beim Verein erreicht. Entscheide, wie es weitergeht."
+  },
+  "Build on the progress": {
+    "es": "Aprovechar el progreso",
+    "it": "Consolidare i progressi",
+    "pt": "Aproveitar o progresso",
+    "zh": "巩固已经取得的进步",
+    "de": "Auf dem Fortschritt aufbauen"
+  },
+  "More selection opportunity costs energy this season.": {
+    "es": "Más oportunidades de jugar a costa de energía esta temporada.",
+    "it": "Più occasioni di giocare a costo di energia in questa stagione.",
+    "pt": "Mais oportunidades de jogar à custa de energia nesta temporada.",
+    "zh": "本赛季以体能换取更多出场机会。",
+    "de": "Mehr Einsatzchancen kosten diese Saison Energie."
+  },
+  "The promised breakthrough needs another plan": {
+    "es": "La oportunidad necesita otro plan",
+    "it": "Serve un altro piano per emergere",
+    "pt": "A oportunidade precisa de outro plano",
+    "zh": "出场突破还需要新计划",
+    "de": "Der Durchbruch braucht einen neuen Plan"
+  },
+  "You did not reach the 22-match target. Decide how to rebuild your place at the club.": {
+    "es": "No alcanzaste los 22 partidos. Decide cómo recuperar tu sitio en el club.",
+    "it": "Non hai raggiunto le 22 presenze. Decidi come ritrovare spazio nel club.",
+    "pt": "Não atingiste os 22 jogos. Decide como recuperar o teu lugar no clube.",
+    "zh": "你未能达成出场 22 场的目标。决定如何重新争取队内位置。",
+    "de": "Du hast 22 Spiele nicht erreicht. Entscheide, wie du deinen Platz im Verein stärkst."
+  },
+  "Rebuild trust before asking again": {
+    "es": "Recuperar confianza antes de volver a pedir",
+    "it": "Ricostruire la fiducia prima di chiedere ancora",
+    "pt": "Recuperar confiança antes de voltar a pedir",
+    "zh": "先重建信任，再争取机会",
+    "de": "Vor einer neuen Bitte Vertrauen aufbauen"
+  },
+  "Build trust and morale while accepting a smaller role.": {
+    "es": "Mejora confianza y ánimo aceptando un papel menor.",
+    "it": "Aumenta fiducia e morale accettando un ruolo minore.",
+    "pt": "Melhora confiança e moral aceitando um papel menor.",
+    "zh": "接受较小的角色，提升信任和士气。",
+    "de": "Stärke Vertrauen und Moral bei einer kleineren Rolle."
+  },
+  "A new club ends the old playing-time plan": {
+    "es": "Un nuevo club cierra el antiguo plan de minutos",
+    "it": "Un nuovo club chiude il vecchio piano di presenze",
+    "pt": "Um novo clube encerra o antigo plano de jogos",
+    "zh": "新俱乐部结束了原来的出场计划",
+    "de": "Ein neuer Verein beendet den alten Einsatzplan"
+  },
+  "You selected a move away from the club where you set the match target. Your next role starts with a new coach.": {
+    "es": "Elegiste salir del club donde fijaste el objetivo de partidos. Tu próximo papel empieza con un nuevo técnico.",
+    "it": "Hai scelto di lasciare il club dove avevi fissato il traguardo. Il nuovo ruolo parte con un altro tecnico.",
+    "pt": "Escolheste sair do clube onde definiste a meta de jogos. O próximo papel começa com um novo treinador.",
+    "zh": "你选择离开设定出场目标时的俱乐部。新的角色将从一位新教练开始。",
+    "de": "Du verlässt den Verein, bei dem du das Spielziel gesetzt hast. Deine neue Rolle beginnt mit einem neuen Trainer."
+  },
+  "Earn your new coach’s trust": {
+    "es": "Ganarte la confianza del nuevo técnico",
+    "it": "Conquistare la fiducia del nuovo tecnico",
+    "pt": "Ganhar a confiança do novo treinador",
+    "zh": "赢得新教练的信任",
+    "de": "Das Vertrauen des neuen Trainers gewinnen"
+  },
+  "Build trust at a small physical cost.": {
+    "es": "Mejora la confianza con un pequeño coste físico.",
+    "it": "Aumenta la fiducia con un piccolo costo fisico.",
+    "pt": "Melhora a confiança com um pequeno custo físico.",
+    "zh": "付出少量体能，提升教练信任。",
+    "de": "Stärke Vertrauen mit einem kleinen Fitnessaufwand."
+  },
+  "Your recovery plan paid off": {
+    "es": "Tu recuperación dio resultado",
+    "it": "Il recupero ha dato risultati",
+    "pt": "A recuperação deu resultado",
+    "zh": "你的康复计划取得了效果",
+    "de": "Dein Erholungsplan hat sich ausgezahlt"
+  },
+  "You returned healthy with at least 60 fitness. Decide how to protect that progress.": {
+    "es": "Volviste sano y con al menos 60 de forma. Decide cómo proteger ese progreso.",
+    "it": "Sei tornato sano e con almeno 60 di forma. Decidi come proteggere i progressi.",
+    "pt": "Regressaste saudável e com pelo menos 60 de forma. Decide como proteger o progresso.",
+    "zh": "你已恢复健康，体能达到至少 60。决定如何维持这份进步。",
+    "de": "Du bist gesund zurück und hast mindestens 60 Fitness. Entscheide, wie du das bewahrst."
+  },
+  "Return with a measured workload": {
+    "es": "Volver con una carga moderada",
+    "it": "Rientrare con un carico moderato",
+    "pt": "Regressar com uma carga moderada",
+    "zh": "以适度负荷回归",
+    "de": "Mit dosierter Belastung zurückkehren"
+  },
+  "Protect fitness while accepting fewer selection opportunities.": {
+    "es": "Protege la forma aceptando menos oportunidades de jugar.",
+    "it": "Proteggi la forma accettando meno occasioni di giocare.",
+    "pt": "Protege a forma aceitando menos oportunidades de jogar.",
+    "zh": "减少部分出场机会，以保护体能。",
+    "de": "Schütze die Fitness und akzeptiere weniger Einsatzchancen."
+  },
+  "Recovery needs another chapter": {
+    "es": "La recuperación necesita otro capítulo",
+    "it": "Il recupero richiede un altro capitolo",
+    "pt": "A recuperação precisa de outro capítulo",
+    "zh": "康复还需要继续",
+    "de": "Die Erholung braucht ein weiteres Kapitel"
+  },
+  "You have not yet returned healthy with 60 fitness. Choose your response alongside this season’s rehabilitation plan.": {
+    "es": "Aún no estás sano con 60 de forma. Decide cómo responder junto con la rehabilitación de esta temporada.",
+    "it": "Non sei ancora sano con 60 di forma. Scegli come reagire insieme al piano di riabilitazione stagionale.",
+    "pt": "Ainda não estás saudável com 60 de forma. Decide como reagir juntamente com a reabilitação desta temporada.",
+    "zh": "你尚未同时恢复健康并达到 60 体能。结合本赛季康复方案，决定如何应对。",
+    "de": "Du bist noch nicht gesund mit 60 Fitness zurück. Entscheide zusammen mit dem Rehaplan dieser Saison über die nächsten Schritte."
+  },
+  "Commit to another recovery block": {
+    "es": "Dedicar otro periodo a recuperarte",
+    "it": "Dedicare un altro periodo al recupero",
+    "pt": "Dedicar outro período à recuperação",
+    "zh": "再投入一个阶段进行康复",
+    "de": "Eine weitere Erholungsphase einplanen"
+  },
+  "Prioritise fitness over morale and selection this season.": {
+    "es": "Prioriza la forma sobre el ánimo y las oportunidades esta temporada.",
+    "it": "Dai priorità alla forma rispetto a morale e presenze questa stagione.",
+    "pt": "Prioriza a forma sobre a moral e as oportunidades nesta temporada.",
+    "zh": "本赛季优先恢复体能，付出部分士气与出场机会。",
+    "de": "Priorisiere diese Saison Fitness gegenüber Moral und Einsatzchancen."
+  },
+  "Staying becomes a new chapter": {
+    "es": "Quedarte abre un nuevo capítulo",
+    "it": "Restare apre un nuovo capitolo",
+    "pt": "Ficar abre um novo capítulo",
+    "zh": "留队开启了新的篇章",
+    "de": "Bleiben eröffnet ein neues Kapitel"
+  },
+  "You chose to stay after committing to continuity. Decide how to use the relationship you kept.": {
+    "es": "Te quedaste tras apostar por la continuidad. Decide cómo aprovechar la relación que conservaste.",
+    "it": "Sei rimasto dopo aver scelto la continuità. Decidi come valorizzare il rapporto conservato.",
+    "pt": "Ficaste depois de apostar na continuidade. Decide como aproveitar a relação que mantiveste.",
+    "zh": "你兑现了继续留队的选择。决定如何利用保留下来的关系。",
+    "de": "Du bist nach deiner Zusage für Kontinuität geblieben. Entscheide, wie du die erhaltene Beziehung nutzt."
+  },
+  "Take responsibility for the squad": {
+    "es": "Asumir responsabilidades en el equipo",
+    "it": "Assumerti responsabilità nella squadra",
+    "pt": "Assumir responsabilidades na equipa",
+    "zh": "为球队承担更多责任",
+    "de": "Verantwortung für das Team übernehmen"
+  },
+  "Build trust and selection opportunity at a physical cost.": {
+    "es": "Mejora confianza y oportunidades de jugar a costa de forma física.",
+    "it": "Aumenta fiducia e opportunità di giocare a costo della forma.",
+    "pt": "Melhora confiança e oportunidades de jogar à custa de forma física.",
+    "zh": "付出体能，提升信任与出场机会。",
+    "de": "Stärke Vertrauen und Einsatzchancen auf Kosten der Fitness."
+  },
+  "A departure changes your continuity plan": {
+    "es": "La salida cambia tu plan de continuidad",
+    "it": "La partenza cambia il piano di continuità",
+    "pt": "A saída muda o plano de continuidade",
+    "zh": "离队改变了原来的留队计划",
+    "de": "Ein Abschied ändert deinen Kontinuitätsplan"
+  },
+  "You selected a move after committing to continuity. That chapter closes and a new coach relationship begins.": {
+    "es": "Elegiste salir tras apostar por la continuidad. Ese capítulo termina y empieza una relación con otro técnico.",
+    "it": "Hai scelto di partire dopo aver puntato sulla continuità. Quel capitolo finisce e inizia un rapporto con un nuovo tecnico.",
+    "pt": "Escolheste sair depois de apostar na continuidade. Esse capítulo termina e começa uma relação com outro treinador.",
+    "zh": "你在选择继续留队后又决定转会。这一篇章结束，与新教练的关系即将开始。",
+    "de": "Nach deiner Zusage für Kontinuität hast du einen Wechsel gewählt. Dieses Kapitel endet und eine neue Trainerbeziehung beginnt."
+  },
+  "No usable benefit with your current limits. Choose another option.": {
+    "es": "Con tus límites actuales no hay un beneficio útil. Elige otra opción.",
+    "it": "Con i limiti attuali non ci sono vantaggi utili. Scegli un’altra opzione.",
+    "pt": "Com os limites atuais não há benefício útil. Escolhe outra opção.",
+    "zh": "在当前数值上限下没有实际收益，请选择其他选项。",
+    "de": "Bei deinen aktuellen Grenzen gibt es keinen nutzbaren Vorteil. Wähle eine andere Option."
+  },
+  "Keep your current routine": {
+    "es": "Mantener tu rutina actual",
+    "it": "Mantenere la routine attuale",
+    "pt": "Manter a rotina atual",
+    "zh": "维持当前安排",
+    "de": "Die aktuelle Routine beibehalten"
+  },
+  "There is no useful extra gain available. Continue without an extra story cost.": {
+    "es": "No hay una mejora adicional útil disponible. Continúa sin un coste extra de historia.",
+    "it": "Non ci sono miglioramenti aggiuntivi utili. Continua senza un costo narrativo extra.",
+    "pt": "Não há melhoria adicional útil disponível. Continua sem um custo narrativo extra.",
+    "zh": "目前没有可获得的额外收益。继续赛季，不支付额外剧情代价。",
+    "de": "Es gibt gerade keinen nutzbaren Zusatzgewinn. Fahre ohne zusätzliche Story-Kosten fort."
+  },
+  "Your previous decision is ready for a follow-up.": {
+    "es": "Es hora de retomar tu decisión anterior.",
+    "it": "È il momento di riprendere la decisione precedente.",
+    "pt": "É hora de retomar a decisão anterior.",
+    "zh": "现在该回顾并承接你上一季的选择了。",
+    "de": "Deine vorige Entscheidung wird jetzt weitergeführt."
+  },
+  "A new week of preparation with your squad.": {
+    "es": "Una nueva semana de preparación con tu equipo.",
+    "it": "Una nuova settimana di preparazione con la squadra.",
+    "pt": "Uma nova semana de preparação com a equipa.",
+    "zh": "与球队一起迎接新的备战安排。",
+    "de": "Eine neue Vorbereitungswoche mit deinem Team."
+  },
+  "Next season will revisit this decision.": {
+    "es": "La próxima temporada retomará esta decisión.",
+    "it": "La prossima stagione riprenderà questa decisione.",
+    "pt": "A próxima temporada retomará esta decisão.",
+    "zh": "下一赛季将承接这个决定。",
+    "de": "Nächste Saison wird diese Entscheidung aufgegriffen."
+  },
+  "Commitment fulfilled": {
+    "es": "Compromiso cumplido",
+    "it": "Impegno rispettato",
+    "pt": "Compromisso cumprido",
+    "zh": "承诺已兑现",
+    "de": "Zusage erfüllt"
+  },
+  "Target missed — a new response is needed": {
+    "es": "Objetivo no alcanzado: hace falta una nueva respuesta",
+    "it": "Obiettivo mancato: serve una nuova risposta",
+    "pt": "Meta não atingida: é preciso uma nova resposta",
+    "zh": "目标未达成，需要新的应对",
+    "de": "Ziel verfehlt: Eine neue Reaktion ist nötig"
+  },
+  "Club move ended the previous commitment": {
+    "es": "El fichaje cerró el compromiso anterior",
+    "it": "Il trasferimento ha chiuso l’impegno precedente",
+    "pt": "A transferência encerrou o compromisso anterior",
+    "zh": "转会结束了此前的约定",
+    "de": "Der Vereinswechsel beendete die vorige Zusage"
+  },
+  "From season {n} at {club}.": {
+    "es": "De la temporada {n} en {club}.",
+    "it": "Dalla stagione {n} al {club}.",
+    "pt": "Da temporada {n} no {club}.",
+    "zh": "源于第 {n} 赛季在 {club} 的选择。",
+    "de": "Aus Saison {n} bei {club}."
+  },
+  "Next season: review your 22-match target at this club.": {
+    "es": "Próxima temporada: revisar tu objetivo de 22 partidos en este club.",
+    "it": "Prossima stagione: rivedere il traguardo di 22 presenze nel club.",
+    "pt": "Próxima temporada: rever a meta de 22 jogos neste clube.",
+    "zh": "下赛季回顾你在这家俱乐部出场 22 场的目标。",
+    "de": "Nächste Saison: Dein Ziel von 22 Spielen bei diesem Verein prüfen."
+  },
+  "Next season: review whether you are healthy with 60 fitness.": {
+    "es": "Próxima temporada: revisar si estás sano con 60 de forma.",
+    "it": "Prossima stagione: verificare salute e forma almeno a 60.",
+    "pt": "Próxima temporada: verificar se estás saudável com 60 de forma.",
+    "zh": "下赛季回顾你是否恢复健康并达到 60 体能。",
+    "de": "Nächste Saison: Prüfen, ob du gesund bist und 60 Fitness hast."
+  },
+  "Next season: revisit your decision to stay at this club.": {
+    "es": "Próxima temporada: retomar tu decisión de seguir en este club.",
+    "it": "Prossima stagione: riprendere la scelta di restare nel club.",
+    "pt": "Próxima temporada: retomar a decisão de ficar neste clube.",
+    "zh": "下赛季回顾你继续留在这家俱乐部的决定。",
+    "de": "Nächste Saison: Deine Entscheidung zum Verbleib aufgreifen."
+  },
+  "Career ended before the pending story follow-up.": {
+    "es": "La carrera terminó antes de retomar la historia pendiente.",
+    "it": "La carriera è finita prima del seguito narrativo in sospeso.",
+    "pt": "A carreira terminou antes da continuação narrativa pendente.",
+    "zh": "生涯在待续剧情展开前结束。",
+    "de": "Die Karriere endete vor der offenen Story-Fortsetzung."
+  },
+  "Establish yourself: play 22 matches this season.": {
+    "es": "Hazte un sitio: juega 22 partidos esta temporada.",
+    "it": "Trova spazio: gioca 22 partite questa stagione.",
+    "pt": "Conquista espaço: joga 22 partidas nesta temporada.",
+    "zh": "站稳脚跟：本赛季出场 22 场。",
+    "de": "Etabliere dich: Spiele diese Saison 22 Partien."
+  },
+  "Become a regular: play 30 matches this season.": {
+    "es": "Consolídate: juega 30 partidos esta temporada.",
+    "it": "Diventa una presenza fissa: gioca 30 partite questa stagione.",
+    "pt": "Torna-te uma presença regular: joga 30 partidas nesta temporada.",
+    "zh": "成为常规主力：本赛季出场 30 场。",
+    "de": "Werde Stammkraft: Spiele diese Saison 30 Partien."
+  },
+  "Stay available: finish healthy with at least 60 fitness.": {
+    "es": "Mantente disponible: termina sano con al menos 60 de forma.",
+    "it": "Resta disponibile: termina sano con almeno 60 di forma.",
+    "pt": "Mantém-te disponível: termina saudável com pelo menos 60 de forma.",
+    "zh": "保持可用：赛季结束时健康，且体能至少达到 60。",
+    "de": "Bleib einsatzbereit: Beende die Saison gesund mit mindestens 60 Fitness."
+  },
+  "Career goals": {
+    "es": "Objetivos de carrera",
+    "it": "Obiettivi di carriera",
+    "pt": "Objetivos de carreira",
+    "zh": "生涯目标",
+    "de": "Karriereziele"
+  },
+  "Your next season target": {
+    "es": "Tu objetivo para la próxima temporada",
+    "it": "Il prossimo obiettivo stagionale",
+    "pt": "A meta para a próxima temporada",
+    "zh": "你的下一赛季目标",
+    "de": "Dein Ziel für die nächste Saison"
+  },
+  "Targets recognise progress; they do not change your legacy score.": {
+    "es": "Los objetivos reconocen el progreso; no cambian tu puntuación de legado.",
+    "it": "Gli obiettivi riconoscono i progressi; non cambiano il punteggio finale.",
+    "pt": "As metas reconhecem o progresso; não alteram a pontuação de legado.",
+    "zh": "目标用于认可进步，不改变生涯评分。",
+    "de": "Ziele würdigen Fortschritte und ändern deine Vermächtnispunkte nicht."
+  },
+  "Achievement unlocked": {
+    "es": "Logro desbloqueado",
+    "it": "Traguardo sbloccato",
+    "pt": "Conquista desbloqueada",
+    "zh": "解锁成就",
+    "de": "Erfolg freigeschaltet"
+  },
+  "Career milestones & progress": {
+    "es": "Hitos y progreso de carrera",
+    "it": "Traguardi e progressi di carriera",
+    "pt": "Marcos e progresso de carreira",
+    "zh": "生涯里程碑与进度",
+    "de": "Karrieremeilensteine und Fortschritt"
+  },
+  "PERSONAL HONOURS": {
+    "es": "LOGROS PERSONALES",
+    "it": "TRAGUARDI PERSONALI",
+    "pt": "CONQUISTAS PESSOAIS",
+    "zh": "个人荣誉",
+    "de": "PERSÖNLICHE ERFOLGE"
+  },
+  "Your personal achievements": {
+    "es": "Tus logros personales",
+    "it": "I tuoi traguardi personali",
+    "pt": "As tuas conquistas pessoais",
+    "zh": "你的个人成就",
+    "de": "Deine persönlichen Erfolge"
+  },
+  "Career milestones begin with your first 100 appearances or a personal contribution target.": {
+    "es": "Los hitos empiezan con tus primeros 100 partidos o un objetivo de aportación personal.",
+    "it": "I traguardi iniziano con le prime 100 presenze o un obiettivo di contributo personale.",
+    "pt": "Os marcos começam com os primeiros 100 jogos ou uma meta de contribuição pessoal.",
+    "zh": "从首次百场出场或个人贡献目标开始积累里程碑。",
+    "de": "Meilensteine beginnen mit den ersten 100 Einsätzen oder einem persönlichen Beitragsziel."
+  },
+  "Achievements use your actual career record and are awarded once per milestone.": {
+    "es": "Los logros usan tu historial real de juego y se conceden una vez por hito.",
+    "it": "I traguardi usano i dati della carriera giocata e si assegnano una volta per obiettivo.",
+    "pt": "As conquistas usam os dados da carreira jogada e são atribuídas uma vez por marco.",
+    "zh": "成就依据实际游玩记录，每个里程碑只授予一次。",
+    "de": "Erfolge beruhen auf deiner gespielten Karriere und werden pro Meilenstein einmal vergeben."
+  },
+  "Season target achieved": {
+    "es": "Objetivo de temporada alcanzado",
+    "it": "Obiettivo stagionale raggiunto",
+    "pt": "Meta da temporada atingida",
+    "zh": "赛季目标已达成",
+    "de": "Saisonziel erreicht"
+  },
+  "Season target not reached": {
+    "es": "Objetivo de temporada no alcanzado",
+    "it": "Obiettivo stagionale non raggiunto",
+    "pt": "Meta da temporada não atingida",
+    "zh": "赛季目标未达成",
+    "de": "Saisonziel nicht erreicht"
+  },
+  "Full calculation · 8 stages": {
+    "es": "Cálculo completo · 8 etapas",
+    "it": "Calcolo completo · 8 fasi",
+    "pt": "Cálculo completo · 8 etapas",
+    "zh": "完整计算 · 8 个阶段",
+    "de": "Vollständige Berechnung · 8 Schritte"
+  },
+  "Three key changes": {
+    "es": "Tres cambios clave",
+    "it": "Tre cambiamenti principali",
+    "pt": "Três alterações principais",
+    "zh": "三项关键变化",
+    "de": "Drei zentrale Änderungen"
+  },
+  "Attribute development": {
+    "es": "Desarrollo de atributos",
+    "it": "Sviluppo degli attributi",
+    "pt": "Desenvolvimento de atributos",
+    "zh": "属性成长",
+    "de": "Attributentwicklung"
+  },
+  "100 career appearances": {
+    "es": "100 partidos de carrera",
+    "it": "100 presenze in carriera",
+    "pt": "100 jogos na carreira",
+    "zh": "100 次生涯出场",
+    "de": "100 Karriereeinsätze"
+  },
+  "300 career appearances": {
+    "es": "300 partidos de carrera",
+    "it": "300 presenze in carriera",
+    "pt": "300 jogos na carreira",
+    "zh": "300 次生涯出场",
+    "de": "300 Karriereeinsätze"
+  },
+  "500 career appearances": {
+    "es": "500 partidos de carrera",
+    "it": "500 presenze in carriera",
+    "pt": "500 jogos na carreira",
+    "zh": "500 次生涯出场",
+    "de": "500 Karriereeinsätze"
+  },
+  "100 career goals": {
+    "es": "100 goles de carrera",
+    "it": "100 gol in carriera",
+    "pt": "100 golos na carreira",
+    "zh": "100 粒生涯进球",
+    "de": "100 Karrieretore"
+  },
+  "200 career goals": {
+    "es": "200 goles de carrera",
+    "it": "200 gol in carriera",
+    "pt": "200 golos na carreira",
+    "zh": "200 粒生涯进球",
+    "de": "200 Karrieretore"
+  },
+  "300 career goals": {
+    "es": "300 goles de carrera",
+    "it": "300 gol in carriera",
+    "pt": "300 golos na carreira",
+    "zh": "300 粒生涯进球",
+    "de": "300 Karrieretore"
+  },
+  "400 career goals": {
+    "es": "400 goles de carrera",
+    "it": "400 gol in carriera",
+    "pt": "400 golos na carreira",
+    "zh": "400 粒生涯进球",
+    "de": "400 Karrieretore"
+  },
+  "500 career goals": {
+    "es": "500 goles de carrera",
+    "it": "500 gol in carriera",
+    "pt": "500 golos na carreira",
+    "zh": "500 粒生涯进球",
+    "de": "500 Karrieretore"
+  },
+  "50 career assists": {
+    "es": "50 asistencias de carrera",
+    "it": "50 assist in carriera",
+    "pt": "50 assistências na carreira",
+    "zh": "50 次生涯助攻",
+    "de": "50 Karrierevorlagen"
+  },
+  "100 career assists": {
+    "es": "100 asistencias de carrera",
+    "it": "100 assist in carriera",
+    "pt": "100 assistências na carreira",
+    "zh": "100 次生涯助攻",
+    "de": "100 Karrierevorlagen"
+  },
+  "200 career assists": {
+    "es": "200 asistencias de carrera",
+    "it": "200 assist in carriera",
+    "pt": "200 assistências na carreira",
+    "zh": "200 次生涯助攻",
+    "de": "200 Karrierevorlagen"
+  },
+  "50 career clean sheets": {
+    "es": "50 porterías a cero en la carrera",
+    "it": "50 partite senza subire reti in carriera",
+    "pt": "50 jogos sem sofrer golos na carreira",
+    "zh": "50 次生涯零封",
+    "de": "50 Spiele ohne Gegentor"
+  },
+  "100 career clean sheets": {
+    "es": "100 porterías a cero en la carrera",
+    "it": "100 partite senza subire reti in carriera",
+    "pt": "100 jogos sem sofrer golos na carreira",
+    "zh": "100 次生涯零封",
+    "de": "100 Spiele ohne Gegentor"
+  },
+  "200 career clean sheets": {
+    "es": "200 porterías a cero en la carrera",
+    "it": "200 partite senza subire reti in carriera",
+    "pt": "200 jogos sem sofrer golos na carreira",
+    "zh": "200 次生涯零封",
+    "de": "200 Spiele ohne Gegentor"
+  },
+  "5 consecutive seasons at one club": {
+    "es": "5 temporadas seguidas en un club",
+    "it": "5 stagioni consecutive nello stesso club",
+    "pt": "5 temporadas seguidas num clube",
+    "zh": "连续 5 个赛季效力同一俱乐部",
+    "de": "5 aufeinanderfolgende Saisons bei einem Verein"
+  },
+  "10 consecutive seasons at one club": {
+    "es": "10 temporadas seguidas en un club",
+    "it": "10 stagioni consecutive nello stesso club",
+    "pt": "10 temporadas seguidas num clube",
+    "zh": "连续 10 个赛季效力同一俱乐部",
+    "de": "10 aufeinanderfolgende Saisons bei einem Verein"
+  },
+  "Season {n}": {
+    "es": "Temporada {n}",
+    "it": "Stagione {n}",
+    "pt": "Temporada {n}",
+    "zh": "第 {n} 赛季",
+    "de": "Saison {n}"
+  },
+  "Each comparison selects the first available story option every season. Stories depend on player condition and recent history, with a four-season cooldown. This includes story effects and match-experience growth. To reproduce a row under rules 1.3, use the first option as well as the setup above.": {
+    "es": "Cada comparación elige la primera opción de historia disponible cada temporada. Las historias dependen del estado del jugador y del historial reciente, con cuatro temporadas de espera antes de repetirse. Se incluyen sus efectos y el desarrollo por experiencia en partidos. Para reproducir una fila con las reglas 1.3, usa la primera opción y la configuración anterior.",
+    "it": "Ogni confronto sceglie la prima opzione narrativa disponibile in ogni stagione. Le storie dipendono dalle condizioni del giocatore e dalla cronologia recente, con quattro stagioni di attesa prima di ripetersi. Sono inclusi gli effetti e la crescita dovuta alle partite. Per riprodurre una riga con le regole 1.3, usa la prima opzione e la configurazione indicata.",
+    "pt": "Cada comparação escolhe a primeira opção narrativa disponível em cada temporada. As histórias dependem da condição do jogador e do histórico recente, com quatro temporadas de intervalo antes de se repetirem. Incluem os efeitos e o desenvolvimento pela experiência em jogos. Para reproduzir uma linha com as regras 1.3, usa a primeira opção e a configuração acima.",
+    "zh": "每组对比在每个赛季选择当前剧情的第一个选项。剧情根据球员状态和近期记录触发，四个赛季内不会重复。结果包含剧情效果和比赛经验成长。要按 1.3 规则复现某一行，请使用上述配置并选择第一个剧情选项。",
+    "de": "Jeder Vergleich wählt pro Saison die erste verfügbare Story-Option. Die Geschichten richten sich nach Spielerzustand und Verlauf und wiederholen sich frühestens nach vier anderen Saisons. Story-Effekte und Entwicklung durch Spielpraxis sind enthalten. Für die Reproduktion unter Regeln 1.3 verwende die erste Option und die obige Konfiguration."
+  },
+  "Achievements, targets and follow-ups": {
+    "es": "Logros, objetivos e historias pendientes",
+    "it": "Traguardi, obiettivi e sviluppi narrativi",
+    "pt": "Conquistas, metas e histórias pendentes",
+    "zh": "成就、目标与后续剧情",
+    "de": "Erfolge, Ziele und Story-Fortsetzungen"
+  },
+  "Costly story options are unavailable when their gains are fully capped or inactive. If every option is unavailable, a free continuation keeps the career playable. Personal milestones are awarded once from actual career totals; season targets recognise age-appropriate progress without changing legacy points. Playing-time, rehabilitation and continuity decisions can open a next-season follow-up. A club move closes club-specific commitments, while recovery follows the player.": {
+    "es": "Las opciones de historia con coste no están disponibles cuando sus ventajas están limitadas por completo o inactivas. Si todas lo están, una continuación gratuita permite seguir jugando. Los hitos personales se conceden una vez según los totales reales de la carrera; los objetivos de temporada reconocen el progreso adecuado a la edad sin cambiar el legado. Las decisiones de minutos, rehabilitación y continuidad pueden abrir una historia en la temporada siguiente. Cambiar de club cierra los compromisos de ese club, mientras la recuperación acompaña al jugador.",
+    "it": "Le opzioni narrative con un costo non sono disponibili quando i vantaggi sono completamente limitati o inattivi. Se lo sono tutte, una continuazione gratuita permette di proseguire. I traguardi personali vengono assegnati una volta in base ai totali reali della carriera; gli obiettivi stagionali riconoscono i progressi adatti all’età senza cambiare il punteggio finale. Le decisioni su presenze, riabilitazione e continuità possono aprire una storia nella stagione successiva. Cambiare club chiude gli impegni legati a quel club, mentre il recupero segue il giocatore.",
+    "pt": "As opções narrativas com custo ficam indisponíveis quando os ganhos estão totalmente limitados ou inativos. Se todas estiverem indisponíveis, uma continuação gratuita permite prosseguir. Os marcos pessoais são atribuídos uma vez com base nos totais reais da carreira; as metas da temporada reconhecem o progresso adequado à idade sem alterar o legado. As decisões sobre tempo de jogo, reabilitação e continuidade podem abrir uma história na temporada seguinte. Mudar de clube encerra os compromissos desse clube, enquanto a recuperação acompanha o jogador.",
+    "zh": "当收益全部达到上限或已失效时，有代价的剧情选项不可选择。如果所有选项都不可用，可免费继续生涯。个人成就按真实累计数据首次达成时授予；赛季目标认可不同年龄阶段的进步，不改变生涯评分。出场、康复和留队选择可在下一赛季展开后续剧情。转会会关闭与原俱乐部相关的约定，康复计划则跟随球员继续。",
+    "de": "Story-Optionen mit Kosten sind nicht verfügbar, wenn ihre Vorteile vollständig begrenzt oder inaktiv sind. Sind alle gesperrt, erlaubt eine kostenlose Fortsetzung das Weiterspielen. Persönliche Meilensteine werden anhand tatsächlicher Karrieresummen einmal vergeben; Saisonziele würdigen altersgerechte Fortschritte ohne zusätzliche Vermächtnispunkte. Entscheidungen zu Spielzeit, Reha und Kontinuität können nächste Saison eine Fortsetzung auslösen. Ein Wechsel beendet vereinsbezogene Zusagen; die Erholung folgt dem Spieler."
+  },
+  "{n} more attributes": {
+    "es": "{n} atributos más",
+    "it": "altri {n} attributi",
+    "pt": "mais {n} atributos",
+    "zh": "另有 {n} 项属性变化",
+    "de": "{n} weitere Attribute"
   }
 }

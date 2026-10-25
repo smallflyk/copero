@@ -3,7 +3,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import {sourceModule} from '../scripts/source-module.mjs'
 const {createCareer,nextSeason,defaultDecision,clubOffers}=sourceModule('lib/game/engine.ts')
-const {seasonStory,storyCatalog}=sourceModule('lib/game/stories.ts')
+const {legacyContextStory:seasonStory,storyCatalog}=sourceModule('lib/game/stories.ts')
 const {previewAdjustments}=sourceModule('lib/game/feedback.ts')
 const {decodeSave}=sourceModule('lib/game/storage.ts')
 const {ZERO_BONUSES}=sourceModule('lib/game/rules.ts')

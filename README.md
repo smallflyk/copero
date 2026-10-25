@@ -103,7 +103,7 @@ The verifier independently replays all recorded decisions through the engine and
 
 Phones use compact season cards, collapsible report/history and one fixed next-season action with safe-area padding; desktop uses expanded panels and the inline action. The dock disappears at retirement. Run `scripts/check-mobile-career.py` with the same Playwright environment variables as the other browser suites. Its default target is localhost:3000; it uses a valid isolated saved-game fixture. See docs/mobile-career-2026-10-18.md for measured reductions and deployment validation.
 
-## Choice-driven careers (rules 1.2)
+## Choice-driven careers (rules 1.3)
 
 Every UI season requires one of three story decisions. Fourteen original scenarios include injury, fatigue, transfers, limited match time, trophies, contract expiry and veteran status. Trigger priority follows current player state; events from the last four completed seasons are excluded. A club change clears the story selection and requires a fresh decision. Effects are shown before choosing and saved in each season review. Capped gains show the actual available benefit. Each new review records eight ordered stages (club, story, coach, training, rehabilitation, new injury, development, matches), whose actual condition deltas reconcile to the season total. Growth multipliers explicitly warn when age-related decline is active. Conditions/attributes persist; role and positive-growth multipliers last one season. Match experience also modifies positive development (`0.75 + appearances / 44 * 0.5`). An accepted coaching request adds 8 percentage points to the season's selection chance, within the existing cap, while following the plan earns more trust.
 
@@ -112,3 +112,13 @@ Club offers compare estimated matches, training quality, competition, annual sal
 Retirement records group consecutive club spells separately, reconcile salary/bonuses, show peak value, the highest-rated season and actual first milestones, and retain season decisions and consequences. PNG cards and JSON records download locally; JSON import/cloud recovery is not implemented. Old version-1 saves continue unchanged, with new decisions applied from the next season. Historical no-story seasons and rules-1.1 story decisions retain their original replay behavior; older reviews do not invent detailed attribution. The strategy guide now explicitly uses the first story option each season.
 
 Validation: `npm test`, `npm run lint`, production build/typecheck/SEO; `scripts/check-career-choices.py` checks contextual cooldown, story reset after a club change, eight-stage attribution, keyboard choices, translated feedback and retirement, PNG download and reload in six languages. Existing full-career and mobile suites include mandatory stories and JSON export. Browser probes suppress third-party analytics and advertising requests in their isolated test contexts only.
+
+## Career progression (rules 1.3)
+
+Paid story choices whose positive effects are all capped or inactive are disabled in the UI and rejected by the engine. A no-cost continuation is offered if every choice is unavailable. Evaluation includes transfer trust reset, age/potential and capped selection modifiers. Changing decisions invalidates a newly unavailable choice.
+
+Personal appearance, goal, assist, clean-sheet and consecutive-club milestones are derived from the first qualifying season, once per threshold. Age-stage season targets and three next-season story chains (minutes, recovery, continuity) are saved in new reviews. Club moves close club-specific commitments; recovery follows the player. Targets and achievements do not add legacy points. Early retirement identifies an unfinished follow-up.
+
+A new `rules: '1.3'` marker on UI decisions preserves exact replay of recorded 1.1/1.2 decisions and their old reviews. The save format/key remain version 1. Mobile feedback shows overall changes and at most three key stages, with the complete eight-stage calculation behind a separate disclosure. All new presentation strings cover ES/EN/IT/PT/ZH/DE.
+
+Run `scripts/check-career-progression.py` with `COPERO_BASE_URL` and `PLAYWRIGHT_CHROMIUM_EXECUTABLE` to check six languages, the real saturated-save boundary, remembered recovery, unique milestones, early retirement and the free all-capped continuation. It uses isolated QA fixtures.

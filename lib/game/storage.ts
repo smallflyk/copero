@@ -12,11 +12,33 @@ const storyIds:Record<string,string[]>={'extra-session':['specialist','analysis'
 const validCondition=(c:unknown)=>{if(!c||typeof c!=='object')return false;const v=c as Record<string,unknown>;return ['fitness','morale','coachTrust','ovr'].every(key=>finite(v[key],1,99))}
 function validReview(s:GameState['history'][number],index:number,previousClub:string,state:GameState) {
  const r=s.review,story=r?.story
- if(s.decision.story===undefined)return r===undefined&&s.decision.storyEvent===undefined
+ if(s.decision.rules!==undefined&&s.decision.rules!=='1.3')return false
+ if(s.decision.story===undefined)return r===undefined&&s.decision.storyEvent===undefined&&s.decision.rules===undefined
+ if(s.decision.rules==='1.3'&&!s.decision.storyEvent)return false
  if(typeof s.decision.story!=='string'||!r||!story||!validCondition(r.before)||!validCondition(r.after)||!integer(r.expectedApps,0,44)||r.fromClubId!==previousClub||!integer(r.bonus,0,1e9)||r.after.fitness!==s.fitness||r.after.morale!==s.morale||r.after.ovr!==s.endOvr)return false
  const modern=s.decision.storyEvent!==undefined,eventId=modern?s.decision.storyEvent!:Object.keys(storyIds)[index%4],catalog=storyCatalog(state).find(e=>e.id===eventId)
- if(typeof eventId!=='string'||story.eventId!==eventId||!(modern?catalog?.choices.some(c=>c.id===story.choiceId):storyIds[eventId]?.includes(story.choiceId))||story.choiceId!==s.decision.story||typeof story.title!=='string'||story.title.length>200||typeof story.label!=='string'||story.label.length>200)return false
+ if(typeof eventId!=='string'||story.eventId!==eventId||!(modern?(catalog?.choices.some(c=>c.id===story.choiceId)||(s.decision.rules==='1.3'&&story.choiceId==='hold'&&catalog)):storyIds[eventId]?.includes(story.choiceId))||story.choiceId!==s.decision.story||typeof story.title!=='string'||story.title.length>200||typeof story.label!=='string'||story.label.length>200)return false
  if(modern?!validChanges(s):r.changes!==undefined||r.matchFactors!==undefined)return false
+ if(s.decision.rules==='1.3'){
+  const goal=r.goal,id=s.age<=22?'breakthrough':s.age<=29?'regular':'longevity',target=id==='breakthrough'?22:id==='regular'?30:60,actual=id==='longevity'?(s.injury==='healthy'?s.fitness:0):s.appearances
+  if(!goal||goal.id!==id||goal.target!==target||goal.actual!==actual||goal.achieved!==(actual>=target))return false
+  const thread=r.thread
+  if(thread){
+   if(!['minutes','recovery','loyalty'].includes(thread.kind)||!['pending','fulfilled','missed','left'].includes(thread.status)||!integer(thread.origin,1,index+1)||!clubIds.has(thread.clubId))return false
+   if(thread.status==='pending'){
+    const starter=s.decision.storyEvent==='breakthrough'&&s.decision.story==='minutes'?'minutes':s.decision.storyEvent==='rehab'&&s.decision.story==='protect'?'recovery':s.decision.storyEvent==='renewal'&&s.decision.story==='stability'?'loyalty':undefined
+    if(thread.origin!==index+1||thread.clubId!==s.clubId||starter!==thread.kind||s.age>=37)return false
+   }
+   else {
+    const previousSeason=state.history[index-1],previous=previousSeason?.review?.thread
+    if(!previous||previous.status!=='pending'||previous.kind!==thread.kind||previous.origin!==thread.origin||previous.clubId!==thread.clubId||s.decision.storyEvent!==`followup-${thread.kind}-${thread.status}`)return false
+    const expected=thread.kind==='recovery'?(previousSeason.injury==='healthy'&&previousSeason.fitness>=60?'fulfilled':'missed'):s.clubId!==thread.clubId?'left':thread.kind==='loyalty'||previousSeason.appearances>=22?'fulfilled':'missed'
+    if(thread.status!==expected)return false
+   }
+  }
+  if(s.decision.storyEvent?.startsWith('followup-')&&(!thread||thread.status==='pending'))return false
+  if(state.history[index-1]?.review?.thread?.status==='pending'&&(!thread||thread.status==='pending'))return false
+ }else if(r.goal!==undefined||r.thread!==undefined)return false
  const e=story.effect
  if(!e||typeof e!=='object'||Object.keys(e).some(k=>!['fitness','morale','coachTrust','attribute','points','role','growth','bonus'].includes(k)))return false
  for(const k of ['fitness','morale','coachTrust'] as const)if(e[k]!==undefined&&!integer(e[k],-99,99))return false
