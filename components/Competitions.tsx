@@ -10,7 +10,7 @@ export function CompetitionPlans({state,decision,busy,onChange}:{state:GameState
 }
 function Fixtures({fixtures,team,national=false}:{fixtures:Fixture[];team:string;national?:boolean}) {
  const locale=useLanguage(),own=fixtures.filter(m=>m.home===team||m.away===team),name=(id:string)=>national?t(id,locale):cupSides.find(s=>s.id===id)!.name
- return <ol className="competition-fixtures" translate="no">{own.map((m,i)=><li key={`${m.round}-${i}`}><span>{t(roundLabels[m.round],locale)}</span><strong>{name(m.home)} {m.homeGoals}–{m.awayGoals} {name(m.away)}</strong>{m.homePens!==undefined&&<small>{t('Penalties: {home}–{away}',locale,{home:m.homePens,away:m.awayPens!})}</small>}<small>{t(m.played?'Played this match':'Not used in this match',locale)}</small></li>)}</ol>
+ return <ol className="competition-fixtures" translate="no">{own.map((m,i)=><li key={`${m.round}-${i}`}><span>{t(roundLabels[m.round],locale)}</span><strong>{name(m.home)} {m.homeGoals}–{m.awayGoals} {name(m.away)}</strong>{m.homePens!==undefined&&<small>{t('Penalties: {home}–{away}',locale,{home:m.homePens,away:m.awayPens!})}</small>}<small>{t(m.played?'Played this match':'Not used in this match',locale)}</small>{m.played&&<small className="match-contribution">{t('Player contribution: {goals} goals · {assists} assists · {clean} clean sheets',locale,{goals:m.goals,assists:m.assists,clean:m.cleanSheets})}</small>}</li>)}</ol>
 }
 export function SeasonCompetitions({season}:{season:Season}) {
  const locale=useLanguage(),c=season.competitions

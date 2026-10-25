@@ -6571,5 +6571,12 @@
     "pt": "nacionalidades. Sua nacionalidade determina sua seleção, o limiar de convocação e os adversários regionais.",
     "zh": "种国籍。国籍决定你代表的国家队、征召门槛和地区赛事对手。",
     "de": "Nationalitäten. Deine Nationalität bestimmt dein Nationalteam, die Berufungsschwelle und die regionalen Gegner."
+  },
+  "Player contribution: {goals} goals · {assists} assists · {clean} clean sheets": {
+    "es": "Aportación del jugador: {goals} goles · {assists} asistencias · {clean} porterías a cero",
+    "it": "Contributo del giocatore: {goals} gol · {assists} assist · {clean} porte inviolate",
+    "pt": "Contribuição do jogador: {goals} gols · {assists} assistências · {clean} jogos sem sofrer gols",
+    "zh": "个人贡献：{goals} 进球 · {assists} 助攻 · {clean} 零封",
+    "de": "Spielerbeitrag: {goals} Tore · {assists} Vorlagen · {clean} Spiele ohne Gegentor"
   }
 }

@@ -48,6 +48,11 @@ with sync_playwright() as p:
    panel=page.locator('.latest-season .season-competitions');panel.locator('summary').click()
    expect(panel.locator('h3').first).to_have_text(tr('Domestic Cup',locale));expect(panel).to_contain_text(tr('Global Nations Cup',locale));expect(panel).to_contain_text(tr('Selected for national duty' if plan=='accept' else 'You declined this call-up to protect your club fitness.',locale))
    assert panel.locator('.competition-fixtures li').count()>=1
+   expect(panel.locator('.match-contribution')).to_have_count(comp['cup']['appearances']+n['appearances'])
+   contribution='Player contribution: {goals} goals · {assists} assists · {clean} clean sheets'
+   contributions=[m for m in comp['cup']['fixtures']+n['fixtures'] if m['played']]
+   expected=[tr(contribution,locale).replace('{goals}',str(m['goals'])).replace('{assists}',str(m['assists'])).replace('{clean}',str(m['cleanSheets'])) for m in contributions]
+   assert panel.locator('.match-contribution').all_text_contents()==expected
    if locale!='en':
     assert 'International workload' not in panel.inner_text() and 'Quarter-finals' not in panel.inner_text() and 'Not used in this match' not in panel.inner_text()
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
@@ -55,7 +60,10 @@ with sync_playwright() as p:
    if locale=='es' and plan=='accept':page.screenshot(path=str(artifacts/'season-cup-national-es.png'),full_page=True)
    page.reload();page.wait_for_load_state('networkidle');assert page.evaluate('JSON.parse(localStorage.getItem("copero.career.v1"))')==saved
    page.locator('.career-report>summary').click();page.on('dialog',lambda d:d.accept());page.get_by_role('button',name=tr('Retire and see my legacy',locale),exact=True).click()
-   expect(page.locator('.competition-record')).to_be_visible();page.locator('.competition-record details>summary').click()
+   expect(page.locator('.competition-record')).to_be_visible()
+   retired=page.locator('.career-timeline .season-competitions');expect(retired).to_have_count(4);assert retired.last.get_attribute('open') is None;retired.last.locator('summary').focus();page.keyboard.press('Enter')
+   expect(retired.last).to_contain_text(tr('Global Nations Cup',locale));expect(retired.last.locator('.match-contribution')).to_have_count(comp['cup']['appearances']+n['appearances']);assert retired.last.locator('.match-contribution').all_text_contents()==expected
+   page.locator('.competition-record details>summary').click()
    rows=page.locator('.competition-record tbody tr');expect(rows).to_have_count(4)
    assert rows.last.locator('td').nth(4).inner_text()==str(n['appearances'])
    totals=page.locator('.competition-totals dd').all_text_contents();assert len(totals)==11;assert int(totals[8])==sum(s['competitions']['cup']['goals'] for s in saved['history']);caps=sum(s['competitions']['national']['appearances'] for s in saved['history']);assert int(totals[3])==caps
