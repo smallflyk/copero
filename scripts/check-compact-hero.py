@@ -16,6 +16,8 @@ with sync_playwright() as p:
   for width,height in [(1440,900),(1366,768),(1280,720),(1366,650),(1280,600),(1024,768),(960,720),(959,720),(768,1024),(390,844),(375,667),(320,568)]:
    page.set_viewport_size({'width':width,'height':height});page.goto(base+('/' if locale=='es' else '/'+locale));page.wait_for_load_state('networkidle');page.evaluate('document.fonts.ready')
    box=page.locator('.player-workbench').bounding_box();assert box['y']>=0 and box['y']+box['height']<=height,(locale,width,height,box)
+   inset=page.locator('.hero-game').evaluate('e=>parseFloat(getComputedStyle(e).paddingBottom)');assert abs(height-box['y']-box['height']-inset)<=1,(locale,width,height,'unused space below game')
+   footer=page.locator('.creation-footer').bounding_box();pad=page.locator('.player-workbench').evaluate('e=>parseFloat(getComputedStyle(e).paddingBottom)');assert abs(box['y']+box['height']-footer['y']-footer['height']-pad-1)<=1,(locale,width,height,'unused space below action')
    expect(page.locator('.creation-footer button')).to_be_in_viewport(ratio=1)
    assert page.locator('.hero-game').evaluate('e=>e.nextElementSibling.getBoundingClientRect().top>=innerHeight'),(locale,width,height,'editorial content enters first screen')
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),(locale,width,height,'page overflow')
@@ -49,7 +51,7 @@ with sync_playwright() as p:
    control.scroll_into_view_if_needed();r=control.bounding_box();page.touchscreen.tap(r['x']+r['width']/2,r['y']+r['height']/2);expect(control).to_have_attribute('aria-pressed','true')
   page.locator('.tactical-pitch button').nth(4).click()
   page.set_viewport_size({'width':1280,'height':720});page.set_viewport_size({'width':390,'height':844});expect(page.locator('.creation-section-switcher button').first).to_have_attribute('aria-pressed','true');expect(page.locator('.identity-fields input').first).to_have_value('Compact '+locale)
-  page.locator('.attribute-editor summary').click()
+  page.locator('.attribute-editor summary').click();expect(page.locator('.creation-footer button')).to_be_in_viewport(ratio=1);box=page.locator('.player-workbench').bounding_box();assert box['y']+box['height']<=844
   for _ in range(4):page.locator('.attribute-allocations>div').nth(2).locator('button').last.click()
   for _ in range(2):page.locator('.attribute-allocations>div').nth(5).locator('button').last.click()
   page.locator('.attribute-editor input').fill('compact-'+locale);page.locator('.creation-footer button').click();expect(page.locator('.academy-step h3')).to_be_focused()

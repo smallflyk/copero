@@ -1,13 +1,16 @@
 /* Keep the initial player setup and its action together above the fold. */
-.hero-game{padding-block:10px 18px;min-height:calc(100svh - 81px)}
-.hero-game .player-workbench{padding:16px}
+.hero-game{--setup-header-height:81px;height:calc(100svh - var(--setup-header-height));height:calc(100dvh - var(--setup-header-height));min-height:0;padding-block:10px max(12px,env(safe-area-inset-bottom));display:flex;flex-direction:column}
+.hero-game .player-workbench{padding:16px;display:flex;flex-direction:column;flex:1;min-height:0}
+.hero-game .workbench-heading{flex-shrink:0}
+.workbench-form{display:flex;flex-direction:column;flex:1;min-height:0}
+.workbench-form .form-step,.creation-section-switcher,.creation-footer,.workbench-form .error-message{flex-shrink:0}
 .hero-game .workbench-heading{margin-bottom:10px;gap:12px}
 .hero-game .workbench-heading h1{font-size:clamp(1.65rem,2.5vw,2.25rem);line-height:1.1}
 .workbench-form .form-step{padding-bottom:6px;margin-bottom:10px;line-height:1.4}
 .workbench-form .form-step .current::after{bottom:-7px}
 .creation-section-switcher{display:none}
-.creation-panels{gap:12px}
-.creation-panel{padding:12px}
+.creation-panels{gap:12px;flex:1;min-height:0}
+.creation-panel{padding:12px;height:100%;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
 .creation-panel h3{font-size:1.4rem;padding-bottom:8px;margin-bottom:8px}
 .creation-panel h3>span{width:24px;height:24px}
 .kit-stage{height:clamp(96px,calc(100svh - 640px),180px);margin:6px 0 10px}
@@ -25,30 +28,29 @@
 .position-panel .tactical-pitch{width:clamp(220px,calc((100svh - 520px)*.65),245px);max-width:100%;aspect-ratio:300/380;margin-top:6px}
 .tactical-pitch button{min-width:44px;min-height:44px;padding:3px}
 .position-panel .selected-position{margin-top:10px!important;flex-direction:row!important;align-items:center!important;font-size:.75rem;gap:6px}
-.workbench-form .attribute-editor{margin:6px 0;padding:0}
+.workbench-form .attribute-editor{margin:6px 0;padding:0;flex:none;min-height:44px}
 .workbench-form .attribute-editor>summary{min-height:44px;padding:10px 0;font-size:.75rem}
 .workbench-form .attribute-editor>summary>span{display:inline;margin:0;padding-left:8px;font-size:.7rem}
-.workbench-form .attribute-editor[open]{padding-bottom:12px}
+.workbench-form .attribute-editor[open]{padding-bottom:12px;flex-shrink:1;max-height:50%;overflow-y:auto}
+.workbench-form .attribute-editor[open]>summary{position:sticky;top:0;z-index:1;background:var(--panel)}
 .creation-footer{padding:10px 12px;gap:12px}
 .creation-footer strong{font-size:.82rem}
 .creation-footer p{font-size:.7rem;line-height:1.4;margin-top:2px}
 .player-workbench .creation-footer .button{min-height:44px;padding:8px 14px;font-size:.8rem;gap:12px}
-.academy-step{margin:12px auto 0}
+.academy-step{margin:12px auto 0;display:flex;flex-direction:column;flex:1;min-height:0;width:100%}
+.academy-step>h3,.academy-step>p,.academy-step .button-row{flex-shrink:0}
 .academy-step>h3{font-size:2rem}
 .academy-step>p{font-size:.8rem;margin-top:6px}
 .workbench-form .academy-option{padding:12px}
-.academy-list{gap:8px;margin-top:12px;align-content:start}
+.academy-list{gap:8px;margin-top:12px;align-content:start;flex:1;min-height:0;overflow-y:auto}
 .academy-step .button-row{margin-top:12px}
 @media(min-width:960px){.creation-panels{grid-template-columns:1fr 1.13fr 1fr}.creation-panel{min-height:0}}
 @media(max-width:959px){
  body:has(.player-workbench) .header-inner{height:56px}
- .hero-game{padding-block:6px 12px}
- .hero-game .player-workbench{padding:10px;height:min(calc(100svh - 74px),620px);display:flex;flex-direction:column}
+ .hero-game{padding-top:6px}
+ .hero-game .player-workbench{padding:10px}
  .hero-game .workbench-heading{flex-shrink:0}
  .workbench-form{display:flex;flex-direction:column;flex:1;min-height:0}
- .workbench-form .form-step,.creation-section-switcher,.workbench-form .attribute-editor,.creation-footer,.workbench-form .error-message{flex-shrink:0}
- .player-workbench:has(.attribute-editor[open]){height:auto}
- .player-workbench:has(.attribute-editor[open]) .creation-panels{height:360px;flex:none}
  .hero-game .workbench-heading{display:flex;align-items:center;flex-wrap:wrap;margin-bottom:8px;gap:4px}
  .hero-game .workbench-heading h1{font-size:1.45rem;line-height:1.12;max-width:none}
  html[lang=zh-Hans] .hero-game .workbench-heading h1{font-size:1.35rem;line-height:1.2}
@@ -110,8 +112,6 @@
  .hero-game .workbench-heading{margin-bottom:8px}
  .hero-game .workbench-heading h1{font-size:1.85rem}
  html[lang=zh-Hans] .hero-game .workbench-heading h1{font-size:1.8rem;line-height:1.2}
- .hero-game .player-workbench:not(:has(.attribute-editor[open])){height:calc(100svh - 82px);display:flex;flex-direction:column}
- .player-workbench:not(:has(.attribute-editor[open])) .workbench-form{display:flex;flex-direction:column;flex:1;min-height:0}
  .player-workbench[data-stage=player]:not(:has(.attribute-editor[open])) .workbench-form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);grid-template-rows:minmax(0,1fr) auto;column-gap:12px}
  .player-workbench[data-stage=player] .form-step{display:none}
  .creation-panels{grid-column:1/-1;min-height:0}
@@ -123,7 +123,7 @@
  .workbench-form .attribute-editor{grid-column:1;align-self:center}
  .creation-footer{grid-column:2;margin-top:6px}
  .workbench-form .error-message{grid-column:1/-1}
- .player-workbench .workbench-heading,.workbench-form .form-step,.workbench-form .attribute-editor,.creation-footer,.workbench-form .error-message{flex-shrink:0}
+ .workbench-form .attribute-editor[open]{align-self:stretch}
  .academy-step{display:flex;flex-direction:column;flex:1;min-height:0;width:100%}
  .academy-step>h3,.academy-step>p,.academy-step .button-row{flex-shrink:0}
  .academy-list{flex:1;min-height:0;grid-template-columns:repeat(3,minmax(0,1fr))}
@@ -144,4 +144,11 @@
 }
 
 /* Navigation and the player setup occupy the first screen; editorial content follows. */
-@media(max-width:959px),(min-width:960px) and (max-height:699px){.hero-game{min-height:calc(100svh - 57px)}}
+@media(max-width:959px),(min-width:960px) and (max-height:699px){.hero-game{--setup-header-height:57px}}
+/* Use the extra height for the setup itself, with the action anchored below. */
+.identity-panel,.nationality-panel,.position-panel{display:flex;flex-direction:column;align-items:stretch}
+.creation-panel>h3,.kit-caption,.identity-fields,.identity-panel fieldset,.nationality-panel>label,.country-note,.selected-position{flex-shrink:0}
+.kit-stage{flex:1;min-height:72px}
+.player-shirt{max-height:300px}
+.country-list{flex:1;min-height:44px;max-height:none;align-content:start}
+.position-panel .tactical-pitch{flex:1;min-height:270px;height:auto;aspect-ratio:auto;width:clamp(220px,calc((100dvh - 390px)*.72),320px)}
