@@ -13,6 +13,7 @@ import { careerResult } from '@/lib/game/engine'
 import { getClub } from '@/data/clubs'
 import type { GameState } from '@/lib/game/types'
 import { site } from '@/data/site'
+import {CAREER_CARD_SIZE,drawCareerCard} from '@/lib/game/result-card'
 
 export default function CareerResult({state,warning,onRestart}:{state:GameState;warning:string;onRestart:()=>void}) {
  const locale=useLanguage()
@@ -25,25 +26,9 @@ export default function CareerResult({state,warning,onRestart}:{state:GameState;
  async function download() {
   setDownloading(true);setError('')
   try {
-   const canvas=document.createElement('canvas');canvas.width=1080;canvas.height=1350
+   const canvas=document.createElement('canvas');canvas.width=CAREER_CARD_SIZE.width;canvas.height=CAREER_CARD_SIZE.height
    const ctx=canvas.getContext('2d');if(!ctx)throw new Error('Image download is unavailable in this browser.')
-   ctx.fillStyle='#153f32';ctx.fillRect(0,0,1080,1350)
-   ctx.strokeStyle='#577151';ctx.lineWidth=2;ctx.strokeRect(48,48,984,1254);ctx.strokeRect(90,550,900,650)
-   ctx.beginPath();ctx.arc(540,875,130,0,Math.PI*2);ctx.stroke()
-   ctx.fillStyle='#d5ec80';ctx.font='bold 54px sans-serif';ctx.fillText('copero.',90,150)
-   ctx.fillStyle='#c1d0b9';ctx.font='24px sans-serif';ctx.fillText(t('THE FINAL CHAPTER / FOOTBALL CAREER',locale),90,225)
-   ctx.fillStyle='#f4f5e9';ctx.font='bold 70px sans-serif'
-   let name=state.player.name;while(ctx.measureText(name).width>890 && name.length>2)name=name.slice(0,-2)+'…'
-   ctx.fillText(name,90,345);ctx.font='30px sans-serif';ctx.fillText(`${t(state.player.nationality,locale)} · ${t(state.player.position,locale)} · #${state.player.jerseyNumber}`,90,407)
-   ctx.fillStyle='#d5ec80';ctx.font='bold 46px sans-serif';ctx.fillText(t(result.ending,locale),90,495)
-   ctx.fillStyle='#d5ec80';ctx.font='bold 190px sans-serif';ctx.fillText(String(result.score).padStart(2,'0'),90,720)
-   ctx.fillStyle='#f4f5e9';ctx.font='30px sans-serif';ctx.fillText(t('/ 100 LEGACY SCORE',locale),330,700)
-   const stats=[['MATCHES',result.matches],['GOALS',result.goals],['ASSISTS',result.assists],['CLUB TROPHIES',result.trophies],['PEAK OVR',result.peakOvr],['CLEAN SHEETS',result.cleanSheets]]
-   stats.forEach(([label,value],index)=>{const x=90+(index%3)*300,y=860+Math.floor(index/3)*160;ctx.fillStyle='#f4f5e9';ctx.font='bold 58px sans-serif';ctx.fillText(String(value),x,y);ctx.fillStyle='#c1d0b9';ctx.font='22px sans-serif';ctx.fillText(t(String(label),locale),x,y+43)})
-   if(records.competitions.recordedSeasons){ctx.fillStyle='#c1d0b9';ctx.font='20px sans-serif';ctx.fillText(t('Cup medals {cups} · National caps {caps} · International goals {goals} · National titles {titles}',locale,{cups:records.competitions.cupMedals,caps:records.competitions.national.appearances,goals:records.competitions.national.goals,titles:records.competitions.national.titles}),90,1102,900)}
-   ctx.fillStyle='#d5ec80';ctx.font='20px sans-serif';ctx.fillText(records.achievements.slice(-3).map(a=>t(a.label,locale)).join(' · '),90,1140,900)
-   ctx.fillStyle='#c1d0b9';ctx.font='23px sans-serif';ctx.fillText(t('{seasons} · Fictional career · Your decisions',locale,{seasons:countLabel(state.history.length,'season',locale)}),90,1190)
-   ctx.fillStyle='#d5ec80';ctx.font='bold 28px sans-serif';ctx.fillText(new URL(site.url).hostname,90,1260)
+   drawCareerCard(ctx,state,locale,new URL(site.url).hostname)
    const blob=await new Promise<Blob>((resolve,reject)=>canvas.toBlob((value)=>value?resolve(value):reject(new Error('Could not create your image.')),'image/png'))
    const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;link.download=`copero-career-${state.id}.png`;document.body.appendChild(link);link.click();link.remove();window.setTimeout(()=>URL.revokeObjectURL(url),10000)
   }catch(problem){setError(problem instanceof Error?problem.message:'Could not download the result card.')}finally{setDownloading(false)}
