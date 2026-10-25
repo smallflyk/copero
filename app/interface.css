@@ -1,4 +1,4 @@
-/* Copero club dossier — shared visual language. Geometry stays in globals.css. */
+/* Copero club dossier — shared visual language. Player setup geometry: create-player.css. */
 @font-face{font-family:'Copero Display';src:url('/fonts/BarlowCondensed-SemiBold.ttf') format('truetype');font-weight:600;font-style:normal;font-display:swap}
 @font-face{font-family:'Copero Sans';src:url('/fonts/DMSans.ttf') format('truetype');font-weight:100 900;font-style:normal;font-display:swap}
 :root{--bg:#0b2118;--panel:#142d23;--panel-raised:#1c392c;--ink:#f0efdc;--muted:#b8c7b5;--line:#355042;--green:#d5ec80;--deep-green:#10271d;--amber:#ffc095;--cream:#f0f0e5;--accent:#bc4429;--field-marker:#d5ec80;--display:'Copero Display','Arial Narrow',sans-serif;--body:'Copero Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--mono:ui-monospace,SFMono-Regular,monospace}
@@ -131,3 +131,5 @@ html[lang=zh-Hans] .hero-game .workbench-heading h1{max-width:none;word-break:ke
 .header-inner nav a:hover,.topic-links a:hover{color:var(--amber)}
 .site-footer{border-color:var(--line)}
 .career-ribbon{border-color:var(--line)}
+/* Localized sample statistics must not widen a narrow homepage. */
+@media(max-width:620px){.sample-timeline{grid-template-columns:repeat(5,minmax(0,1fr))}.sample-timeline>div{min-width:0;overflow-wrap:anywhere}}

@@ -6578,5 +6578,12 @@
     "pt": "Contribuição do jogador: {goals} gols · {assists} assistências · {clean} jogos sem sofrer gols",
     "zh": "个人贡献：{goals} 进球 · {assists} 助攻 · {clean} 零封",
     "de": "Spielerbeitrag: {goals} Tore · {assists} Vorlagen · {clean} Spiele ohne Gegentor"
+  },
+  "Player setup sections": {
+    "es": "Secciones del jugador",
+    "it": "Sezioni del giocatore",
+    "pt": "Seções do jogador",
+    "zh": "球员创建分区",
+    "de": "Bereiche der Spielererstellung"
   }
 }

@@ -6,6 +6,7 @@ import {isLocale,LOCALES} from '@/lib/i18n/config'
 import {localeMetadata} from '@/lib/i18n/metadata'
 import '../globals.css'
 import '../interface.css'
+import '../create-player.css'
 export const dynamicParams=false
 export const viewport:Viewport={themeColor:'#0b2118',colorScheme:'dark',width:'device-width',initialScale:1,viewportFit:'cover'}
 export function generateStaticParams(){return LOCALES.map(locale=>({locale}))}
