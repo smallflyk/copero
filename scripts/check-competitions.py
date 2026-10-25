@@ -61,12 +61,12 @@ with sync_playwright() as p:
    page.reload();page.wait_for_load_state('networkidle');assert page.evaluate('JSON.parse(localStorage.getItem("copero.career.v1"))')==saved
    page.locator('.career-report>summary').click();page.on('dialog',lambda d:d.accept());page.get_by_role('button',name=tr('Retire and see my legacy',locale),exact=True).click()
    expect(page.locator('.competition-record')).to_be_visible()
-   retired=page.locator('.career-timeline .season-competitions');expect(retired).to_have_count(4);assert retired.last.get_attribute('open') is None;retired.last.locator('summary').focus();page.keyboard.press('Enter')
+   page.locator('.retirement-timeline>summary').click();retired=page.locator('.career-timeline .season-competitions');expect(retired).to_have_count(4);assert retired.last.get_attribute('open') is None;retired.last.locator('summary').focus();page.keyboard.press('Enter')
    expect(retired.last).to_contain_text(tr('Global Nations Cup',locale));expect(retired.last.locator('.match-contribution')).to_have_count(comp['cup']['appearances']+n['appearances']);assert retired.last.locator('.match-contribution').all_text_contents()==expected
    page.locator('.competition-record details>summary').click()
    rows=page.locator('.competition-record tbody tr');expect(rows).to_have_count(4)
    assert rows.last.locator('td').nth(4).inner_text()==str(n['appearances'])
-   totals=page.locator('.competition-totals dd').all_text_contents();assert len(totals)==11;assert int(totals[8])==sum(s['competitions']['cup']['goals'] for s in saved['history']);caps=sum(s['competitions']['national']['appearances'] for s in saved['history']);assert int(totals[3])==caps
+   totals=page.locator('.competition-totals dd').all_text_contents();assert len(totals)==11;assert int(page.locator('[data-metric=cup-goals] dd').inner_text())==sum(s['competitions']['cup']['goals'] for s in saved['history']);caps=sum(s['competitions']['national']['appearances'] for s in saved['history']);assert int(page.locator('[data-metric=national-caps] dd').inner_text())==caps
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
    with page.expect_download() as dl:page.locator('.download-record').click()
    path=artifacts/f'{locale}-{plan}.json';dl.value.save_as(str(path));record=json.loads(path.read_text());assert record['records']['competitions']['national']['appearances']==caps

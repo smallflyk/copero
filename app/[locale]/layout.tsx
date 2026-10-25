@@ -8,6 +8,7 @@ import '../globals.css'
 import '../interface.css'
 import '../create-player.css'
 import '../career-workspace.css'
+import '../career-result.css'
 export const dynamicParams=false
 export const viewport:Viewport={themeColor:'#0b2118',colorScheme:'dark',width:'device-width',initialScale:1,viewportFit:'cover'}
 export function generateStaticParams(){return LOCALES.map(locale=>({locale}))}

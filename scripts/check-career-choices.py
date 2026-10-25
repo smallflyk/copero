@@ -74,7 +74,7 @@ with sync_playwright() as p:
   result=page.locator('.result-intro').inner_text()
   retirement='Retired at {age}' if locale=='en' else messages['Retired at {age}'][locale]
   assert retirement.replace('{age}','25') in result
-  ending=page.locator('.career-timeline>ol>li').last.inner_text()
+  page.locator('.retirement-timeline>summary').click();ending=page.locator('.career-timeline>ol>li').last.inner_text()
   assert '25' in ending
   if locale!='en':assert 'Retired as a' not in ending and 'Retired at' not in result
   with page.expect_download() as dl:page.locator('.result-page .button').first.click()

@@ -18,7 +18,7 @@ with sync_playwright() as p:
   c.route(re.compile(r'https://(www\.googletagmanager\.com|www\.google-analytics\.com|plausible\.io|pagead2\.googlesyndication\.com)/'),lambda r:r.fulfill(status=200,body=''))
   c.add_init_script('if(!localStorage.getItem("copero.career.v1"))localStorage.setItem("copero.career.v1",'+json.dumps(json.dumps(state))+')')
   page=c.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.on('console',lambda m:errors.append(m.text) if m.type=='error' else None)
-  page.goto(base+'/'+locale+'/career');page.wait_for_load_state('networkidle');panels=page.locator('.career-timeline .season-competitions');expect(panels).to_have_count(22)
+  page.goto(base+'/'+locale+'/career');page.wait_for_load_state('networkidle');page.locator('.retirement-timeline>summary').click();panels=page.locator('.career-timeline .season-competitions');expect(panels).to_have_count(22)
   for i,panel in enumerate(panels.all()):
    assert panel.get_attribute('open') is None;summary=panel.locator('summary');summary.focus();page.keyboard.press('Enter');expect(panel).to_have_attribute('open','')
    season=state['history'][i];comp=season['competitions'];n=comp['national'];own=[m for m in comp['cup']['fixtures'] if season['clubId'] in [m['home'],m['away']]]+[m for m in n['fixtures'] if country in [m['home'],m['away']]]

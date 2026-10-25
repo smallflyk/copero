@@ -6599,5 +6599,103 @@
     "pt": "Como funciona a relação com o treinador",
     "zh": "教练决策说明",
     "de": "So funktionieren Trainerentscheidungen"
+  },
+  "Retirement actions": {
+    "es": "Acciones de retiro",
+    "it": "Azioni di fine carriera",
+    "pt": "Ações da aposentadoria",
+    "zh": "退役结算操作",
+    "de": "Aktionen zum Karriereende"
+  },
+  "Result card": {
+    "es": "Tarjeta",
+    "it": "Scheda",
+    "pt": "Cartão",
+    "zh": "成绩卡",
+    "de": "Ergebniskarte"
+  },
+  "Career record": {
+    "es": "Registro",
+    "it": "Registro",
+    "pt": "Registro",
+    "zh": "生涯记录",
+    "de": "Karrierebericht"
+  },
+  "Club career totals": {
+    "es": "Totales de clubes",
+    "it": "Totali nei club",
+    "pt": "Totais pelos clubes",
+    "zh": "俱乐部生涯总成绩",
+    "de": "Vereinskarriere gesamt"
+  },
+  "Club trophies": {
+    "es": "Trofeos de clubes",
+    "it": "Trofei nei club",
+    "pt": "Troféus pelos clubes",
+    "zh": "俱乐部奖杯",
+    "de": "Vereinstitel"
+  },
+  "CLUB TROPHIES": {
+    "es": "TROFEOS DE CLUBES",
+    "it": "TROFEI NEI CLUB",
+    "pt": "TROFÉUS PELOS CLUBES",
+    "zh": "俱乐部奖杯",
+    "de": "VEREINSTITEL"
+  },
+  "Save your result card or full career record before starting a new career.": {
+    "es": "Guarda tu tarjeta o registro completo antes de empezar otra carrera.",
+    "it": "Salva la scheda o il registro completo prima di iniziare una nuova carriera.",
+    "pt": "Salve seu cartão ou registro completo antes de iniciar outra carreira.",
+    "zh": "开始新生涯前，请先保存成绩卡或完整生涯记录。",
+    "de": "Speichere deine Ergebniskarte oder den vollständigen Bericht, bevor du neu startest."
+  },
+  "Club totals include league and domestic cup matches. National team statistics are shown separately below.": {
+    "es": "Los totales de clubes incluyen liga y copa nacional. Los datos de selección se muestran aparte abajo.",
+    "it": "I totali dei club includono campionato e coppa nazionale. Le statistiche della nazionale sono separate qui sotto.",
+    "pt": "Os totais dos clubes incluem liga e copa nacional. Os dados da seleção aparecem separados abaixo.",
+    "zh": "俱乐部总成绩包含联赛和国内杯赛，国家队数据在下方单独展示。",
+    "de": "Vereinswerte enthalten Liga und nationalen Pokal. Nationalteamwerte werden unten getrennt gezeigt."
+  },
+  "Recorded domestic cup medals are included in club trophies. National titles are separate.": {
+    "es": "Las medallas registradas de copa nacional ya cuentan en los trofeos de clubes. Los títulos de selección van aparte.",
+    "it": "Le medaglie registrate di coppa nazionale sono già incluse nei trofei del club. I titoli della nazionale sono separati.",
+    "pt": "As medalhas registradas da copa nacional já estão incluídas nos troféus dos clubes. Os títulos da seleção ficam separados.",
+    "zh": "已记录的国内杯赛奖章已计入俱乐部奖杯，国家队冠军单独统计。",
+    "de": "Erfasste Pokalmedaillen zählen bereits zu den Vereinstiteln. Nationalteamtitel werden getrennt gezählt."
+  },
+  "Regional titles: {count}": {
+    "es": "Títulos regionales: {count}",
+    "it": "Titoli regionali: {count}",
+    "pt": "Títulos regionais: {count}",
+    "zh": "地区杯冠军：{count}",
+    "de": "Regionale Titel: {count}"
+  },
+  "Global titles: {count}": {
+    "es": "Títulos globales: {count}",
+    "it": "Titoli globali: {count}",
+    "pt": "Títulos globais: {count}",
+    "zh": "全球杯冠军：{count}",
+    "de": "Globale Titel: {count}"
+  },
+  "Personal milestones: {count}": {
+    "es": "Hitos personales: {count}",
+    "it": "Traguardi personali: {count}",
+    "pt": "Marcos pessoais: {count}",
+    "zh": "个人里程碑：{count}",
+    "de": "Persönliche Meilensteine: {count}"
+  },
+  "About downloads": {
+    "es": "Sobre las descargas",
+    "it": "Informazioni sui download",
+    "pt": "Sobre os downloads",
+    "zh": "下载说明",
+    "de": "Zu den Downloads"
+  },
+  "Season-by-season career": {
+    "es": "Carrera temporada a temporada",
+    "it": "Carriera stagione per stagione",
+    "pt": "Carreira temporada por temporada",
+    "zh": "逐赛季生涯记录",
+    "de": "Karriere Saison für Saison"
   }
 }

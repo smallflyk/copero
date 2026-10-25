@@ -58,14 +58,15 @@ with sync_playwright() as p:
    assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
   expect(page.locator('.result-card')).to_be_visible();final=saved();assert final['status']=='retired' and len(final['history'])==22
   record=page.locator('.competition-record');record.locator('details>summary').click();rows=record.locator('tbody tr');expect(rows).to_have_count(22)
-  totals=record.locator('.competition-totals dd').all_text_contents();assert totals[2]==country
+  totals=record.locator('.competition-totals dd').all_text_contents();assert record.locator('[data-metric=national-team] dd').inner_text()==country
   national=lambda key:sum(s['competitions']['national'][key] for s in final['history'])
-  assert [int(totals[i]) for i in [3,4,5,6]]==[national(key) for key in ['appearances','goals','assists','cleanSheets']]
-  assert int(totals[0])==sum(s['competitions']['cup']['medal'] for s in final['history']) and int(totals[7])==sum(s['competitions']['national']['medal'] for s in final['history'])
+  assert [int(record.locator('[data-metric=national-'+key+'] dd').inner_text()) for key in ['caps','goals','assists','clean-sheets']]==[national(key) for key in ['appearances','goals','assists','cleanSheets']]
+  assert int(record.locator('[data-metric=cup-medals] dd').inner_text())==sum(s['competitions']['cup']['medal'] for s in final['history']) and int(record.locator('[data-metric=national-titles] dd').inner_text())==sum(s['competitions']['national']['medal'] for s in final['history'])
   for i,row in enumerate(rows.all()):assert int(row.locator('td').nth(4).inner_text())==final['history'][i]['competitions']['national']['appearances']
   # A retired player must still be able to inspect opponents, scorelines and selection checks.
   count=page.locator('.career-timeline .season-competitions').count()
   if count==22:
+   page.locator('.retirement-timeline>summary').click()
    details=page.locator('.career-timeline .season-competitions')
    for i,detail in enumerate(details.all()):
     assert detail.get_attribute('open') is None;detail.locator('summary').click();season=final['history'][i];n=season['competitions']['national'];cup=season['competitions']['cup'];expect(detail).to_contain_text(country);assert detail.locator('.competition-fixtures li').count()==sum(country in [m['home'],m['away']] for m in n['fixtures'])+sum(season['clubId'] in [m['home'],m['away']] for m in cup['fixtures']);detail.locator('summary').click()
