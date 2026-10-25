@@ -428,8 +428,8 @@ meter::-moz-meter-bar{background:var(--green)}
 .country-list button:hover:not(.selected){background:#ffffff0a;border-color:#a6c874}
 .country-check{margin-left:auto}
 .country-empty{grid-column:1/-1;font-size:.8rem;padding:20px 4px;min-height:110px}
-
-
+.country-note{border-left:3px solid var(--work-lime);padding:12px;background:#ffffff03;font-size:.69rem;color:var(--work-muted);line-height:1.7;margin:15px 0 0}
+.country-note strong{color:#e1e5cf}
 .control-label{margin-bottom:12px;letter-spacing:.035em}
 .tactical-pitch{position:relative;width:100%;max-width:260px;aspect-ratio:300/396;margin-inline:auto;background:repeating-linear-gradient(0deg,#ffffff03 0 38px,#00000002 38px 76px),#195c45;border:1px solid #79a68a;border-radius:3px}
 .tactical-pitch svg{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#b0cdae;stroke-width:1;opacity:.7}
