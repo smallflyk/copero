@@ -6585,5 +6585,19 @@
     "pt": "Seções do jogador",
     "zh": "球员创建分区",
     "de": "Bereiche der Spielererstellung"
+  },
+  "Season summary": {
+    "es": "Resumen de temporada",
+    "it": "Riepilogo della stagione",
+    "pt": "Resumo da temporada",
+    "zh": "赛季概况",
+    "de": "Saisonübersicht"
+  },
+  "How coaching works": {
+    "es": "Cómo funciona el entrenador",
+    "it": "Come funziona il rapporto con il tecnico",
+    "pt": "Como funciona a relação com o treinador",
+    "zh": "教练决策说明",
+    "de": "So funktionieren Trainerentscheidungen"
   }
 }

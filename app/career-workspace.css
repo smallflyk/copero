@@ -1,0 +1,124 @@
+/* Compact career workspace; one viewport dock is shared by desktop and mobile. */
+body:has(.season-actions){padding-bottom:calc(var(--season-dock-height,104px) + 16px)}
+html:has(.season-actions){scroll-padding-bottom:calc(var(--season-dock-height,104px) + 20px)}
+.career-page{padding-block:14px 24px}
+.career-page .career-topline{margin-bottom:8px}
+.career-page .career-heading{padding:14px 16px;margin-bottom:12px;gap:12px}
+.career-page .career-heading h1{font-size:clamp(1.8rem,3vw,2.8rem);line-height:1.1;margin-bottom:4px;overflow-wrap:anywhere}
+.career-page .career-heading>div:first-child{min-width:0}
+.career-page .career-heading p{font-size:.78rem;line-height:1.4}
+.career-page .rating-block{padding-left:16px;min-width:100px;gap:8px}
+.career-page .rating-block>strong{font-size:3.6rem}
+.career-page .rating-block>span,.career-page .rating-block i{font-size:.7rem}
+.career-page .game-layout{gap:16px}
+.career-page .game-main{gap:12px;min-width:0}
+.career-page .panel{padding:14px}
+.career-page .season-brief{gap:10px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.career-page .season-brief>div{min-width:0;padding-right:8px}
+.career-page .season-brief>div>span{font-size:.75rem;line-height:1.3;min-height:1.9em;overflow-wrap:anywhere}
+.career-page .season-brief strong{font-size:1.65rem;margin-top:2px}
+.career-page .season-brief .health{font-size:.8rem!important;overflow-wrap:anywhere}
+.career-page .season-brief meter{height:5px;margin-top:4px}
+.career-page .latest-season{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 12px;min-width:0}
+.career-page .latest-season>.eyebrow,.career-page .latest-season>.season-numbers,.career-page .latest-season>.summary-tags{grid-column:1/-1}
+.career-page .latest-season .eyebrow{font-size:.65rem;margin-bottom:4px}
+.career-page .latest-season .season-numbers{margin:8px 0;gap:8px}
+.career-page .season-numbers strong{font-size:2rem}
+.career-page .season-numbers span{font-size:.75rem;line-height:1.35;overflow-wrap:anywhere}
+.career-page .summary-tags{gap:5px}
+.career-page .summary-tags span{font-size:.72rem;padding:3px 6px}
+.career-page .latest-season>details{min-width:0;border-top:1px solid var(--line);margin-top:8px}
+.career-page .latest-season>details[open]{grid-column:1/-1}
+.career-page .latest-season>details>summary{font-size:.78rem;min-height:44px;padding:10px 0;line-height:1.4;cursor:pointer}
+.career-page .latest-season .season-feedback summary small{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;font-size:.7rem}
+.career-page .latest-season p{font-size:.82rem;line-height:1.5}
+.career-page .career-progress{padding:12px 14px}
+.career-page .goal-current h3{font-size:.85rem}
+.career-page .goal-current p{font-size:.82rem;margin:4px 0;line-height:1.4}
+.career-page .goal-current small{font-size:.72rem;line-height:1.4}
+.career-page .progress-details>summary{min-height:44px;padding:10px 0;font-size:.78rem;cursor:pointer}
+.career-page .decision-panel>.panel-heading h2{font-size:1.85rem;margin:0}
+.career-page .decision-panel>.panel-heading .eyebrow{font-size:.65rem;margin-bottom:3px}
+.career-page .decision-panel>.panel-heading+p{font-size:.82rem;line-height:1.4;margin:6px 0}
+.career-page .season-stamp{padding:6px;font-size:.68rem}
+.career-page .decision-panel fieldset{margin-top:12px;padding-top:10px;min-width:0}
+.career-page .decision-panel legend{font-size:.85rem;margin-bottom:8px}
+.career-page .decision-card{min-height:56px;padding:10px}
+.career-page .decision-card>span{font-size:.75rem;letter-spacing:0;overflow-wrap:anywhere}
+.career-page .decision-card strong{font-size:.82rem;margin:4px 0 0}
+.career-page .decision-card small{display:none}
+.career-page .mobile-training-help{display:block;min-height:0;font-size:.8rem;line-height:1.45;margin:6px 0 0;color:var(--muted)}
+.career-page .decision-panel .form-grid{gap:8px}
+.career-page .decision-panel .field-help{font-size:.8rem!important;line-height:1.45}
+.career-page .decision-panel select{min-height:48px}
+.career-page .decision-panel label{font-size:.8rem}
+.career-page .decision-panel details>summary{min-height:44px;padding:10px 0;font-size:.78rem;line-height:1.4;cursor:pointer}
+.career-page .coaching-help{grid-column:1/-1}
+.career-page .coaching-help p{margin:4px 0 8px}
+.career-page .choice-detail{padding:10px 12px;margin:8px 0}
+.career-page .choice-detail h3,.career-page #story-decision h3{font-size:1rem;margin-bottom:6px}
+.career-page .choice-detail p,.career-page #story-decision>p{font-size:.8rem;line-height:1.45;margin-block:6px}
+.career-page .story-options{gap:6px}
+.career-page .story-option{min-height:48px;padding:10px 12px;font-size:.82rem}
+.career-page .effect-list{gap:5px;margin-top:6px}
+.career-page .effect-list li{font-size:.75rem;padding:4px 6px}
+.career-page .national-preview{font-size:.78rem;margin-top:6px;line-height:1.4}
+.career-page .form-caption{font-size:.72rem;margin:6px 0 0}
+.career-page .game-sidebar .panel{padding:14px}
+.career-page .game-sidebar h2{font-size:1.7rem}
+.career-page .attribute-report{gap:12px;margin-block:12px}
+.career-page .career-report{min-width:0}
+.career-page .season-history{margin-top:12px}
+.season-actions{position:fixed;inset:auto 0 0;z-index:40;padding:10px 24px calc(10px + var(--season-safe-area,env(safe-area-inset-bottom)));background:var(--bg);border-top:1px solid var(--line);box-shadow:0 -4px 20px #153f3210}
+.season-actions-inner{display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,340px);align-items:center;gap:16px;max-width:1200px;margin-inline:auto}
+.season-actions-review{display:flex;flex-direction:column;justify-content:center;min-height:52px;gap:4px;line-height:1.3;overflow-wrap:anywhere}
+.season-actions-review>span{font-size:.75rem;color:var(--muted)}
+.season-actions-review>strong{font-size:.875rem;color:var(--ink)}
+.season-actions .next-season{margin:0;min-height:52px;padding:12px;font-size:.9375rem;line-height:1.3}
+.season-actions .error-message{max-width:1200px;margin:0 auto 8px;font-size:.85rem;line-height:1.4}
+.career-page :is(button,select,summary,a){scroll-margin-bottom:calc(var(--season-dock-height,104px) + 20px)}
+.career-page :is(.latest-season,#season-decisions,#story-decision){scroll-margin-block:12px calc(var(--season-dock-height,104px) + 20px)}
+@media(min-width:1100px){
+ .career-page .game-main{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:start}
+ .career-page .season-brief,.career-page .decision-panel{grid-column:1/-1}
+ .career-page .game-main:not(:has(.latest-season))>.career-progress{grid-column:1/-1}
+}
+@media(min-width:900px){
+ .career-page .decision-panel{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px;align-items:start}
+ .career-page .decision-panel>.panel-heading,.career-page .decision-panel>p,.career-page .decision-panel>fieldset:first-of-type,.career-page .competition-plans,.career-page #story-decision,.career-page .decision-panel>fieldset:has(select option[value=full]){grid-column:1/-1}
+ .career-page .decision-panel>.panel-heading{margin-bottom:0}
+ .career-page .story-options{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .career-page .decision-panel .form-grid{grid-template-columns:1fr}
+ .career-page .competition-plans .form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:899px){.career-page .decision-panel .form-grid{grid-template-columns:1fr}}
+@media(max-width:760px), (max-width:1024px) and (max-height:500px) and (pointer:coarse){
+ .career-page{padding-block:10px 20px}
+ .career-page .career-heading{padding:12px}
+ .career-page .career-heading h1{font-size:1.9rem}
+ .career-page .rating-block{padding-left:10px;min-width:82px}
+ .career-page .rating-block>strong{font-size:3rem}
+ .career-page .panel{padding:12px}
+ .career-page .season-brief{gap:6px}
+ .career-page .season-brief>div:not(:last-child){padding-right:6px}
+ .career-page .season-brief>div>span{min-height:2.6em}
+ .career-page .season-brief strong{font-size:1.5rem}
+ .career-page .decision-panel fieldset{margin-top:10px;padding-top:10px}
+ .career-page .decision-card{padding:8px 5px}
+ .career-page .decision-card strong{display:none}
+ .season-actions{padding:12px 16px calc(12px + var(--season-safe-area,env(safe-area-inset-bottom)))}
+ .season-actions-inner{grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:12px;max-width:680px}
+}
+/* Historical seasons are available on demand on every screen size. */
+.career-page .season-history{padding:0;border:1px solid var(--line);border-radius:5px;background:var(--panel)}
+.career-page .season-history>summary{display:flex;align-items:center;gap:12px;min-height:52px;padding:10px 14px;list-style:none;cursor:pointer}
+.career-page .season-history>summary::-webkit-details-marker{display:none}
+.career-page .season-history>summary>span{font:500 .65rem var(--mono);color:var(--muted)}
+.career-page .season-history>summary>strong{font-size:.85rem;flex:1}
+.career-page .season-history>summary::after{content:'+';font-size:1.4rem}
+.career-page .season-history[open]>summary{border-bottom:1px solid var(--line)}
+.career-page .season-history[open]>summary::after{content:'−'}
+.career-page .season-history-content{padding:14px}
+.career-page .season-history-content>.eyebrow,.career-page .season-history-content>h2{display:none}
+@media(max-width:760px){.career-page .career-report>summary{min-height:52px;padding:10px 14px}}
+.career-page .latest-season .season-feedback[open] summary small{white-space:normal;overflow:visible;text-overflow:clip}

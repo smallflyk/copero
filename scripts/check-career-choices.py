@@ -45,7 +45,7 @@ with sync_playwright() as p:
    expect(page.locator('.offer-detail')).to_contain_text('100')
    page.locator('.next-season').click();page.wait_for_function('(n)=>JSON.parse(localStorage.getItem("copero.career.v1")).history.length===n',arg=n)
    review=page.locator('.latest-season .season-feedback')
-   review.locator('summary').first.click();expect(review.locator('.review-changes')).to_be_visible()
+   review.locator('summary').first.click();expect(review.locator('.review-changes')).to_be_visible();expect(review.locator('summary').first.locator('small')).to_have_css('white-space','normal')
    save=page.evaluate('JSON.parse(localStorage.getItem("copero.career.v1"))')
    latest=save['history'][-1];trace=latest['review']['changes']
    assert len(trace)==10

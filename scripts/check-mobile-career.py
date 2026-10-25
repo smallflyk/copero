@@ -37,6 +37,7 @@ with sync_playwright() as p:
    measurements.append({'locale':locale,'width':width,'height':height,'careerHeight':round(page.locator('.career-page').bounding_box()['height'])})
   page.set_viewport_size({'width':390,'height':844});settle()
   page.locator('.season-actions-review').click();page.wait_for_function('document.querySelector("#story-decision").getBoundingClientRect().top>=0 && document.querySelector("#story-decision").getBoundingClientRect().top<100')
+  help=page.locator('.coaching-help');assert help.get_attribute('open') is None;help.locator('summary').focus();page.keyboard.press('Enter');expect(help.locator('p').first).to_be_visible();help.locator('summary').click()
   page.locator('.decision-card').first.click();expect(page.locator('.decision-card').first).to_have_attribute('aria-pressed','true')
   assert page.locator('.mobile-training-help').inner_text()
   expect(page.locator('.next-season')).to_be_disabled()
@@ -54,14 +55,15 @@ with sync_playwright() as p:
  page.evaluate('document.documentElement.style.setProperty("--season-safe-area","34px")');settle();fixed()
  assert round(page.locator('.season-actions').bounding_box()['height']-before)==34
  page.evaluate('document.documentElement.style.removeProperty("--season-safe-area")')
- # Landscape phones keep the action dock; desktop panels stay expanded and action stays inline.
+ # Landscape and desktop keep a single viewport dock; desktop reports stay expanded.
  page.set_viewport_size({'width':844,'height':390});settle();fixed()
  assert page.locator('.career-report').get_attribute('open') is None
  for width,height in [(761,1000),(1024,900),(1440,1000)]:
   page.set_viewport_size({'width':width,'height':height});settle()
-  assert page.locator('.season-actions').evaluate('e=>getComputedStyle(e).position')!='fixed'
+  fixed()
+  for y in [0,600,100000]:page.evaluate('(y)=>scrollTo({top:y,behavior:"instant"})',y);fixed()
   assert page.locator('.career-report').get_attribute('open') is not None
-  assert page.locator('.season-history').get_attribute('open') is not None
+  assert page.locator('.season-history').get_attribute('open') is None
   assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
  # Actual choices and repeated seasons through retirement from a saved game.
  page.set_viewport_size({'width':390,'height':844});page.goto(base+'/en/career');settle()
