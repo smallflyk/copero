@@ -6564,5 +6564,12 @@
     "pt": "Jogos sem sofrer gols na copa",
     "zh": "杯赛零封",
     "de": "Pokalspiele ohne Gegentor"
+  },
+  "nationalities. Your nationality determines your national team, call-up threshold and regional opponents.": {
+    "es": "nacionalidades. Tu nacionalidad determina tu selección, el umbral de convocatoria y los rivales regionales.",
+    "it": "nazionalità. La tua nazionalità determina la nazionale, la soglia di convocazione e gli avversari regionali.",
+    "pt": "nacionalidades. Sua nacionalidade determina sua seleção, o limiar de convocação e os adversários regionais.",
+    "zh": "种国籍。国籍决定你代表的国家队、征召门槛和地区赛事对手。",
+    "de": "Nationalitäten. Deine Nationalität bestimmt dein Nationalteam, die Berufungsschwelle und die regionalen Gegner."
   }
 }
